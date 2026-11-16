@@ -1,0 +1,699 @@
+{
+ "ch": "gy7",
+ "cim": "Gy8. IP számítási gyakorlatok",
+ "kerdesek": [
+  {
+   "id": "gy7-01",
+   "ch": "gy7",
+   "t": "card",
+   "q": "Hálózati és broadcast cím számítása",
+   "b": "Hálózati cím = IP ÉS maszk (bitenként). Broadcast = hálózati cím VAGY a maszk inverze (hosztbitek csupa 1). Használható: hálózat+1 … broadcast−1. Hosztok száma: 2^(32−prefix) − 2. Átjáró: jellemzően az első vagy utolsó használható cím.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-02",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 36.1.10.2/8 cím hálózati címe?",
+   "o": [
+    "36.0.0.0",
+    "36.1.10.0",
+    "36.1.0.0",
+    "36.0.0.1"
+   ],
+   "a": 0,
+   "e": "Maszk: 255.0.0.0. Hálózat: 36.0.0.0, broadcast: 36.255.255.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-03",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 36.1.10.2/8 hálózat broadcast címe?",
+   "o": [
+    "37.255.255.255",
+    "36.255.255.255",
+    "36.127.255.255",
+    "255.255.255.255"
+   ],
+   "a": 1,
+   "e": "Hálózat: 36.0.0.0, broadcast: 36.255.255.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-04",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 36.1.10.2/8 hálózatban?",
+   "o": [
+    "36.0.0.0 – 36.255.255.254",
+    "36.0.0.1 – 36.255.255.254",
+    "36.0.0.1 – 36.255.255.255",
+    "36.0.0.0 – 36.255.255.255"
+   ],
+   "a": 1,
+   "e": "Hosztok száma: 2^24 − 2 = 16777214.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-05",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.100.65.142/25 cím hálózati címe?",
+   "o": [
+    "192.100.65.129",
+    "192.100.0.0",
+    "192.100.65.128",
+    "192.100.65.0"
+   ],
+   "a": 2,
+   "e": "Maszk: 255.255.255.128. Hálózat: 192.100.65.128, broadcast: 192.100.65.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-06",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.100.65.142/25 hálózat broadcast címe?",
+   "o": [
+    "192.100.65.191",
+    "192.100.65.255",
+    "192.100.65.159",
+    "192.100.127.255"
+   ],
+   "a": 1,
+   "e": "Hálózat: 192.100.65.128, broadcast: 192.100.65.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-07",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 192.100.65.142/25 hálózatban?",
+   "o": [
+    "192.100.65.129 – 192.100.65.255",
+    "192.100.65.128 – 192.100.65.254",
+    "192.100.65.129 – 192.100.65.254",
+    "192.100.65.128 – 192.100.65.255"
+   ],
+   "a": 2,
+   "e": "Hosztok száma: 2^7 − 2 = 126.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-08",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 211.157.32.44/26 cím hálózati címe?",
+   "o": [
+    "211.157.32.0",
+    "211.157.32.1",
+    "211.157.32.32",
+    "211.157.0.0"
+   ],
+   "a": 0,
+   "e": "Maszk: 255.255.255.192. Hálózat: 211.157.32.0, broadcast: 211.157.32.63.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-09",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 211.157.32.44/26 hálózat broadcast címe?",
+   "o": [
+    "211.157.32.63",
+    "211.157.32.127",
+    "211.157.63.255",
+    "211.157.32.47"
+   ],
+   "a": 0,
+   "e": "Hálózat: 211.157.32.0, broadcast: 211.157.32.63.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-10",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 211.157.32.44/26 hálózatban?",
+   "o": [
+    "211.157.32.1 – 211.157.32.62",
+    "211.157.32.0 – 211.157.32.62",
+    "211.157.32.0 – 211.157.32.63",
+    "211.157.32.1 – 211.157.32.63"
+   ],
+   "a": 0,
+   "e": "Hosztok száma: 2^6 − 2 = 62.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-11",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 208.31.180.89/30 cím hálózati címe?",
+   "o": [
+    "208.31.180.0",
+    "208.31.180.88",
+    "208.31.180.89",
+    "208.31.0.0"
+   ],
+   "a": 1,
+   "e": "Maszk: 255.255.255.252. Hálózat: 208.31.180.88, broadcast: 208.31.180.91.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-12",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 208.31.180.89/30 hálózat broadcast címe?",
+   "o": [
+    "208.31.180.89",
+    "208.31.180.95",
+    "208.31.180.91",
+    "208.31.183.255"
+   ],
+   "a": 2,
+   "e": "Hálózat: 208.31.180.88, broadcast: 208.31.180.91.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-13",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 208.31.180.89/30 hálózatban?",
+   "o": [
+    "208.31.180.89 – 208.31.180.91",
+    "208.31.180.89 – 208.31.180.90",
+    "208.31.180.88 – 208.31.180.90",
+    "208.31.180.88 – 208.31.180.91"
+   ],
+   "a": 1,
+   "e": "Hosztok száma: 2^2 − 2 = 2.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-14",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.168.100.44/24 cím hálózati címe?",
+   "o": [
+    "192.168.100.0",
+    "192.168.100.1",
+    "192.168.0.0",
+    "192.168.100.44"
+   ],
+   "a": 0,
+   "e": "Maszk: 255.255.255.0. Hálózat: 192.168.100.0, broadcast: 192.168.100.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-15",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.168.100.44/24 hálózat broadcast címe?",
+   "o": [
+    "192.168.255.255",
+    "192.168.100.127",
+    "192.168.100.255",
+    "192.168.101.255"
+   ],
+   "a": 2,
+   "e": "Hálózat: 192.168.100.0, broadcast: 192.168.100.255.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-16",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 192.168.100.44/24 hálózatban?",
+   "o": [
+    "192.168.100.1 – 192.168.100.255",
+    "192.168.100.0 – 192.168.100.254",
+    "192.168.100.1 – 192.168.100.254",
+    "192.168.100.0 – 192.168.100.255"
+   ],
+   "a": 2,
+   "e": "Hosztok száma: 2^8 − 2 = 254.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-17",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 10.1.6.44/25 cím hálózati címe?",
+   "o": [
+    "10.1.0.0",
+    "10.1.6.0",
+    "10.1.6.44",
+    "10.1.6.1"
+   ],
+   "a": 1,
+   "e": "Maszk: 255.255.255.128. Hálózat: 10.1.6.0, broadcast: 10.1.6.127.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-18",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 10.1.6.44/25 hálózat broadcast címe?",
+   "o": [
+    "10.1.6.255",
+    "10.1.6.63",
+    "10.1.6.127",
+    "10.1.127.255"
+   ],
+   "a": 2,
+   "e": "Hálózat: 10.1.6.0, broadcast: 10.1.6.127.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-19",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 10.1.6.44/25 hálózatban?",
+   "o": [
+    "10.1.6.1 – 10.1.6.126",
+    "10.1.6.1 – 10.1.6.127",
+    "10.1.6.0 – 10.1.6.127",
+    "10.1.6.0 – 10.1.6.126"
+   ],
+   "a": 0,
+   "e": "Hosztok száma: 2^7 − 2 = 126.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-20",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 172.16.66.129/26 cím hálózati címe?",
+   "o": [
+    "172.16.66.129",
+    "172.16.66.128",
+    "172.16.0.0",
+    "172.16.66.0"
+   ],
+   "a": 1,
+   "e": "Maszk: 255.255.255.192. Hálózat: 172.16.66.128, broadcast: 172.16.66.191.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-21",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 172.16.66.129/26 hálózat broadcast címe?",
+   "o": [
+    "172.16.127.255",
+    "172.16.66.159",
+    "172.16.66.191",
+    "172.16.66.255"
+   ],
+   "a": 2,
+   "e": "Hálózat: 172.16.66.128, broadcast: 172.16.66.191.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-22",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 172.16.66.129/26 hálózatban?",
+   "o": [
+    "172.16.66.129 – 172.16.66.190",
+    "172.16.66.129 – 172.16.66.191",
+    "172.16.66.128 – 172.16.66.191",
+    "172.16.66.128 – 172.16.66.190"
+   ],
+   "a": 0,
+   "e": "Hosztok száma: 2^6 − 2 = 62.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-23",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 193.225.32.164/28 cím hálózati címe?",
+   "o": [
+    "193.225.32.161",
+    "193.225.0.0",
+    "193.225.32.0",
+    "193.225.32.160"
+   ],
+   "a": 3,
+   "e": "Maszk: 255.255.255.240. Hálózat: 193.225.32.160, broadcast: 193.225.32.175.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-24",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 193.225.32.164/28 hálózat broadcast címe?",
+   "o": [
+    "193.225.32.167",
+    "193.225.47.255",
+    "193.225.32.191",
+    "193.225.32.175"
+   ],
+   "a": 3,
+   "e": "Hálózat: 193.225.32.160, broadcast: 193.225.32.175.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-25",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 193.225.32.164/28 hálózatban?",
+   "o": [
+    "193.225.32.161 – 193.225.32.175",
+    "193.225.32.161 – 193.225.32.174",
+    "193.225.32.160 – 193.225.32.174",
+    "193.225.32.160 – 193.225.32.175"
+   ],
+   "a": 1,
+   "e": "Hosztok száma: 2^4 − 2 = 14.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-26",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.16.10.196/30 cím hálózati címe?",
+   "o": [
+    "192.16.10.0",
+    "192.16.10.196",
+    "192.16.10.192",
+    "192.16.0.0"
+   ],
+   "a": 1,
+   "e": "Maszk: 255.255.255.252. Hálózat: 192.16.10.196, broadcast: 192.16.10.199.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-27",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a 192.16.10.196/30 hálózat broadcast címe?",
+   "o": [
+    "192.16.10.198",
+    "192.16.10.197",
+    "192.16.11.255",
+    "192.16.10.199"
+   ],
+   "a": 3,
+   "e": "Hálózat: 192.16.10.196, broadcast: 192.16.10.199.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-28",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mi a használható hosztcímek tartománya a 192.16.10.196/30 hálózatban?",
+   "o": [
+    "192.16.10.197 – 192.16.10.199",
+    "192.16.10.196 – 192.16.10.198",
+    "192.16.10.196 – 192.16.10.199",
+    "192.16.10.197 – 192.16.10.198"
+   ],
+   "a": 3,
+   "e": "Hosztok száma: 2^2 − 2 = 2.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-29",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Ugyanabban a hálózatban van-e a 219.123.181.228/24 és a 219.123.181.192/24?",
+   "o": [
+    "Nem, mert a 228 nagyobb, mint a 192",
+    "Nem, mert különbözik a broadcast címük",
+    "Nem dönthető el a maszk ismerete nélkül",
+    "Igen, mindkettő a 219.123.181.0 hálózatban van"
+   ],
+   "a": 3,
+   "src": "gy7-ip-gyakorlatok.html",
+   "e": "Igen, mindkettő hálózati címe 219.123.181.0."
+  },
+  {
+   "id": "gy7-30",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány /25-es alhálózatra bontható egy /24-es hálózat?",
+   "o": [
+    "2",
+    "4",
+    "1",
+    "128"
+   ],
+   "a": 0,
+   "e": "2^(25−24) = 2.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-31",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány /26-es alhálózatra bontható egy /24-es hálózat?",
+   "o": [
+    "2",
+    "64",
+    "4",
+    "8"
+   ],
+   "a": 2,
+   "e": "2^(26−24) = 4.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-32",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány /28-es alhálózatra bontható egy /24-es hálózat?",
+   "o": [
+    "8",
+    "18",
+    "32",
+    "16"
+   ],
+   "a": 3,
+   "e": "2^(28−24) = 16.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-33",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány /30-es alhálózatra bontható egy /24-es hálózat?",
+   "o": [
+    "64",
+    "4",
+    "32",
+    "128"
+   ],
+   "a": 0,
+   "e": "2^(30−24) = 64.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-34",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /24-es hálózatban?",
+   "o": [
+    "254",
+    "127",
+    "256",
+    "508"
+   ],
+   "a": 0,
+   "e": "2^8 − 2 = 254 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-35",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /25-es hálózatban?",
+   "o": [
+    "63",
+    "252",
+    "126",
+    "128"
+   ],
+   "a": 2,
+   "e": "2^7 − 2 = 126 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-36",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /26-es hálózatban?",
+   "o": [
+    "124",
+    "64",
+    "31",
+    "62"
+   ],
+   "a": 3,
+   "e": "2^6 − 2 = 62 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-37",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /27-es hálózatban?",
+   "o": [
+    "60",
+    "30",
+    "15",
+    "32"
+   ],
+   "a": 1,
+   "e": "2^5 − 2 = 30 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-38",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /28-es hálózatban?",
+   "o": [
+    "16",
+    "7",
+    "28",
+    "14"
+   ],
+   "a": 3,
+   "e": "2^4 − 2 = 14 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-39",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /29-es hálózatban?",
+   "o": [
+    "6",
+    "3",
+    "8",
+    "12"
+   ],
+   "a": 0,
+   "e": "2^3 − 2 = 6 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-40",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Hány használható hosztcím van egy /30-es hálózatban?",
+   "o": [
+    "1",
+    "4",
+    "3",
+    "2"
+   ],
+   "a": 3,
+   "e": "2^2 − 2 = 2 (hálózati és broadcast cím levonva).",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-41",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik pontozott decimális maszk felel meg a /25 prefixnek?",
+   "o": [
+    "255.255.255.0",
+    "255.255.255.128",
+    "255.255.255.224",
+    "255.255.255.192"
+   ],
+   "a": 1,
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-42",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik pontozott decimális maszk felel meg a /26 prefixnek?",
+   "o": [
+    "255.255.255.224",
+    "255.255.255.192",
+    "255.255.255.128",
+    "255.255.255.240"
+   ],
+   "a": 1,
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-43",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik pontozott decimális maszk felel meg a /27 prefixnek?",
+   "o": [
+    "255.255.255.224",
+    "255.255.255.240",
+    "255.255.255.192",
+    "255.255.255.248"
+   ],
+   "a": 0,
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-44",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik pontozott decimális maszk felel meg a /28 prefixnek?",
+   "o": [
+    "255.255.255.252",
+    "255.255.255.248",
+    "255.255.255.240",
+    "255.255.255.224"
+   ],
+   "a": 2,
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-45",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik pontozott decimális maszk felel meg a /30 prefixnek?",
+   "o": [
+    "255.255.255.252",
+    "255.255.255.254",
+    "255.255.255.248",
+    "255.255.255.255"
+   ],
+   "a": 0,
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-46",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Melyik osztályba tartozik a 36.1.10.2 cím (osztályos címzés szerint)?",
+   "o": [
+    "B",
+    "A",
+    "D",
+    "C"
+   ],
+   "a": 1,
+   "e": "A: 1–127 (első bit 0), B: 128–191, C: 192–223.",
+   "src": "gy7-ip-gyakorlatok.html"
+  },
+  {
+   "id": "gy7-47",
+   "ch": "gy7",
+   "t": "mc",
+   "q": "Mire használják jellemzően a /30-as hálózatokat?",
+   "o": [
+    "Nagy irodai LAN kialakítására",
+    "Vendég WiFi-hálózatok számára",
+    "Két router összekötésére",
+    "Broadcast-tartományok növelésére"
+   ],
+   "a": 2,
+   "src": "gy7-ip-gyakorlatok.html",
+   "e": "Két router összekötésére (2 használható cím)."
+  }
+ ]
+}

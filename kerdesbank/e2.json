@@ -1,0 +1,432 @@
+{
+ "ch": "e2",
+ "cim": "2. Fizikai réteg",
+ "kerdesek": [
+  {
+   "id": "e2-01",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mi az átviteli sebesség mértékegysége?",
+   "o": [
+    "bájt/perc",
+    "bit/sec",
+    "Hz",
+    "baud/óra"
+   ],
+   "a": 1,
+   "e": "Az egy másodperc alatt átvihető bitek száma.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-02",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Manchester kódolásnál mi hordozza az adatot?",
+   "o": [
+    "Az időszelet elején mért feszültség szintje",
+    "Az időszelet közepén lévő jelváltás iránya",
+    "Két egymást követő bit közötti szünet hossza",
+    "Az időszelet végén mért jelerősség nagysága"
+   ],
+   "a": 1,
+   "e": "Minden időszelet közepén van jelváltás: felfutó él = 1, lefutó él = 0. Az Ethernet is használja.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-03",
+   "ch": "e2",
+   "t": "mc",
+   "q": "NRZ kódolásnál hogyan jelenik meg az 1-es bit?",
+   "o": [
+    "Magas jelszinttel",
+    "Lefutó éllel",
+    "Felfutó éllel",
+    "Jel hiányával"
+   ],
+   "a": 0,
+   "e": "NRZ: magas jelszint = 1, alacsony = 0; szinkron órát igényel.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-04",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik a félduplex kommunikáció példája?",
+   "o": [
+    "Rádióadás hallgatása",
+    "Telefonbeszélgetés",
+    "Régi walkie-talkie",
+    "Optikai gerinchálózat"
+   ],
+   "a": 2,
+   "e": "Félduplex: kétirányú, de egyszerre csak az egyik fél küldhet.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-05",
+   "ch": "e2",
+   "t": "card",
+   "q": "Auto Negotiation",
+   "b": "A berendezések automatikusan megegyeznek a közös legjobb sebességben és duplex módban, így nem kell kézzel beállítani.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-06",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mekkora az UTP kábel maximális (erősítés nélküli) szegmenshossza?",
+   "o": [
+    "10 m",
+    "100 m",
+    "500 m",
+    "2 km"
+   ],
+   "a": 1,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-07",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Hány vezeték (ér) van egy UTP kábelben?",
+   "o": [
+    "2",
+    "4",
+    "8",
+    "16"
+   ],
+   "a": 2,
+   "e": "8 vezeték, azaz 4 sodrott érpár.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-08",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mit jelent az UTP rövidítés?",
+   "o": [
+    "Universal Transfer Protocol",
+    "Unshielded Twisted Pair",
+    "Unified Transmission Port",
+    "Ultra Thin Pair"
+   ],
+   "a": 1,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-09",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik kábelváltozatnál van háló ÉS minden érpár külön fóliával árnyékolva?",
+   "o": [
+    "UTP",
+    "F-UTP",
+    "SF-UTP",
+    "S-FTP"
+   ],
+   "a": 3,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-10",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik bekötési sorrend terjedt el Magyarországon?",
+   "o": [
+    "A",
+    "B",
+    "C",
+    "Cross"
+   ],
+   "a": 1,
+   "e": "Az A-s főleg az USA-ban, a B-s Magyarországon elterjedt.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-11",
+   "ch": "e2",
+   "t": "card",
+   "q": "Cross kábel",
+   "b": "Egyik vége A-s, a másik B-s bekötésű; két számítógép switch vagy router nélkül közvetlenül összeköthető vele.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-12",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik kábelkategória ad 1 Gbit/s sebességet?",
+   "o": [
+    "Cat3",
+    "Cat5",
+    "Cat5e",
+    "Cat6"
+   ],
+   "a": 2,
+   "e": "Cat3: 10 Mbit/s, Cat5: 100 Mbit/s, Cat5e: 1 Gbit/s, Cat6: akár 10 Gbit/s.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-13",
+   "ch": "e2",
+   "t": "tf",
+   "q": "A patch kábel és a fali kábel felcserélhető, nincs köztük érdemi különbség.",
+   "a": false,
+   "e": "A patch kábel puha (aljzat–gép), a fali kábel merevebb (épületi kiépítés). A felcserélés szakmai hiba.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-14",
+   "ch": "e2",
+   "t": "card",
+   "q": "Hogyan állapítható meg utólag egy kiépített kábelszakasz hossza?",
+   "b": "A kábel köpenyén méterenként fel van tüntetve a hossz, a két végpont jelöléséből kiszámítható.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-15",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mekkora a multimódusú optikai kábel maximális hossza a jegyzet szerint?",
+   "o": [
+    "100 m",
+    "500 m",
+    "2 km",
+    "Több ezer km"
+   ],
+   "a": 2,
+   "e": "A multimódusú szál vastagabb, nagyobb a jelvesztesége; max. 2 km. A monomódusú sokkal nagyobb távolságra (tengeralatti kábelek) is alkalmas.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-16",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mi jellemzi a monomódusú optikai szálat?",
+   "o": [
+    "A fény a falakon visszaverődik",
+    "Egyetlen, egyenes fénysugár, nagy távolság",
+    "Max. 100 m hossz",
+    "Rézből készül"
+   ],
+   "a": 1,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-17",
+   "ch": "e2",
+   "t": "tf",
+   "q": "Az optikai kábel kiépítési költségének nagy részét a munkadíj teszi ki, ezért érdemes tartalék szálakat is behúzni.",
+   "a": true,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-18",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik NEM optikai csatlakozótípus?",
+   "o": [
+    "RJ45",
+    "ST",
+    "LC",
+    "SC"
+   ],
+   "a": 0,
+   "e": "Az RJ45 az UTP kábel csatlakozója; az optikaiak: FC, LC, SC, ST.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-19",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mi igaz a 2,4 GHz-es Wi-Fi-re az 5 GHz-eshez képest?",
+   "o": [
+    "Gyorsabb és több csatornája van",
+    "Jobban áthatol a falakon, nagyobb a hatótávolsága",
+    "Kevésbé zavarja a mikrohullámú sütő",
+    "Csak a 802.11ac használja"
+   ],
+   "a": 1,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-20",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik Wi-Fi szabvány használhatja a 6 GHz-es sávot is?",
+   "o": [
+    "802.11g",
+    "802.11n",
+    "802.11ac",
+    "802.11ax"
+   ],
+   "a": 3,
+   "e": "802.11ax (2019): 2,4, 5 és 6 GHz, elméleti max. 9,6 Gbit/s.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-21",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mekkora az NFC hatótávolsága?",
+   "o": [
+    "Kb. 100 méter",
+    "Néhány kilométer",
+    "Pár centiméter",
+    "Kb. 10 méter"
+   ],
+   "a": 2,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-22",
+   "ch": "e2",
+   "t": "card",
+   "q": "Powerline (PLC)",
+   "b": "Adatátvitel az elektromos hálózaton; csak ugyanazon elektromos hálózaton belül működik. Utólagos bővítésre, műemlék épületekhez jó, hálózattervezésre nem szokás használni.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-23",
+   "ch": "e2",
+   "t": "card",
+   "q": "Zigbee",
+   "b": "WPAN technológia, főleg okosotthon-eszközökhöz; nagyon alacsony fogyasztás és sebesség, kb. 10–100 m hatótáv. Van titkosítása, de publikáltak rá támadásokat.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-24",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik topológiában „hall” minden eszköz minden forgalmat, és egy kábelszakadás az egészet megbénítja?",
+   "o": [
+    "Csillag",
+    "Fa (hierarchikus)",
+    "Sín (busz)",
+    "Teljes háló (mesh)"
+   ],
+   "a": 2,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-25",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik topológia matematikai megfelelője az, hogy bármely két pont pontosan egy úton érhető el?",
+   "o": [
+    "Gyűrű",
+    "Mesh",
+    "Fa",
+    "Hibrid"
+   ],
+   "a": 2,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-26",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mi a mesh topológia fő előnye?",
+   "o": [
+    "Nincs szükség útválasztásra a hálózatban",
+    "Kevesebb kábel és olcsóbb kiépítés",
+    "Egyetlen központi eszköz, könnyű kezelés",
+    "Redundancia, alternatív útvonalak"
+   ],
+   "a": 3,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-27",
+   "ch": "e2",
+   "t": "card",
+   "q": "Fizikai vs. logikai topológia",
+   "b": "Fizikai: az eszközök elrendezése. Logikai: pontosan melyik eszköz melyik csatlakozóval, hogyan kapcsolódik, milyen címekkel (pl. nyomtató en0, 192.168.1.3, switch g0/3). Tervezéshez és üzemeltetéshez a logikait használjuk.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-28",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Mit jelent a SOHO?",
+   "o": [
+    "Secure Office Home Office",
+    "Small Office Home Office",
+    "Single Operator Home Office",
+    "Standard Office Hardware"
+   ],
+   "a": 1,
+   "e": "Kis teljesítményű, csökkentett funkciójú eszközök otthonra, kis irodába; vállalati használatra nem ajánlott.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-29",
+   "ch": "e2",
+   "t": "card",
+   "q": "Van Eck-phreaking",
+   "b": "Wim van Eck 1985-ös publikációja: monitorok (eredetileg katódsugárcsöves) képének lehallgatása elektromágneses kisugárzásuk alapján. Ma vezetékes eszközökre is alkalmazható.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-30",
+   "ch": "e2",
+   "t": "card",
+   "q": "TEMPEST",
+   "b": "Az NSA 1960-as években indított projektje a kisugárzás elleni védelemre és az ellenséges eszközök lehallgatására; ma amerikai és NATO szabvány.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-31",
+   "ch": "e2",
+   "t": "tf",
+   "q": "Egy kábel lehallgatásához mindenképp meg kell szakítani a kábelt.",
+   "a": false,
+   "e": "A kisugárzás mérésével megszakítás nélkül is lehetséges.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-32",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik hálózatméret-kategória a városi hálózat?",
+   "o": [
+    "LAN",
+    "MAN",
+    "WAN",
+    "SMAN"
+   ],
+   "a": 1,
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-33",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik frekvenciasávban működik a 802.11b szabványú WiFi?",
+   "o": [
+    "2,4 GHz",
+    "5 GHz",
+    "6 GHz",
+    "2,4 és 5 GHz"
+   ],
+   "a": 0,
+   "e": "802.11b (1999): 2,4 GHz, max. 11 Mbit/s. Az 5 GHz-es 1999-es szabvány a 802.11a (54 Mbit/s).",
+   "megj": "A jegyzet táblázatában tévesen 5 GHz szerepel a 802.11b-nél.",
+   "src": "e2-fizikai-reteg.html"
+  },
+  {
+   "id": "e2-34",
+   "ch": "e2",
+   "t": "mc",
+   "q": "Melyik WiFi szabvány használhatja a 6 GHz-es sávot is?",
+   "o": [
+    "802.11ax",
+    "802.11ac",
+    "802.11n",
+    "802.11g"
+   ],
+   "a": 0,
+   "e": "802.11ax (2019): 2,4, 5 és 6 GHz, elméleti max. 9,6 Gbit/s.",
+   "src": "e2-fizikai-reteg.html"
+  }
+ ]
+}

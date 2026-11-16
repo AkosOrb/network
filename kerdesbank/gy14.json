@@ -1,0 +1,325 @@
+{
+ "ch": "gy14",
+ "cim": "Gy15. Tűzfalak (ACL)",
+ "kerdesek": [
+  {
+   "id": "gy14-01",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mit vizsgál a Cisco normál (standard) ACL?",
+   "o": [
+    "Csak a forráscímet",
+    "Forrás- és célcímet, portot",
+    "Csak a portot",
+    "Csak a célcímet"
+   ],
+   "a": 0,
+   "e": "Ezért a standard ACL-t a célhoz közel szokás elhelyezni. A kiterjesztett ACL forrás- és célcímet, protokollt és portot is vizsgál.",
+   "megj": "A jegyzetben tévesen az áll, hogy a normál lista a célhálózatot nézi.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-02",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Milyen sorszámtartományba esnek a számozott normál (standard) IP ACL-ek?",
+   "o": [
+    "0–99",
+    "1–99",
+    "100–199",
+    "1–1000"
+   ],
+   "a": 1,
+   "e": "Kiterjesztett: 100–199 (és bővített tartományok).",
+   "megj": "A jegyzetben tévesen 0–99 szerepel.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-03",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Milyen sorszámtartományba esnek a számozott kiterjesztett ACL-ek?",
+   "o": [
+    "1–99",
+    "100–199",
+    "200–299",
+    "0–99"
+   ],
+   "a": 1,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-04",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi az ACL alkalmazásának két lépése?",
+   "o": [
+    "Létrehozás, majd interfészhez rendelés iránnyal",
+    "Létrehozás, majd az eszköz újraindítása",
+    "Mentés az NVRAM-ba, majd a lista törlése",
+    "Az interfész leállítása, majd a lista írása"
+   ],
+   "a": 0,
+   "src": "gy14-firewall.html",
+   "e": "Létrehozás, majd hozzárendelés egy interfészhez irány (in/out) megadásával."
+  },
+  {
+   "id": "gy14-05",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi a 255.255.255.0 maszk wildcard (inverz) maszkja?",
+   "o": [
+    "255.255.255.0",
+    "0.0.0.255",
+    "0.255.255.255",
+    "255.0.0.0"
+   ],
+   "a": 1,
+   "e": "255.255.255.255 − maszk.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-06",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi a 255.255.255.192 (/26) maszk wildcard maszkja?",
+   "o": [
+    "0.0.0.64",
+    "0.0.0.127",
+    "0.0.0.63",
+    "0.0.0.192"
+   ],
+   "a": 2,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-07",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Melyik wildcard maszk jelöl egyetlen hosztot?",
+   "o": [
+    "255.255.255.255",
+    "0.0.0.0",
+    "0.0.0.1",
+    "0.0.0.255"
+   ],
+   "a": 1,
+   "e": "Rövid alakja a host kulcsszó.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-08",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi a jelentése az any kulcsszónak ACL-ben?",
+   "o": [
+    "Egyetlen host (wildcard 0.0.0.0)",
+    "Bármely cím (0.0.0.0 255.255.255.255)",
+    "Csak a privát címtartományok",
+    "Csak a helyi hálózat címei"
+   ],
+   "a": 1,
+   "src": "gy14-firewall.html",
+   "e": "0.0.0.0 255.255.255.255, azaz bármely cím."
+  },
+  {
+   "id": "gy14-09",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi történik azzal a csomaggal, amelyre az ACL egyik szabálya sem illeszkedik?",
+   "o": [
+    "Eldobják (implicit deny)",
+    "Visszaküldik a feladónak",
+    "Naplózzák és átengedik",
+    "Átengedik, naplózás nélkül"
+   ],
+   "a": 0,
+   "src": "gy14-firewall.html",
+   "e": "Eldobják (implicit deny a lista végén)."
+  },
+  {
+   "id": "gy14-10",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Hogyan értékeli ki a router az ACL szabályait?",
+   "o": [
+    "Az utolsó illeszkedő dönt",
+    "A legspecifikusabb szabály dönt mindig, sorrendtől függetlenül",
+    "Sorrendben, az első illeszkedő szabály dönt",
+    "Véletlen sorrendben"
+   ],
+   "a": 2,
+   "e": "Ezért a specifikusabb (host) szabályokat a tágabb hálózati szabályok elé kell írni.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-11",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Melyik paranccsal rendeljük a 10-es ACL-t a g0/0/1 interfész kimenő forgalmához?",
+   "o": [
+    "access-list 10 interface g0/0/1",
+    "ip access-group 10 out",
+    "access-class 10 out",
+    "ip acl 10 out"
+   ],
+   "a": 1,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-12",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Melyik paranccsal rendeljük az ACL-t a vty (telnet/SSH) vonalakhoz?",
+   "o": [
+    "ip ssh acl",
+    "access-class ... in",
+    "ip access-group",
+    "transport input"
+   ],
+   "a": 1,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-13",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Hová célszerű elhelyezni a kiterjesztett ACL-t?",
+   "o": [
+    "Mindig a konzol vonalra",
+    "A hálózat közepén lévő routerre",
+    "A forráshoz minél közelebb",
+    "A célhoz minél közelebb"
+   ],
+   "a": 2,
+   "e": "A forráshoz minél közelebb, hogy a nem kívánt forgalom korán eldobódjon. A standard ACL-t (mert csak forráscímet néz) a célhoz közel szokás tenni.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-14",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Melyik kiterjesztett szabály engedi a 192.168.10.0/24 hálózatnak a 192.168.200.0/24 felé a HTTP-t?",
+   "o": [
+    "permit tcp 192.168.10.0 0.0.0.255 192.168.200.0 0.0.0.255 eq 80",
+    "permit udp 192.168.10.0 0.0.0.255 192.168.200.0 0.0.0.255 eq 80",
+    "permit ip 192.168.10.0 255.255.255.0 any eq 80",
+    "permit tcp any any eq 443"
+   ],
+   "a": 0,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-15",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mit jelent az eq www a kiterjesztett ACL-ben?",
+   "o": [
+    "Bármely port",
+    "A 8080-as port",
+    "A 80-as port",
+    "A 443-as port"
+   ],
+   "a": 2,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-16",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Melyik parancs listázza az ACL-eket a találati számlálókkal (megjegyzések nélkül)?",
+   "o": [
+    "show access-lists",
+    "show acl remarks",
+    "show run | section remark",
+    "show ip interface brief"
+   ],
+   "a": 0,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-17",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Hogyan törölhető egy nevesített/standard listából egyetlen szabály?",
+   "o": [
+    "delete 10 a globális konfigurációs módban",
+    "clear access-list counters 10 parancsszal",
+    "ip access-list standard 10, majd no <sorszám>",
+    "no access-list 10, majd újra be kell írni"
+   ],
+   "a": 2,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-18",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi a teendő, ha bejövő és kimenő forgalomra is szűrni kell egy interfészen?",
+   "o": [
+    "Nem lehetséges, csak az egyik irány szűrhető",
+    "Két külön interfész kell a két irányhoz",
+    "Egy lista elég, az mindkét irányra érvényes",
+    "Külön listát kell készíteni és hozzárendelni a két irányhoz"
+   ],
+   "a": 3,
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "gy14-19",
+   "ch": "gy14",
+   "t": "card",
+   "q": "ACL összefoglaló",
+   "b": "Standard (1–99 / nevesített standard): forráscím. Extended (100–199 / nevesített extended): protokoll, forrás, cél, port. Wildcard = 255.255.255.255 − maszk; host = 0.0.0.0, any = mind. Első illeszkedés dönt, a végén implicit deny any. Interfészre: ip access-group X in|out. VTY-ra: access-class X in. Extended a forráshoz, standard a célhoz közel.",
+   "src": "gy14-firewall.html"
+  },
+  {
+   "id": "pt-27",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Mi történik egy olyan csomaggal, amelyre csak a 20-as sor illeszkedik?",
+   "o": [
+    "Eldobják",
+    "Naplózzák",
+    "Átengedik",
+    "Visszaküldik"
+   ],
+   "a": 0,
+   "out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+   "src": "gy14-firewall.html",
+   "pt": true
+  },
+  {
+   "id": "pt-28",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "Hogyan törölhető csak a 20-as sor?",
+   "o": [
+    "clear access-list counters 10",
+    "no access-list 10",
+    "ip access-list standard 10, majd no 20",
+    "delete 20"
+   ],
+   "a": 2,
+   "out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+   "src": "gy14-firewall.html",
+   "pt": true
+  },
+  {
+   "id": "pt-29",
+   "ch": "gy14",
+   "t": "mc",
+   "q": "A 20-as sor elhagyása megváltoztatná-e a lista működését?",
+   "o": [
+    "Igen, mindent tiltana utána",
+    "Nem, a lista végén implicit deny any van",
+    "Csak kimenő irányban változna",
+    "Igen, mindent átengedne utána"
+   ],
+   "a": 1,
+   "out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+   "src": "gy14-firewall.html",
+   "pt": true
+  }
+ ]
+}

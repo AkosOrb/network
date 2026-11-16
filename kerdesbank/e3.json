@@ -1,0 +1,415 @@
+{
+ "ch": "e3",
+ "cim": "3. Adatkapcsolati réteg",
+ "kerdesek": [
+  {
+   "id": "e3-01",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Hány bájtos egy Ethernet MAC cím?",
+   "o": [
+    "4",
+    "6",
+    "8",
+    "16"
+   ],
+   "a": 1,
+   "e": "6 bájt, hexadecimálisan írva, pl. cc:08:fa:87:c3:9a.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-02",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Melyik a Cisco eszközökre jellemző MAC-cím írásmód?",
+   "o": [
+    "cc:08:fa:87:c3:9a",
+    "cc-08-fa-87-c3-9a",
+    "cc08.fa87.c39a",
+    "cc08:fa87:c39a"
+   ],
+   "a": 2,
+   "e": "A Cisco kétbájtonként pontot használ.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-03",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mit azonosít a MAC cím első 3 bájtja?",
+   "o": [
+    "A VLAN-t",
+    "A gyártót (OUI)",
+    "A portot",
+    "Az alhálózatot"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-04",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi az Ethernet broadcast cím?",
+   "o": [
+    "00:00:00:00:00:00",
+    "ff:ff:ff:ff:ff:ff",
+    "255.255.255.255",
+    "01:00:5e:00:00:01"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-05",
+   "ch": "e3",
+   "t": "card",
+   "q": "BIA (Burned In Address)",
+   "b": "A hálózati interfészbe gyárilag beégetett MAC cím. Cisco kimenetben: „address is 0060.3e45.5701 (bia 0060.3e45.5701)”. Szoftveresen gyakran felülírható.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-06",
+   "ch": "e3",
+   "t": "tf",
+   "q": "A MAC-cím alapú szűrés erős védelmet nyújt, mert a MAC cím nem változtatható meg.",
+   "a": false,
+   "e": "A MAC cím szoftveresen gyakran módosítható (hamisítható), így a MAC szűrés könnyen kijátszható.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-07",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Melyik Windows paranccsal kérdezhető le a gép MAC címe (Physical Address)?",
+   "o": [
+    "ipconfig /all",
+    "arp -d",
+    "netstat -r",
+    "tracert"
+   ],
+   "a": 0,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-08",
+   "ch": "e3",
+   "t": "card",
+   "q": "CRC (Cyclic Redundancy Check)",
+   "b": "A feladó a keret bájtjaiból ellenőrző értéket számol és a végéhez fűzi; a vevő újraszámolja. Eltérés esetén a keret sérült, eldobják.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-09",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Milyen IEEE szabványszámon szabványosították az Ethernetet?",
+   "o": [
+    "802.1Q",
+    "802.3",
+    "802.11",
+    "802.15"
+   ],
+   "a": 1,
+   "e": "802.3u: 100 Mbit/s, 802.3z: Gigabit, 802.1Q: VLAN, 802.11: Wi-Fi.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-10",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Melyik IEEE szabvány írja le a VLAN-okat?",
+   "o": [
+    "802.3u",
+    "802.3z",
+    "802.1Q",
+    "802.11ac"
+   ],
+   "a": 2,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-11",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi az Ethernet keret alapértelmezett maximális adatmérete a jegyzet szerint?",
+   "o": [
+    "512 bájt",
+    "1500 bájt",
+    "9000 bájt",
+    "64 KB"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-12",
+   "ch": "e3",
+   "t": "card",
+   "q": "Protokoll és RFC",
+   "b": "Protokoll: egy kommunikációtípus szabályainak összessége, ami lehetővé teszi különböző gyártók eszközeinek együttműködését. A leírásuk RFC (Request for Comment) dokumentumokban van, pl. POP3: RFC 1939.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-13",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mit tesz egy CSMA/CD-t használó interfész ütközés észlelésekor?",
+   "o": [
+    "Megduplázza a küldési sebességet és folytatja",
+    "Abbahagyja, véletlenszerű idő után újrapróbálkozik",
+    "Azonnal újraküldi a keretet a következő portra",
+    "Eldobja a keretet és értesíti a felhasználót"
+   ],
+   "a": 1,
+   "e": "A véletlen várakozás megakadályozza, hogy újra azonos időzítéssel ütközzenek.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-14",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Hol használják a CSMA/CA-t?",
+   "o": [
+    "Optikai gerinchálózatban",
+    "Vezeték nélküli hálózatokban",
+    "Token Ringben",
+    "Soros konzolkapcsolatban"
+   ],
+   "a": 1,
+   "e": "Vezeték nélkül az ütközés nem érzékelhető, ezért időablakokkal és nyugtákkal kerülik el.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-15",
+   "ch": "e3",
+   "t": "tf",
+   "q": "Mai, switchelt, duplex Ethernet hálózatban normál esetben nincs ütközés.",
+   "a": true,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-16",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi a jelismétlő (repeater) fő hátránya?",
+   "o": [
+    "Drága",
+    "A zavarokat is felerősíti",
+    "Csak optikán működik",
+    "Nem tud broadcastot"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-17",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mit csinál a hub egy beérkező kerettel?",
+   "o": [
+    "Csak a címzett portjára küldi",
+    "Minden többi portra továbbítja",
+    "Eldobja, ha broadcast",
+    "IP alapján irányítja"
+   ],
+   "a": 1,
+   "e": "A hub nem ismeri a MAC–port összerendelést; ezért promiscuous módban bármelyik gép láthatja a teljes forgalmat.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-18",
+   "ch": "e3",
+   "t": "card",
+   "q": "Promiscuous mód",
+   "b": "Az interfész a neki nem szóló kereteket is feldolgozza. Hálózatelemzők (Wireshark) alapja; támadónak információforrás.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-19",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mit tárol a switch CAM táblája?",
+   "o": [
+    "IP cím–MAC cím összerendeléseket",
+    "Felhasználónév–jelszó párokat",
+    "Hálózati cím–kimenő interfész párokat",
+    "MAC cím–port összerendeléseket"
+   ],
+   "a": 3,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-20",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mit tesz a switch, ha a célcím nincs a CAM táblájában?",
+   "o": [
+    "Eldobja, és ICMP hibát küld vissza",
+    "Visszaküldi a feladónak hibajelzéssel",
+    "Az alapértelmezett átjárónak küldi",
+    "Minden portra kiküldi (flooding)"
+   ],
+   "a": 3,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-21",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Miből tanulja meg a switch a CAM tábla bejegyzéseit?",
+   "o": [
+    "A beérkező keretek feladó (forrás) MAC címéből",
+    "A célcímből",
+    "A DHCP szervertől",
+    "A rendszergazda kézi beírásából kizárólag"
+   ],
+   "a": 0,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-22",
+   "ch": "e3",
+   "t": "tf",
+   "q": "Egy switch porthoz több MAC cím is tartozhat a CAM táblában.",
+   "a": true,
+   "e": "Ha azon a porton egy másik switch csatlakozik (fa topológia).",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-23",
+   "ch": "e3",
+   "t": "card",
+   "q": "Bridge (híd)",
+   "b": "2. rétegbeli eszköz, két eltérő protokollú hálózatot köt össze (pl. Ethernet és Token Ring): átalakítja a kereteket, kezeli az eltérő méreteket, címzést, sebességet. Speciális formája az Access Point.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-24",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Egy SOHO routerben a kék port általában mire szolgál?",
+   "o": [
+    "Hálózati nyomtató USB-portja",
+    "WAN (internet) felé",
+    "A konzolkábel csatlakoztatására",
+    "Vezetékes LAN-kliensek felé"
+   ],
+   "a": 1,
+   "e": "WAN (internet) felé, router funkció. Kék: WAN/router, sárga: beépített switch portjai, antenna: AP.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-25",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Ki/mi dönti el, hogy egy gép melyik VLAN-ba tartozik?",
+   "o": [
+    "A gép operációs rendszere",
+    "A switch portjának beállítása",
+    "A DHCP szerver",
+    "A felhasználó"
+   ],
+   "a": 1,
+   "e": "Ezért kritikus a fizikai biztonság: aki egy portra rádug, abba a VLAN-ba kerül.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-26",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Melyik VLAN-ba tartozik alapértelmezésben minden switch port?",
+   "o": [
+    "0",
+    "1",
+    "10",
+    "1005"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-27",
+   "ch": "e3",
+   "t": "card",
+   "q": "Trunk port",
+   "b": "Olyan port, amely több (bármely) VLAN forgalmát továbbítja; a keretekbe VLAN ID kerül (802.1Q). Két switch összekötésére, közös erőforrás eléréséhez használják.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-28",
+   "ch": "e3",
+   "t": "tf",
+   "q": "Két különböző VLAN gépei a switchen keresztül router nélkül is elérik egymást.",
+   "a": false,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-29",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi történik a CAM tábla túlterheléses (CAM overflow) támadás során, amikor a tábla betelik?",
+   "o": [
+    "A switch hubként minden portra továbbít",
+    "A switch minden ismeretlen keretet eldob",
+    "A switch újraindul és törli a VLAN-okat",
+    "A switch letiltja a támadó portját magától"
+   ],
+   "a": 0,
+   "e": "A switch fail-open módba vált és hubként minden portra továbbít. Így a támadó lehallgathatja a neki nem szóló forgalmat.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-30",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Melyik eszközzel lehet CAM táblát elárasztani hamis MAC címekkel?",
+   "o": [
+    "macof",
+    "nslookup",
+    "tracert",
+    "ipcalc"
+   ],
+   "a": 0,
+   "e": "A macof (Kali és BackBox Linuxban is megtalálható) és a hyenae.",
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-31",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi a hatékony védekezés a CAM overflow ellen menedzselhető switchen?",
+   "o": [
+    "Telnet kikapcsolása és SSH bekapcsolása",
+    "Port security: MAC-címek számának korlátozása",
+    "A CAM tábla lejárati idejének növelése",
+    "VLAN 1 használata minden porton egyszerre"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html",
+   "e": "Port security: a portonként tanulható MAC címek számának korlátozása."
+  },
+  {
+   "id": "e3-32",
+   "ch": "e3",
+   "t": "mc",
+   "q": "Mi történik a következő beállításnál, ha a porton eltérő MAC cím jelenik meg?  switchport port-security violation shutdown",
+   "o": [
+    "Riasztást küld, de továbbít",
+    "A port lekapcsol",
+    "A MAC-et felveszi a táblába",
+    "Átteszi a VLAN 1-be"
+   ],
+   "a": 1,
+   "src": "e3-adatkapcsolati-reteg.html"
+  },
+  {
+   "id": "e3-33",
+   "ch": "e3",
+   "t": "card",
+   "q": "Port security konfiguráció (Cisco), 1 engedélyezett MAC",
+   "b": "switchport mode access\nswitchport port-security\nswitchport port-security maximum 1\nswitchport port-security mac-address 000A.4128.5543\nswitchport port-security violation shutdown",
+   "src": "e3-adatkapcsolati-reteg.html"
+  }
+ ]
+}

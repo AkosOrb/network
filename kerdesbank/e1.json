@@ -1,0 +1,129 @@
+{
+ "ch": "e1",
+ "cim": "1. Bevezetés, OSI modell",
+ "kerdesek": [
+  {
+   "id": "e1-01",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Hány rétege van az OSI modellnek?",
+   "o": [
+    "4",
+    "5",
+    "7",
+    "9"
+   ],
+   "a": 2,
+   "e": "Az OSI (Open Systems Interconnection) modell hét rétegű.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-02",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Melyik OSI réteg feladata a karakterkódolás, tömörítés és titkosítás?",
+   "o": [
+    "Alkalmazási",
+    "Megjelenítési",
+    "Viszony",
+    "Szállítási"
+   ],
+   "a": 1,
+   "e": "A 6. (megjelenítési) réteg végzi az adatok konverzióját: karakterkódolás, tömörítés, titkosítás.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-03",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Melyik réteg építi ki, bonyolítja le és bontja le a kommunikációs folyamatot?",
+   "o": [
+    "Viszony (5.)",
+    "Hálózati (3.)",
+    "Adatkapcsolati (2.)",
+    "Fizikai (1.)"
+   ],
+   "a": 0,
+   "e": "Az 5. (viszony) réteg felel a kommunikációs folyamat kiépítéséért, lebonyolításáért és lebontásáért.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-04",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Melyik OSI réteg felel a címzésért, útválasztásért és forgalomirányításért több csomópontos hálózatban?",
+   "o": [
+    "Szállítási",
+    "Hálózati",
+    "Adatkapcsolati",
+    "Viszony"
+   ],
+   "a": 1,
+   "e": "A 3. (hálózati) réteg feladata a címzés, útválasztás, forgalomirányítás.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-05",
+   "ch": "e1",
+   "t": "tf",
+   "q": "Az OSI modell alkalmazása a gyártók számára kötelező.",
+   "a": false,
+   "e": "Nem kötelező, de a gyártók érdeke, hogy (nem teljes körűen) figyelembe vegyék.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-06",
+   "ch": "e1",
+   "t": "tf",
+   "q": "Az internet felépítése teljes mértékben követi az OSI modellt.",
+   "a": false,
+   "e": "Csak részben követi: egyes rétegeket összevontak (TCP/IP modell).",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-07",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Mi volt az ARPANET kifejlesztésének eredeti célja?",
+   "o": [
+    "A telefonhálózat rendelkezésre állásának javítása redundáns kapcsolatokkal",
+    "Egyetemi kutatók e-mail-forgalmának olcsóbb lebonyolítása",
+    "Kereskedelmi weboldalak gyors elérése a nagyközönség számára",
+    "Telefonvonalak kiváltása rádiós adatkapcsolatokkal országszerte"
+   ],
+   "a": 0,
+   "e": "Két pont közötti vonal sérülésekor a kommunikáció megszakadt; a redundáns digitális kapcsolatok ezt oldották meg.",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-08",
+   "ch": "e1",
+   "t": "mc",
+   "q": "Ki dolgozta ki a web alapjait 1989-ben?",
+   "o": [
+    "Vint Cerf",
+    "Tim Berners-Lee",
+    "Wim van Eck",
+    "Linus Torvalds"
+   ],
+   "a": 1,
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-09",
+   "ch": "e1",
+   "t": "card",
+   "q": "Mi az SSH és a Remote Desktop?",
+   "b": "Távoli bejelentkezésre szolgáló alkalmazások/protokollok: egy távoli gépet a hálózaton keresztül kezelhetünk (SSH: titkosított parancssoros, Remote Desktop: grafikus felület).",
+   "src": "e1-bevezetes.html"
+  },
+  {
+   "id": "e1-10",
+   "ch": "e1",
+   "t": "card",
+   "q": "Sorold fel az OSI modell rétegeit felülről lefelé!",
+   "b": "7. alkalmazási, 6. megjelenítési, 5. viszony, 4. szállítási, 3. hálózati, 2. adatkapcsolati, 1. fizikai.",
+   "src": "e1-bevezetes.html"
+  }
+ ]
+}

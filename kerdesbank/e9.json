@@ -1,0 +1,496 @@
+{
+ "ch": "e9",
+ "cim": "9. Alkalmazási réteg",
+ "kerdesek": [
+  {
+   "id": "e9-01",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a DNS feladata?",
+   "o": [
+    "Csomagok titkosítása a hálózaton",
+    "IP-címek kiosztása a kliensek számára",
+    "IP-címek MAC-címre fordítása",
+    "Nevek és IP-címek egymásba alakítása"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Nevek IP-címmé (és IP-címek névvé) alakítása."
+  },
+  {
+   "id": "e9-02",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a különbség a névfeloldás és a címfeloldás között?",
+   "o": [
+    "Névfeloldás: név → IP; címfeloldás: IP → név",
+    "Névfeloldás: IP → MAC; címfeloldás: MAC → IP",
+    "Nincs különbség",
+    "A címfeloldás csak IPv6-ban van"
+   ],
+   "a": 0,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-03",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Hol található a hosts fájl Unix rendszereken (és Androidon)?",
+   "o": [
+    "/usr/hosts",
+    "/var/hosts",
+    "/etc/services",
+    "/etc/hosts"
+   ],
+   "a": 3,
+   "e": "Windowson: \\windows\\system32\\drivers\\etc\\hosts.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-04",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik a hosts fájl tipikus biztonsági veszélye?",
+   "o": [
+    "Kikapcsolja a böngésző tanúsítvány-ellenőrzését",
+    "Egy bank nevét hamis IP-címhez lehet kötni",
+    "Lelassítja a gép indulását, ha túl sok sort tartalmaz",
+    "Törli a böngésző sütijeit minden újraindításnál"
+   ],
+   "a": 1,
+   "e": "Támadó egy bank nevét hamis IP-címhez rendelheti, és csaló oldalra irányíthatja a felhasználót. Szoftver jogosulatlan aktiválására és oldalak elérhetetlenné tételére is használható.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-05",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a TLD a www.uni-nke.hu névben?",
+   "o": [
+    ".hu",
+    "uni-nke",
+    "www",
+    "uni-nke.hu"
+   ],
+   "a": 0,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-06",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a typosquatting?",
+   "o": [
+    "A DNS gyorsítótár szándékos törlése",
+    "Egy domain regisztrációjának lejáratása",
+    "Túl hosszú domain név használata",
+    "Elírásra épülő, megtévesztő domain regisztrálása"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Apró elírásra épülő, megtévesztő domain regisztrálása (pl. .qov.hu a .gov.hu helyett)."
+  },
+  {
+   "id": "e9-07",
+   "ch": "e9",
+   "t": "tf",
+   "q": "Magyarországon a domaint az kapja, aki elsőként kéri, meghirdetés nélkül.",
+   "a": false,
+   "e": "Magyarországon kéthetes meghirdetés után lehet megvásárolni; Amerikában az kapja, aki előbb kéri.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-08",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a névfeloldás első lépése a munkaállomáson?",
+   "o": [
+    "A helyi gyorsítótár (cache) ellenőrzése",
+    "A gyökérnévszerver megkérdezése",
+    "A whois lekérdezése",
+    "A .hu szerver megkérdezése"
+   ],
+   "a": 0,
+   "e": "Utána a hosts fájl, majd a beállított helyi névszerver.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-09",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mit jelent az authoritative DNS válasz?",
+   "o": [
+    "A névszerver a saját adatait küldi",
+    "A névszerver máshonnan kérdezte le",
+    "A válasz titkosított",
+    "A válasz a hosts fájlból jön"
+   ],
+   "a": 0,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-10",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Kihez fordul a névszerver, ha nincs információja a kért névről?",
+   "o": [
+    "A DHCP szerverhez",
+    "A gyökérnévszerverekhez",
+    "A routerhez",
+    "A böngészőhöz"
+   ],
+   "a": 1,
+   "e": "A gyökér → .hu TLD szerver → uni-nke.hu szerver → www.uni-nke.hu cím.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-11",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi határozza meg, meddig marad a DNS válasz a gyorsítótárban?",
+   "o": [
+    "A böngésző beállítása",
+    "A válasz TTL értéke",
+    "A DHCP bérleti idő",
+    "A kliens MAC-címe"
+   ],
+   "a": 1,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-12",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Miért kell a munkaállomáson a DNS szervert IP-címmel megadni?",
+   "o": [
+    "Mert a DNS-szerverek neve titkos, nem publikus",
+    "Mert névvel megadva lassabban válaszolna a szerver",
+    "Mert a DHCP csak IP-címet tud átadni a kliensnek",
+    "Mert a névszerver nevét is egy névszerver oldaná fel"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Mert a névszervert nem lehet névvel megadni (a név feloldásához épp ő kellene)."
+  },
+  {
+   "id": "e9-13",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik Windows parancs törli a DNS gyorsítótárat?",
+   "o": [
+    "ipconfig /flushdns",
+    "ipconfig /release",
+    "dig +trace",
+    "nslookup -c"
+   ],
+   "a": 0,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-14",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik parancs ad részletes technikai DNS információt Unixon?",
+   "o": [
+    "whois",
+    "host",
+    "dig",
+    "ping"
+   ],
+   "a": 2,
+   "e": "nslookup: név↔IP lekérdezés; host: rövidebb kimenet.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-15",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mire való a dinamikus DNS (pl. no-ip)?",
+   "o": [
+    "Saját gyökérnévszerver futtatása otthoni routeren",
+    "Változó IP-című eszköz neve kövesse az aktuális IP-t",
+    "A DNS-forgalom titkosítása a szolgáltató felé",
+    "Domain név regisztrálása ideiglenesen, ingyen"
+   ],
+   "a": 1,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Változó IP-című eszköz (pl. otthoni router) neve automatikusan kövesse az aktuális IP-t."
+  },
+  {
+   "id": "e9-16",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a DNS alapvető gyengesége a jegyzet szerint?",
+   "o": [
+    "Nem használ gyorsítótárat, ezért nagyon lassú",
+    "Csak IPv6-címeket képes feloldani a kliensek számára",
+    "Minden lekérdezés titkosított, nem ellenőrizhető",
+    "A résztvevők nincsenek azonosítva, a válaszok könnyen hamisíthatók"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-17",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Hogyan működik a DNS-alapú (reflexiós) DDoS?",
+   "o": [
+    "Hamis forráscímű kérésekre nagy válaszok mennek a célpontra",
+    "A támadó lekapcsolja a gyökérnévszervereket egyenként",
+    "A támadó a célpont DNS-gyorsítótárát nullázza",
+    "A támadó átírja a célpont hosts fájlját távolról"
+   ],
+   "a": 0,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Fertőzött gépek a célpont nevében (hamis forráscímmel) nagy válaszokat kiváltó kéréseket küldenek, a válaszok a célpontot terhelik."
+  },
+  {
+   "id": "e9-18",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mire használható incidenskezelés során a WhoIs adatbázis?",
+   "o": [
+    "Egy gép elfelejtett jelszavának visszaállítására",
+    "A DNS-gyorsítótár távoli törlésére a támadónál",
+    "Egy weboldal tanúsítványának kiállítására",
+    "Egy IP-cím tulajdonosának azonosítására"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Egy IP-cím/hálózat tulajdonosának és kapcsolattartójának azonosítására."
+  },
+  {
+   "id": "e9-19",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Hol írják le a protokollokat?",
+   "o": [
+    "Cisco kézikönyvekben",
+    "A hosts fájlban",
+    "RFC dokumentumokban",
+    "A böngésző súgójában"
+   ],
+   "a": 2,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "RFC (Request for Comments) dokumentumokban."
+  },
+  {
+   "id": "e9-20",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik protokoll szolgál levél küldésére?",
+   "o": [
+    "POP3",
+    "IMAP",
+    "SMTP",
+    "HTTP"
+   ],
+   "a": 2,
+   "e": "POP3: letöltés; IMAP: postafiók kezelése a szerveren.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-21",
+   "ch": "e9",
+   "t": "mc",
+   "q": "SMTP telnetes párbeszédben mit jelent a szerver 354-es válasza?",
+   "o": [
+    "Sikeres parancs, a szerver készen áll",
+    "Üdvözlés, a szerver elérhető",
+    "Jöhet az üzenet, egy pont zárja",
+    "A kapcsolat lezárult, viszlát"
+   ],
+   "a": 2,
+   "e": "Kezdheted az üzenet bevitelét, egy sorban álló ponttal zárd. 220: üdvözlés, 250: OK, 221: kapcsolat bontása.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-22",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik az SMTP parancsok helyes sorrendje egy levél küldésekor?",
+   "o": [
+    "mail from, EHLO, data, rcpt to, quit",
+    "rcpt to, mail from, EHLO, data, quit",
+    "EHLO, mail from, rcpt to, data, quit",
+    "data, EHLO, rcpt to, mail from, quit"
+   ],
+   "a": 2,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-23",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mit jelent a protokollnév végén az S (pl. HTTPS, SMTPS)?",
+   "o": [
+    "Static: statikus címes",
+    "Server: szerveroldali",
+    "Simple: egyszerűsített",
+    "Secure: titkosított"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Secure: titkosított változat."
+  },
+  {
+   "id": "e9-24",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mit igazol egy hitelesítő szervezet által aláírt tanúsítvány?",
+   "o": [
+    "Hogy az oldal gyorsan és megbízhatóan töltődik be",
+    "Hogy az oldal használata ingyenes",
+    "Hogy az oldalon nincs kártékony program",
+    "Hogy a felhasználó valóban a kívánt oldalon van"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-25",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mikor figyelmeztet a böngésző tanúsítvány miatt?",
+   "o": [
+    "Ha az oldal .hu végződésű, de külföldi kiadótól van",
+    "Ha az aláírás idegen, a név nem egyezik, vagy lejárt",
+    "Ha az oldal lassan töltődik be, vagy sok a hirdetés",
+    "Ha az oldal HTTP-n érhető el titkosítás nélkül"
+   ],
+   "a": 1,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-26",
+   "ch": "e9",
+   "t": "tf",
+   "q": "A LetsEncrypt tanúsítvány titkosított átvitelt ad, de a jegyzet szerint az oldal valódiságát (a tulajdonos kilétét) nem igazolja.",
+   "a": true,
+   "e": "Ingyenes, iratok nélkül igényelhető.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-27",
+   "ch": "e9",
+   "t": "mc",
+   "q": "A jelszoellenorzes.uni-esztehazy.hu oldalnak hibátlan tanúsítványa van. Miért veszélyes mégis?",
+   "o": [
+    "Nem HTTPS-en érhető el",
+    "A tanúsítványa már lejárt",
+    "Megtévesztő név: hiányzik egy „r”",
+    "Külföldi a tanúsítvány kiadója"
+   ],
+   "a": 2,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Megtévesztő név: hiányzik egy „r” (eszterhazy)."
+  },
+  {
+   "id": "e9-28",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a proxy szerver eredeti célja?",
+   "o": [
+    "IP-címek kiosztása a belső hálózat gépeinek",
+    "Nevek IP-címmé alakítása a belső gépek számára",
+    "A forgalom titkosítása a kliensek és a szerver között",
+    "Tartalom tárolása (cache) és újrafelhasználása"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Tartalom átmeneti tárolása (cache) és újrafelhasználása, sávszélesség-megtakarítás."
+  },
+  {
+   "id": "e9-29",
+   "ch": "e9",
+   "t": "tf",
+   "q": "A böngésző privát módja teljes anonimitást nyújt, az ISP és a DNS-szolgáltató sem látja a forgalmat.",
+   "a": false,
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-30",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik a VPN-használat kockázata BYOD esetén?",
+   "o": [
+    "A ping nem működik a VPN-alagúton keresztül",
+    "Ellenőrizetlen saját eszköz kerül a belső hálózatba",
+    "A VPN miatt a DNS-lekérdezések lelassulnak",
+    "A vállalati hálózat portjai hamar elfogynak"
+   ],
+   "a": 1,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Ellenőrizetlen saját eszköz (malware, hiányzó vírusvédelem) kerül a belső hálózatba."
+  },
+  {
+   "id": "e9-31",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik rétegben működik az IPsec VPN a jegyzet szerint?",
+   "o": [
+    "Alkalmazási",
+    "IP (hálózati) réteg",
+    "Fizikai",
+    "Adatkapcsolati"
+   ],
+   "a": 1,
+   "e": "A böngészőbe épített VPN az alkalmazási rétegben működik.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-32",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a különbség az IDS és az IPS között?",
+   "o": [
+    "Az IPS csak naplóz, az IDS blokkolja a forgalmat is",
+    "Az IDS a vírusokat, az IPS a spamet szűri ki",
+    "Nincs különbség, ugyanannak a két neve van",
+    "Az IDS jelez, az IPS a támadó kapcsolatot meg is szakítja"
+   ],
+   "a": 3,
+   "src": "e9-alkalmazasi-reteg.html",
+   "e": "Az IDS felügyel és riportol, az IPS ezen túl blokkolja/megszakítja a támadó kapcsolatot."
+  },
+  {
+   "id": "e9-33",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Mi a SIEM rendszer feladata?",
+   "o": [
+    "Domain nevek regisztrálása és megújítása a szervezet nevében",
+    "IP-címek kiosztása és nyilvántartása a vállalati hálózatban",
+    "Vírusirtás a munkaállomásokon, vírusdefiníció-frissítéssel",
+    "Több eszköz felügyelete, események összefüggéseinek elemzése"
+   ],
+   "a": 3,
+   "e": "Több eszköz egyidejű felügyelete, összefüggések elemzése, gyors incidensreagálás. Példa: Wazuh (ingyenes).",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-34",
+   "ch": "e9",
+   "t": "mc",
+   "q": "Melyik sérülékenységvizsgáló eszköz?",
+   "o": [
+    "Nessus",
+    "Wazuh",
+    "tcpdump",
+    "Tor"
+   ],
+   "a": 0,
+   "e": "Nessus, Nexpose. A tcpdump/Wireshark forgalomelemző.",
+   "src": "e9-alkalmazasi-reteg.html"
+  },
+  {
+   "id": "e9-35",
+   "ch": "e9",
+   "t": "card",
+   "q": "DNS lekérdezés lépései",
+   "b": "1. helyi cache → 2. hosts fájl → 3. beállított helyi névszerver → 4. gyökérnévszerver → 5. TLD (.hu) szerver → 6. a domain (uni-nke.hu) szervere → 7. válasz cache-be (TTL-ig) → 8. az alkalmazás megkapja.",
+   "src": "e9-alkalmazasi-reteg.html"
+  }
+ ]
+}

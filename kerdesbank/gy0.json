@@ -1,0 +1,250 @@
+{
+ "ch": "gy0",
+ "cim": "Gy1. Internet szolgáltatások",
+ "kerdesek": [
+  {
+   "id": "gy0-01",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Melyik volt az első, korlátozott funkciójú PC-s böngésző (1993)?",
+   "o": [
+    "Netscape Navigator",
+    "Opera",
+    "Internet Explorer",
+    "Mosaic"
+   ],
+   "a": 3,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-02",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Miből származik a böngészőgyártók bevétele, ha a böngésző ingyenes?",
+   "o": [
+    "A keresőszolgáltatás eladásából és célzott hirdetésekből",
+    "Állami támogatásból, mert a böngésző közszolgáltatás",
+    "Havi előfizetési díjból, amelyet a felhasználó fizet",
+    "Az operációs rendszer licencdíjának egy részéből"
+   ],
+   "a": 0,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "A keresőszolgáltatás értékesítéséből és a gyűjtött felhasználói adatokra épülő célzott hirdetésekből."
+  },
+  {
+   "id": "gy0-03",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Hogyan határozható meg egy WiFi-hez kapcsolódó gép helye IP-cím nélkül is?",
+   "o": [
+    "A DNS-szerver címéből, amely országonként eltér",
+    "A környező WiFi-hálózatok azonosítóiból és azok gyűjtött helyadataiból",
+    "A gép MAC-címéből, amely a gyártás helyét kódolja",
+    "A böngésző sütijeiből, amelyek a pozíciót tárolják"
+   ],
+   "a": 1,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-04",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Mi a rosszindulatú böngészőbővítmény elleni védekezés?",
+   "o": [
+    "Engedjük a bővítményeket csak privát módban futni",
+    "Használjunk proxyt, az kiszűri a kártékony bővítményt",
+    "Kapcsoljuk ki a böngésző automatikus frissítését végleg",
+    "Olvassuk el az ablakokat, és töröljük a felesleges bővítményeket"
+   ],
+   "a": 3,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "Olvassuk el a párbeszédablakokat, és rendszeresen nézzük át, töröljük a felesleges beépülőket."
+  },
+  {
+   "id": "gy0-05",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Honnan szabad böngészőfrissítést telepíteni?",
+   "o": [
+    "Bármely weboldal felugró ablakából, ha sürgeti",
+    "E-mail mellékletből, ha a gyártó nevében érkezik",
+    "A gyártó oldaláról vagy az OS frissítőjéből",
+    "Fájlmegosztó oldalról, ha sokan letöltötték már"
+   ],
+   "a": 2,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "A gyártó weboldaláról vagy az OS saját frissítési szolgáltatásán keresztül."
+  },
+  {
+   "id": "gy0-06",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Miért veszélyes, ha a támadó kiolvassa a könyvjelzőket/előzményeket?",
+   "o": [
+    "Nem veszélyes, ezek nyilvános adatok",
+    "A mentett jelszavak automatikusan törlődnek",
+    "A böngésző lelassul, és újra kell telepíteni",
+    "Kiderülhet a bankunk, és célzott csalóleveleket kaphatunk"
+   ],
+   "a": 3,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "Megtudhatja pl. melyik bankkal állunk kapcsolatban, és célzott megtévesztő levelet küldhet."
+  },
+  {
+   "id": "gy0-07",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Mi a böngészőben tárolt jelszavak leggyakoribb gyengesége a jegyzet szerint?",
+   "o": [
+    "A szinkronizálás hiánya miatt elvesznek",
+    "A böngésző gyenge titkosítást használ",
+    "A gép nincs zárolva, így bárki hozzáfér",
+    "A jelszavak túl hosszúak, könnyű elírni"
+   ],
+   "a": 2,
+   "e": "A gép nincs jelszóval védve/zárolva, így bárki hozzáfér a tárolóhoz. Őrizetlen gépet zárolni kell (Windows + L).",
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-08",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Melyik oldalon ellenőrizhető, hogy egy e-mail cím vagy jelszó érintett-e adatszivárgásban?",
+   "o": [
+    "haveibeenpwned.com",
+    "domain.hu",
+    "myactivity.google.com",
+    "hak5.org"
+   ],
+   "a": 0,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-09",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Melyik a cookie-k biztonsági kockázata?",
+   "o": [
+    "Vírust tartalmazhat, amely magától települ a gépre",
+    "Törli a böngésző gyorsítótárát minden bezáráskor",
+    "Átmásolva más gépen is bejelentkezett állapotot adhat",
+    "Lelassítja a hálózatot, mert minden kérésnél letöltődik"
+   ],
+   "a": 2,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "A cookie-fájl átmásolható más gépre, ahol akár bejelentkezett állapotot is biztosíthat."
+  },
+  {
+   "id": "gy0-10",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Melyik böngésző vezette be elsőként a cookie-kat?",
+   "o": [
+    "Netscape Navigator",
+    "Internet Explorer",
+    "Google Chrome",
+    "Mosaic"
+   ],
+   "a": 0,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-11",
+   "ch": "gy0",
+   "t": "tf",
+   "q": "Idegen gépen bejelentkezni a saját böngészőfiókunkba súlyos biztonsági hiba, mert a szinkronizált adatok (jelszavak, cookie-k, akár bankkártyaadatok) letöltődnek oda.",
+   "a": true,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-12",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Mit NEM ment helyben a böngésző privát módban?",
+   "o": [
+    "A könyvjelzőket, amelyeket felvettünk",
+    "A letöltött fájlokat a mappában",
+    "A cookie-kat, jelszavakat és meglátogatott címeket",
+    "Semmit, csak a megjelenés sötétebb"
+   ],
+   "a": 2,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-13",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Privát módban ki láthatja továbbra is a meglátogatott oldalakat?",
+   "o": [
+    "A hálózat üzemeltetője, az ISP és a DNS-szolgáltató",
+    "Senki, a privát mód mindent elrejt",
+    "Csak a böngésző gyártója, más senki",
+    "Csak a felhasználó a saját gépén"
+   ],
+   "a": 0,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "A szervezet hálózati eszközei, az internetszolgáltató és a DNS-szolgáltató."
+  },
+  {
+   "id": "gy0-14",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Mi a proxy szerver kockázata a böngészés szempontjából?",
+   "o": [
+    "Az üzemeltető részletes böngészési statisztikát készíthet",
+    "A proxy törli a böngésző mentett jelszavait",
+    "A proxy miatt a gép IP-címe nyilvánossá válik",
+    "A proxy minden HTTPS-oldalt automatikusan letilt"
+   ],
+   "a": 0,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "Az üzemeltető részletes böngészési statisztikát készíthet; kompromittált proxy információt adhat a támadónak."
+  },
+  {
+   "id": "gy0-15",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Milyen végződésűek a darknet oldalak címei?",
+   "o": [
+    ".dark",
+    ".onion",
+    ".tor",
+    ".hidden"
+   ],
+   "a": 1,
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-16",
+   "ch": "gy0",
+   "t": "mc",
+   "q": "Hogyan biztosítja a Tor a látogató névtelenségét?",
+   "o": [
+    "Hamis MAC-címet használ, ezért a szerver nem azonosítja",
+    "Titkosítja a hosts fájlt, így a DNS nem látja a kéréseket",
+    "Több csomóponton át továbbít, a cél csak a kilépési pontot látja",
+    "Minden csomagot VPN-en küld, amely elrejti a forrás IP-címét"
+   ],
+   "a": 2,
+   "src": "gy0-internet-szolgaltatasok.html",
+   "e": "Több csomóponton át továbbít; a célszerver csak a kilépési pontot látja."
+  },
+  {
+   "id": "gy0-17",
+   "ch": "gy0",
+   "t": "tf",
+   "q": "A Tor használatának ténye forgalomelemzéssel kimutatható, és tűzfallal szűrhető.",
+   "a": true,
+   "e": "A be- és kilépési pontok ismertek lehetnek.",
+   "src": "gy0-internet-szolgaltatasok.html"
+  },
+  {
+   "id": "gy0-18",
+   "ch": "gy0",
+   "t": "card",
+   "q": "Böngészők adatvédelmi kockázatai",
+   "b": "Beépülők (kártékony bővítmény), könyvjelzők/előzmények, tárolt jelszavak (mesterjelszó, gépzárolás!), cookie-k (átmásolható munkamenet), szinkronizálás (idegen gépre is letöltődik), cache és Letöltések mappa, privát mód korlátai, proxy naplózás.",
+   "src": "gy0-internet-szolgaltatasok.html"
+  }
+ ]
+}

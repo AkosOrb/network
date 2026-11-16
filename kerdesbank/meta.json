@@ -1,0 +1,72 @@
+{
+ "cim": "Számítógépes hálózatok – kérdésbank",
+ "forras": "https://nw.koczka.com/",
+ "keszult": "2026-11-09",
+ "tipusok": {
+  "mc": "feleletválasztós (o = opciók, a = helyes válasz indexe, 0-tól)",
+  "tf": "igaz/hamis (a = true/false)",
+  "card": "fogalomkártya (q = előlap, b = hátlap)"
+ },
+ "fejezetek": {
+  "e1": "1. Bevezetés, OSI modell",
+  "e2": "2. Fizikai réteg",
+  "e3": "3. Adatkapcsolati réteg",
+  "e4": "4. Hálózati réteg",
+  "e5": "5. DHCP",
+  "e6": "6. Szállítási réteg",
+  "e8": "7–8. Tűzfalak, NAT/PAT (elmélet)",
+  "e9": "9. Alkalmazási réteg",
+  "gy0": "Gy1. Internet szolgáltatások",
+  "gyios": "Gy2–5. Cisco IOS alapok, jogosultságok, jelszavak",
+  "gy5": "Gy6. VLAN-ok",
+  "gy6": "Gy7. IP útválasztás",
+  "gy7": "Gy8. IP számítási gyakorlatok",
+  "gy9": "Gy10. DHCP a gyakorlatban",
+  "gy10": "Gy11. Vezeték nélküli hálózatok",
+  "gy14": "Gy15. Tűzfalak (ACL)",
+  "gy15": "Gy16. NAT a gyakorlatban"
+ },
+ "forrasbeli_pontatlansagok": [
+  "e2: a táblázat szerint a 802.11b 5 GHz-es – valójában 2,4 GHz-en működik. Javítva, a kérdés a helyes értéket kérdezi: e2-33.",
+  "e4, e8: a privát B tartomány a jegyzetben 172.16.0.0/16 – az RFC 1918 szerint 172.16.0.0/12 (172.16.0.0–172.31.255.255). Jelölve: e4-16, e8-05.",
+  "e6: a jegyzet az ICMP-t a szállítási rétegnél tárgyalja – a szakirodalom a hálózati (3.) réteghez sorolja. Jelölve: e6-15.",
+  "e8: az IPv4 címek száma a jegyzetben „valamivel több, mint 41 milliárd” – helyesen 2³² ≈ 4,29 milliárd. Jelölve: e8-03.",
+  "e8: a PAT példa 3. lépésében a válasz célcíme elírás (193.225.32.2 helyett 193.225.32.1). Jelölve: e8-18.",
+  "e8: a 127.0.0.0/8 loopback a privát tartományok között szerepel, de nem RFC 1918 privát tartomány. Jelölve: e8-09.",
+  "gy4: a példa 512 bites RSA kulcsot generál, ez SSH v2-höz kevés (min. 768, a gyakorlatban 2048). Jelölve: gyios-34.",
+  "gy6: az alapértelmezett útvonal next-hopja elírva 172.168.8.1, helyesen 172.16.8.1. Jelölve: gy6-09.",
+  "gy10: a jegyzet a PSK-t „PerSonal Key”-nek írja – a szokásos feloldás Pre-Shared Key. Jelölve: gy10-06.",
+  "gy14: a jegyzet szerint a normál (standard) ACL a célhálózatot nézi – a Cisco szerint a standard ACL a FORRÁScímre szűr. Jelölve: gy14-01.",
+  "gy14: a jegyzet szerint a normál ACL-ek sorszáma 0–99 – a Cisco szerint 1–99. Jelölve: gy14-02.",
+  "Üres vagy hiányos oldalak: 7. Tűzfalak (csak vázlat, 2 kérdés készült a bevezetőből), 6.6 IT biztonsági kérdések (TODO), Gy9. IP alhálózatok, Gy12. SOHO router, Gy13. Hálózati szolgáltatások, Gy14. Komplex feladat – ezekből nem készült kérdés."
+ ],
+ "sorrend": [
+  "e1",
+  "e2",
+  "e3",
+  "e4",
+  "e5",
+  "e6",
+  "e8",
+  "e9",
+  "gy0",
+  "gyios",
+  "gy5",
+  "gy6",
+  "gy7",
+  "gy9",
+  "gy10",
+  "gy14",
+  "gy15"
+ ],
+ "mezok": {
+  "id": "egyedi azonosító",
+  "ch": "fejezetkód",
+  "q": "kérdés",
+  "e": "magyarázat (opcionális)",
+  "out": "Packet Tracer / parancs kimenet, előformázott szövegként megjelenítendő (opcionális)",
+  "megj": "a jegyzet pontatlanságának jelzése (opcionális)",
+  "src": "forrásoldal az nw.koczka.com-on"
+ },
+ "pontatlansagok_kezelese": "A kérdések a helyes tényeket kérdezik; a 'megj' mező jelzi, ha a jegyzetben más (hibás) adat szerepel."
+}

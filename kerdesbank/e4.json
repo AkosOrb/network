@@ -1,0 +1,427 @@
+{
+ "ch": "e4",
+ "cim": "4. Hálózati réteg",
+ "kerdesek": [
+  {
+   "id": "e4-01",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Miért nem alkalmas a MAC címzés nagy (internet méretű) hálózatokhoz?",
+   "o": [
+    "Titkosítatlan, ezért bárki lehallgathatja",
+    "Nem kódol helyet, és nem route-olható",
+    "Túl rövid, ezért kevés eszköz kaphat címet",
+    "Gyártónként eltérő formátumú, nem egységes"
+   ],
+   "a": 1,
+   "src": "e4-halozati-reteg.html",
+   "e": "Nem kódol helyet, nem route-olható, és a táblák mérete korlátos."
+  },
+  {
+   "id": "e4-02",
+   "ch": "e4",
+   "t": "card",
+   "q": "Encapsulation (beágyazás)",
+   "b": "A felsőbb réteg csomagja az alsóbb réteg protokolljának adatmezőjébe kerül (pl. az IP csomag az Ethernet keretbe). A vevő oldalon a kibontás: decapsulation.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-03",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Hány bájtos egy IPv4 cím?",
+   "o": [
+    "2",
+    "4",
+    "6",
+    "16"
+   ],
+   "a": 1,
+   "e": "4 bájt, 0–255 közötti értékek pontokkal elválasztva; elméletileg 256⁴ = 4 294 967 296 cím.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-04",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Az IP fejléc Protokoll mezőjében milyen érték jelöli a TCP-t?",
+   "o": [
+    "1",
+    "6",
+    "17",
+    "80"
+   ],
+   "a": 1,
+   "e": "TCP = 6, UDP = 17, ICMP = 1.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-05",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Az IP fejléc Protokoll mezőjében milyen érték jelöli az UDP-t?",
+   "o": [
+    "1",
+    "6",
+    "17",
+    "53"
+   ],
+   "a": 2,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-06",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi a loopback cím?",
+   "o": [
+    "0.0.0.0",
+    "127.0.0.1",
+    "169.254.0.1",
+    "255.255.255.255"
+   ],
+   "a": 1,
+   "e": "A 127-tel kezdődő címek tesztelési célúak; hálózati kapcsolat nélkül is válaszolnak.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-07",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik szervezet osztja ki világszinten az IPv4 tartományokat?",
+   "o": [
+    "IEEE",
+    "ISO",
+    "IANA",
+    "IETF"
+   ],
+   "a": 2,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-08",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi alapján továbbít a router, és mi alapján a switch?",
+   "o": [
+    "Router: MAC, switch: IP",
+    "Router: IP, switch: MAC",
+    "Mindkettő IP alapján",
+    "Mindkettő MAC alapján"
+   ],
+   "a": 1,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-09",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Ha a cél egy másik alhálózatban van, milyen célcím kerül az Ethernet keretbe?",
+   "o": [
+    "A broadcast MAC-cím (FF:…:FF)",
+    "A DNS-szerver MAC-címe",
+    "A végső célgép MAC-címe",
+    "Az alapértelmezett átjáró MAC-címe"
+   ],
+   "a": 3,
+   "src": "e4-halozati-reteg.html",
+   "e": "A router (alapértelmezett átjáró) MAC címe."
+  },
+  {
+   "id": "e4-10",
+   "ch": "e4",
+   "t": "tf",
+   "q": "Az alapértelmezett átjárónak ugyanabban az alhálózatban kell lennie, mint a többi állomásnak.",
+   "a": true,
+   "e": "Különben a gép nem tudná Ethernet kerettel közvetlenül elérni (ARP-pal feloldani).",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-11",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Milyen címre küldi a gép az ARP kérést?",
+   "o": [
+    "Az alapértelmezett átjáró MAC-címére",
+    "A broadcast MAC-címre (FF:FF:FF:FF:FF:FF)",
+    "A keresett gép IP-címére unicastban",
+    "A DHCP szerver IP- és MAC-címére"
+   ],
+   "a": 1,
+   "e": "A broadcast MAC címre (FF:FF:FF:FF:FF:FF). Csak a keresett IP cím tulajdonosa válaszol a saját MAC címével.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-12",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik paranccsal listázható az ARP tábla Windows alatt?",
+   "o": [
+    "arp -a",
+    "arp -s",
+    "ipconfig /flushdns",
+    "route print -arp"
+   ],
+   "a": 0,
+   "e": "arp -s: statikus bejegyzés, arp -d: törlés.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-13",
+   "ch": "e4",
+   "t": "card",
+   "q": "ARP poisoning (ARP-hamisítás)",
+   "b": "A támadó hamis ARP válaszokkal manipulálja az áldozat ARP tábláját (pl. a router IP-jéhez a saját MAC-jét rendeli), így a forgalom rajta halad át: lehallgathatja, módosíthatja (MITM).",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-14",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik privát A osztályú tartomány?",
+   "o": [
+    "10.0.0.0/8",
+    "100.64.0.0/10",
+    "127.0.0.0/8",
+    "172.16.0.0/12"
+   ],
+   "a": 0,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-15",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik tartomány privát (RFC 1918)?",
+   "o": [
+    "192.168.0.0/16",
+    "193.225.32.0/24",
+    "8.8.8.0/24",
+    "224.0.0.0/4"
+   ],
+   "a": 0,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-16",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi a privát B címtartomány pontos határa az RFC 1918 szerint?",
+   "o": [
+    "172.16.0.0/20 (172.16.0.0–172.16.15.255)",
+    "172.16.0.0/12 (172.16.0.0–172.31.255.255)",
+    "172.16.0.0/16 (172.16.0.0–172.16.255.255)",
+    "172.0.0.0/8 (172.0.0.0–172.255.255.255)"
+   ],
+   "a": 1,
+   "e": "172.16.0.0/12, azaz 172.16.0.0–172.31.255.255 (16 egymást követő /16-os hálózat).",
+   "src": "e4-halozati-reteg.html",
+   "megj": "A jegyzetben tévesen 172.16.0.0/16 (172.16.0.0–172.16.255.255) szerepel."
+  },
+  {
+   "id": "e4-17",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik osztályba tartozik a 224.0.0.0–239.255.255.255 tartomány, és mire használják?",
+   "o": [
+    "C, privát hálózatok",
+    "D, multicast",
+    "E, kísérleti",
+    "A, loopback"
+   ],
+   "a": 1,
+   "e": "Multicast: egy adat több címzettnek, kevesebb csomagmásolással (videókonferencia, streaming).",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-18",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mely első oktett tartomány jelöli a B osztályú címeket?",
+   "o": [
+    "1–127",
+    "128–191",
+    "192–223",
+    "224–239"
+   ],
+   "a": 1,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-19",
+   "ch": "e4",
+   "t": "tf",
+   "q": "A 11111000.11111111.11111111.00000000 érvényes alhálózati maszk.",
+   "a": false,
+   "e": "A maszkban balról folytonosan egyeseknek, utána csak nulláknak kell állniuk.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-20",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mit jelent a /16 CIDR jelölés decimális maszkként?",
+   "o": [
+    "255.0.0.0",
+    "255.255.0.0",
+    "255.255.255.0",
+    "255.255.255.240"
+   ],
+   "a": 1,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-21",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Melyik logikai művelettel számoljuk ki a hálózati címet az IP címből és a maszkból?",
+   "o": [
+    "VAGY",
+    "KIZÁRÓ VAGY",
+    "ÉS",
+    "NEM"
+   ],
+   "a": 2,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-22",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Ugyanabban a hálózatban van-e a 192.168.10.11 és a 192.168.20.11, ha a maszk 255.255.255.0?",
+   "o": [
+    "Nem, routerre van szükség",
+    "Igen, egy switch elég hozzá"
+   ],
+   "a": 0,
+   "e": "Hálózati címek: 192.168.10.0 és 192.168.20.0 – eltérnek.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-23",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Ugyanabban a hálózatban van-e a 192.168.10.11 és a 192.168.20.11, ha a maszk 255.255.0.0?",
+   "o": [
+    "Nem, routerre van szükség",
+    "Igen, switch elég"
+   ],
+   "a": 1,
+   "e": "Mindkét hálózati cím 192.168.0.0.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-24",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi a 192.168.10.12/24 broadcast címe?",
+   "o": [
+    "192.168.10.0",
+    "192.168.10.1",
+    "192.168.10.254",
+    "192.168.10.255"
+   ],
+   "a": 3,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-25",
+   "ch": "e4",
+   "t": "tf",
+   "q": "Egy hálózat hálózati címe és broadcast címe is kiosztható egy-egy gépnek.",
+   "a": false,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-26",
+   "ch": "e4",
+   "t": "card",
+   "q": "Alapértelmezett útvonal a routing táblában",
+   "b": "0.0.0.0 hálózat, 0.0.0.0 maszk: minden címre illeszkedik (a 0 maszk minden bitet nulláz). A tábla utolsó sora; ide megy minden, ami másra nem illeszkedik.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-27",
+   "ch": "e4",
+   "t": "tf",
+   "q": "A router a továbbítási döntésnél a csomag feladójának címét is vizsgálja.",
+   "a": false,
+   "e": "Csak a címzett számít – ezért lehetséges az IP spoofing.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-28",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi a TTL mező szerepe?",
+   "o": [
+    "A csomag titkosításának kulcsát hordozza",
+    "A fejléc sérülését jelzi a célgép felé",
+    "A csomagok sorrendjét adja meg a vevőnek",
+    "Routerenként csökken, 0-nál eldobják a csomagot"
+   ],
+   "a": 3,
+   "src": "e4-halozati-reteg.html",
+   "e": "Végtelen körbe-küldés megakadályozása: routerenként csökken, 0-nál eldobják."
+  },
+  {
+   "id": "e4-29",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Egy csomag 64-es TTL-lel indul és 61-gyel érkezik meg. Hány routeren haladt át?",
+   "o": [
+    "1",
+    "3",
+    "61",
+    "64"
+   ],
+   "a": 1,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-30",
+   "ch": "e4",
+   "t": "tf",
+   "q": "A VPN és a VLAN ugyanazt jelenti.",
+   "a": false,
+   "e": "A VLAN 2. rétegbeli logikai szeparáció; a VPN titkosított alagút nyilvános hálózaton át egy távoli hálózatba.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-31",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Miért nem feltétlenül a támadót azonosítja a logban szereplő IP, ha VPN-t használt?",
+   "o": [
+    "Mert a VPN a TTL-t mindig nullára állítja",
+    "Mert a VPN minden csomagot többször továbbít",
+    "Mert a célszerver a VPN-átjáró IP-jét látja forrásként",
+    "Mert a VPN-forgalom nem kerül a naplóba"
+   ],
+   "a": 2,
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-32",
+   "ch": "e4",
+   "t": "card",
+   "q": "IP spoofing és DDoS",
+   "b": "A támadó hamis feladó IP-t ír a csomagba. Mivel a routerek csak a címzettet nézik, célba ér; a válaszok a hamisított címre mennek. Ezt használja ki a reflexiós DDoS: sok gépnek küldött kérésre a válaszok az áldozatot bombázzák.",
+   "src": "e4-halozati-reteg.html"
+  },
+  {
+   "id": "e4-33",
+   "ch": "e4",
+   "t": "mc",
+   "q": "Mi a legbiztosabb védelem a közbeékelődéses (MITM) támadás ellen?",
+   "o": [
+    "Hosszabb TTL beállítása",
+    "Statikus IP-cím a gépen",
+    "A kommunikáció titkosítása",
+    "Több VLAN kialakítása"
+   ],
+   "a": 2,
+   "src": "e4-halozati-reteg.html"
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "ch": "gy10",
+ "cim": "Gy11. Vezeték nélküli hálózatok",
+ "kerdesek": [
+  {
+   "id": "gy10-01",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Milyen frekvenciasávokat használnak a modern WiFi eszközök?",
+   "o": [
+    "900 MHz és 1,8 GHz",
+    "2,4 GHz és 5 GHz",
+    "60 GHz kizárólag",
+    "13,56 MHz"
+   ],
+   "a": 1,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-02",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mi az SSID?",
+   "o": [
+    "A WiFi-hálózat neve",
+    "A titkosítás típusa",
+    "Az AP MAC-címe",
+    "A WiFi-hálózat jelszava"
+   ],
+   "a": 0,
+   "src": "gy10-wifi.html",
+   "e": "A WiFi-hálózat azonosítója (neve). A vezeték nélküli hálózat azonosítója (neve)."
+  },
+  {
+   "id": "gy10-03",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mire jó, ha egy AP több SSID-t szolgáltat?",
+   "o": [
+    "Így két frekvenciasávot használhat egyszerre",
+    "Így nem kell jelszó egyik hálózathoz sem",
+    "A belső hálózattól elválasztott vendéghálózat alakítható ki",
+    "Így gyorsabb lesz minden kliens kapcsolata"
+   ],
+   "a": 2,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-04",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Melyik WiFi titkosítás elavult és nem biztonságos?",
+   "o": [
+    "WPA2",
+    "AES",
+    "WEP",
+    "WPA3"
+   ],
+   "a": 2,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-05",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Melyik titkosítás az ajánlott a jegyzet szerint?",
+   "o": [
+    "TKIP",
+    "WEP",
+    "Nincs titkosítás",
+    "AES"
+   ],
+   "a": 3,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-06",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mit jelent a PSK a WPA2-PSK-ban?",
+   "o": [
+    "Private Server Key: szerverkulcs",
+    "Pre-Shared Key: közös jelszó",
+    "Public Secure Key: nyilvános kulcs",
+    "Packet Security Kernel: modul"
+   ],
+   "a": 1,
+   "megj": "A jegyzetben tévesen „PerSonal Key” szerepel.",
+   "src": "gy10-wifi.html",
+   "e": "Pre-Shared Key: közösen használt (előre megosztott) jelszó."
+  },
+  {
+   "id": "gy10-07",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mi a közös jelszavas (PSK) WiFi fő problémája vállalati környezetben?",
+   "o": [
+    "A PSK-hálózatban nem lehet rejtett SSID-t beállítani",
+    "A PSK csak WEP titkosítással használható, ezért elavult",
+    "A közös jelszó miatt a WiFi csak 2,4 GHz-en képes működni",
+    "Távozáskor mindenkinél jelszót kell cserélni, nincs egyéni azonosítás"
+   ],
+   "a": 3,
+   "src": "gy10-wifi.html",
+   "e": "Egy munkatárs távozásakor a közös jelszót mindenkinél cserélni kellene, és a felhasználók nem azonosíthatók egyenként."
+  },
+  {
+   "id": "gy10-08",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mi a vállalati megoldás a WiFi felhasználók azonosítására?",
+   "o": [
+    "WEP titkosítás közös, havonta cserélt jelszóval",
+    "MAC-szűrés az AP-n a céges eszközök címével",
+    "Rejtett SSID, amelyet csak a dolgozók ismernek",
+    "Külső AAA (RADIUS) szerver egyéni fiókokkal"
+   ],
+   "a": 3,
+   "src": "gy10-wifi.html",
+   "e": "Külső AAA (RADIUS) szerver felhasználónévvel és jelszóval."
+  },
+  {
+   "id": "gy10-09",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mit jelent az AAA?",
+   "o": [
+    "Automatic Address Assignment",
+    "Access, Audit, Alert",
+    "Authentication, Authorization, Accounting",
+    "Advanced AES Algorithm"
+   ],
+   "a": 2,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-10",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Mit kell megadni az AP-n (WRT300N), hogy a RADIUS szervert használja?",
+   "o": [
+    "A szerver IP-címét és a közös titkot (shared secret)",
+    "A kliensek MAC-címét és felhasználónevét",
+    "A DNS-szerver címét és a tartomány nevét",
+    "Az SSID-t és a WPA2-PSK jelszót"
+   ],
+   "a": 0,
+   "src": "gy10-wifi.html",
+   "e": "A szerver IP-címét és a közös kommunikációs jelszót (shared secret)."
+  },
+  {
+   "id": "gy10-11",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Melyik támadás használja ki a WPA2 ismert hibáját?",
+   "o": [
+    "KRACK",
+    "Smurf",
+    "DHCP starving",
+    "ARP spoofing"
+   ],
+   "a": 0,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-12",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Miért kell vendéghálózatot kialakítani, ha idegenek is használják a WiFi-t?",
+   "o": [
+    "Hogy ne érjék el a belső fájl- és adatbázisszervereket",
+    "Mert így gyorsabb a belső hálózat WiFi-je",
+    "Hogy a vendégeknek ne kelljen jelszó",
+    "Mert a törvény minden cégnek előírja"
+   ],
+   "a": 0,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-13",
+   "ch": "gy10",
+   "t": "tf",
+   "q": "A rejtett SSID-hez csak azok az eszközök tudnak csatlakozni, amelyek ismerik a nevét.",
+   "a": true,
+   "src": "gy10-wifi.html"
+  },
+  {
+   "id": "gy10-14",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Packet Tracerben mi jelzi a sikeres vezeték nélküli kapcsolatot?",
+   "o": [
+    "Zöld háromszög az AP ikonján",
+    "Villogó sárga kör a kábelen",
+    "Szaggatott vonal az AP és kliens közt",
+    "Piros X a laptop ikonján"
+   ],
+   "a": 2,
+   "src": "gy10-wifi.html",
+   "e": "Szaggatott vonal az AP és a kliens között."
+  },
+  {
+   "id": "gy10-15",
+   "ch": "gy10",
+   "t": "mc",
+   "q": "Miért kell rendszeresen frissíteni a vezeték nélküli eszközök firmware-ét?",
+   "o": [
+    "Hogy új SSID-t lehessen beállítani",
+    "A hibák és sérülékenységek javítására",
+    "Nem kell, a firmware nem változik",
+    "Hogy gyorsabban töltsenek a kliensek"
+   ],
+   "a": 1,
+   "src": "gy10-wifi.html",
+   "e": "A hibák és sérülékenységek javítására; elmulasztása hálózati problémákhoz és csalásokhoz vezethet."
+  },
+  {
+   "id": "gy10-16",
+   "ch": "gy10",
+   "t": "card",
+   "q": "WiFi biztonság összefoglaló",
+   "b": "Titkosítás: WEP elavult, TKIP nem ajánlott, AES ajánlott. Azonosítás: nyílt / WPA / WPA2(-PSK, közös jelszó) / vállalati: külső AAA-RADIUS szerver, egyéni felhasználónév-jelszó. Kockázatok: nyílt hálózat, vendégek a belső hálón, KRACK (WPA2), elavult firmware.",
+   "src": "gy10-wifi.html"
+  }
+ ]
+}

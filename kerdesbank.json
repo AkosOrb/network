@@ -1,0 +1,6879 @@
+{
+"meta": {
+"cim": "Számítógépes hálózatok – kérdésbank",
+"forras": "https://nw.koczka.com/",
+"keszult": "2026-11-09",
+"tipusok": {
+"mc": "feleletválasztós (o = opciók, a = helyes válasz indexe, 0-tól)",
+"tf": "igaz/hamis (a = true/false)",
+"card": "fogalomkártya (q = előlap, b = hátlap)"
+},
+"fejezetek": {
+"e1": "1. Bevezetés, OSI modell",
+"e2": "2. Fizikai réteg",
+"e3": "3. Adatkapcsolati réteg",
+"e4": "4. Hálózati réteg",
+"e5": "5. DHCP",
+"e6": "6. Szállítási réteg",
+"e8": "7–8. Tűzfalak, NAT/PAT (elmélet)",
+"e9": "9. Alkalmazási réteg",
+"gy0": "Gy1. Internet szolgáltatások",
+"gyios": "Gy2–5. Cisco IOS alapok, jogosultságok, jelszavak",
+"gy5": "Gy6. VLAN-ok",
+"gy6": "Gy7. IP útválasztás",
+"gy7": "Gy8. IP számítási gyakorlatok",
+"gy9": "Gy10. DHCP a gyakorlatban",
+"gy10": "Gy11. Vezeték nélküli hálózatok",
+"gy14": "Gy15. Tűzfalak (ACL)",
+"gy15": "Gy16. NAT a gyakorlatban"
+},
+"forrasbeli_pontatlansagok": [
+"e2: a táblázat szerint a 802.11b 5 GHz-es – valójában 2,4 GHz-en működik. Javítva, a kérdés a helyes értéket kérdezi: e2-33.",
+"e4, e8: a privát B tartomány a jegyzetben 172.16.0.0/16 – az RFC 1918 szerint 172.16.0.0/12 (172.16.0.0–172.31.255.255). Jelölve: e4-16, e8-05.",
+"e6: a jegyzet az ICMP-t a szállítási rétegnél tárgyalja – a szakirodalom a hálózati (3.) réteghez sorolja. Jelölve: e6-15.",
+"e8: az IPv4 címek száma a jegyzetben „valamivel több, mint 41 milliárd” – helyesen 2³² ≈ 4,29 milliárd. Jelölve: e8-03.",
+"e8: a PAT példa 3. lépésében a válasz célcíme elírás (193.225.32.2 helyett 193.225.32.1). Jelölve: e8-18.",
+"e8: a 127.0.0.0/8 loopback a privát tartományok között szerepel, de nem RFC 1918 privát tartomány. Jelölve: e8-09.",
+"gy4: a példa 512 bites RSA kulcsot generál, ez SSH v2-höz kevés (min. 768, a gyakorlatban 2048). Jelölve: gyios-34.",
+"gy6: az alapértelmezett útvonal next-hopja elírva 172.168.8.1, helyesen 172.16.8.1. Jelölve: gy6-09.",
+"gy10: a jegyzet a PSK-t „PerSonal Key”-nek írja – a szokásos feloldás Pre-Shared Key. Jelölve: gy10-06.",
+"gy14: a jegyzet szerint a normál (standard) ACL a célhálózatot nézi – a Cisco szerint a standard ACL a FORRÁScímre szűr. Jelölve: gy14-01.",
+"gy14: a jegyzet szerint a normál ACL-ek sorszáma 0–99 – a Cisco szerint 1–99. Jelölve: gy14-02.",
+"Üres vagy hiányos oldalak: 7. Tűzfalak (csak vázlat, 2 kérdés készült a bevezetőből), 6.6 IT biztonsági kérdések (TODO), Gy9. IP alhálózatok, Gy12. SOHO router, Gy13. Hálózati szolgáltatások, Gy14. Komplex feladat – ezekből nem készült kérdés."
+],
+"sorrend": [
+"e1",
+"e2",
+"e3",
+"e4",
+"e5",
+"e6",
+"e8",
+"e9",
+"gy0",
+"gyios",
+"gy5",
+"gy6",
+"gy7",
+"gy9",
+"gy10",
+"gy14",
+"gy15"
+],
+"mezok": {
+"id": "egyedi azonosító",
+"ch": "fejezetkód",
+"q": "kérdés",
+"e": "magyarázat (opcionális)",
+"out": "Packet Tracer / parancs kimenet, előformázott szövegként megjelenítendő (opcionális)",
+"megj": "a jegyzet pontatlanságának jelzése (opcionális)",
+"src": "forrásoldal az nw.koczka.com-on"
+},
+"pontatlansagok_kezelese": "A kérdések a helyes tényeket kérdezik; a 'megj' mező jelzi, ha a jegyzetben más (hibás) adat szerepel.",
+"osi_retegek": {
+"7": "5–7. Alkalmazási rétegek (viszony, megjelenítés, alkalmazás)",
+"4": "4. Szállítási réteg",
+"3": "3. Hálózati réteg",
+"2": "2. Adatkapcsolati réteg",
+"1": "1. Fizikai réteg",
+"0": "Átfogó: OSI-modell és eszközkezelés"
+}
+},
+"kerdesek": [
+{
+"id": "e1-01",
+"ch": "e1",
+"t": "mc",
+"q": "Hány rétege van az OSI modellnek?",
+"o": [
+"4",
+"5",
+"7",
+"9"
+],
+"a": 2,
+"e": "Az OSI (Open Systems Interconnection) modell hét rétegű.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-02",
+"ch": "e1",
+"t": "mc",
+"q": "Melyik OSI réteg feladata a karakterkódolás, tömörítés és titkosítás?",
+"o": [
+"Alkalmazási",
+"Megjelenítési",
+"Viszony",
+"Szállítási"
+],
+"a": 1,
+"e": "A 6. (megjelenítési) réteg végzi az adatok konverzióját: karakterkódolás, tömörítés, titkosítás.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-03",
+"ch": "e1",
+"t": "mc",
+"q": "Melyik réteg építi ki, bonyolítja le és bontja le a kommunikációs folyamatot?",
+"o": [
+"Viszony (5.)",
+"Hálózati (3.)",
+"Adatkapcsolati (2.)",
+"Fizikai (1.)"
+],
+"a": 0,
+"e": "Az 5. (viszony) réteg felel a kommunikációs folyamat kiépítéséért, lebonyolításáért és lebontásáért.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-04",
+"ch": "e1",
+"t": "mc",
+"q": "Melyik OSI réteg felel a címzésért, útválasztásért és forgalomirányításért több csomópontos hálózatban?",
+"o": [
+"Szállítási",
+"Hálózati",
+"Adatkapcsolati",
+"Viszony"
+],
+"a": 1,
+"e": "A 3. (hálózati) réteg feladata a címzés, útválasztás, forgalomirányítás.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-05",
+"ch": "e1",
+"t": "tf",
+"q": "Az OSI modell alkalmazása a gyártók számára kötelező.",
+"a": false,
+"e": "Nem kötelező, de a gyártók érdeke, hogy (nem teljes körűen) figyelembe vegyék.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-06",
+"ch": "e1",
+"t": "tf",
+"q": "Az internet felépítése teljes mértékben követi az OSI modellt.",
+"a": false,
+"e": "Csak részben követi: egyes rétegeket összevontak (TCP/IP modell).",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-07",
+"ch": "e1",
+"t": "mc",
+"q": "Mi volt az ARPANET kifejlesztésének eredeti célja?",
+"o": [
+"A telefonhálózat rendelkezésre állásának javítása redundáns kapcsolatokkal",
+"Egyetemi kutatók e-mail-forgalmának olcsóbb lebonyolítása",
+"Kereskedelmi weboldalak gyors elérése a nagyközönség számára",
+"Telefonvonalak kiváltása rádiós adatkapcsolatokkal országszerte"
+],
+"a": 0,
+"e": "Két pont közötti vonal sérülésekor a kommunikáció megszakadt; a redundáns digitális kapcsolatok ezt oldották meg.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e1-08",
+"ch": "e1",
+"t": "mc",
+"q": "Ki dolgozta ki a web alapjait 1989-ben?",
+"o": [
+"Vint Cerf",
+"Tim Berners-Lee",
+"Wim van Eck",
+"Linus Torvalds"
+],
+"a": 1,
+"src": "e1-bevezetes.html",
+"osi": 7
+},
+{
+"id": "e1-09",
+"ch": "e1",
+"t": "card",
+"q": "Mi az SSH és a Remote Desktop?",
+"b": "Távoli bejelentkezésre szolgáló alkalmazások/protokollok: egy távoli gépet a hálózaton keresztül kezelhetünk (SSH: titkosított parancssoros, Remote Desktop: grafikus felület).",
+"src": "e1-bevezetes.html",
+"osi": 7
+},
+{
+"id": "e1-10",
+"ch": "e1",
+"t": "card",
+"q": "Sorold fel az OSI modell rétegeit felülről lefelé!",
+"b": "7. alkalmazási, 6. megjelenítési, 5. viszony, 4. szállítási, 3. hálózati, 2. adatkapcsolati, 1. fizikai.",
+"src": "e1-bevezetes.html",
+"osi": 0
+},
+{
+"id": "e2-01",
+"ch": "e2",
+"t": "mc",
+"q": "Mi az átviteli sebesség mértékegysége?",
+"o": [
+"bájt/perc",
+"bit/sec",
+"Hz",
+"baud/óra"
+],
+"a": 1,
+"e": "Az egy másodperc alatt átvihető bitek száma.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-02",
+"ch": "e2",
+"t": "mc",
+"q": "Manchester kódolásnál mi hordozza az adatot?",
+"o": [
+"Az időszelet elején mért feszültség szintje",
+"Az időszelet közepén lévő jelváltás iránya",
+"Két egymást követő bit közötti szünet hossza",
+"Az időszelet végén mért jelerősség nagysága"
+],
+"a": 1,
+"e": "Minden időszelet közepén van jelváltás: felfutó él = 1, lefutó él = 0. Az Ethernet is használja.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-03",
+"ch": "e2",
+"t": "mc",
+"q": "NRZ kódolásnál hogyan jelenik meg az 1-es bit?",
+"o": [
+"Magas jelszinttel",
+"Lefutó éllel",
+"Felfutó éllel",
+"Jel hiányával"
+],
+"a": 0,
+"e": "NRZ: magas jelszint = 1, alacsony = 0; szinkron órát igényel.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-04",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik a félduplex kommunikáció példája?",
+"o": [
+"Rádióadás hallgatása",
+"Telefonbeszélgetés",
+"Régi walkie-talkie",
+"Optikai gerinchálózat"
+],
+"a": 2,
+"e": "Félduplex: kétirányú, de egyszerre csak az egyik fél küldhet.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-05",
+"ch": "e2",
+"t": "card",
+"q": "Auto Negotiation",
+"b": "A berendezések automatikusan megegyeznek a közös legjobb sebességben és duplex módban, így nem kell kézzel beállítani.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-06",
+"ch": "e2",
+"t": "mc",
+"q": "Mekkora az UTP kábel maximális (erősítés nélküli) szegmenshossza?",
+"o": [
+"10 m",
+"100 m",
+"500 m",
+"2 km"
+],
+"a": 1,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-07",
+"ch": "e2",
+"t": "mc",
+"q": "Hány vezeték (ér) van egy UTP kábelben?",
+"o": [
+"2",
+"4",
+"8",
+"16"
+],
+"a": 2,
+"e": "8 vezeték, azaz 4 sodrott érpár.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-08",
+"ch": "e2",
+"t": "mc",
+"q": "Mit jelent az UTP rövidítés?",
+"o": [
+"Universal Transfer Protocol",
+"Unshielded Twisted Pair",
+"Unified Transmission Port",
+"Ultra Thin Pair"
+],
+"a": 1,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-09",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik kábelváltozatnál van háló ÉS minden érpár külön fóliával árnyékolva?",
+"o": [
+"UTP",
+"F-UTP",
+"SF-UTP",
+"S-FTP"
+],
+"a": 3,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-10",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik bekötési sorrend terjedt el Magyarországon?",
+"o": [
+"A",
+"B",
+"C",
+"Cross"
+],
+"a": 1,
+"e": "Az A-s főleg az USA-ban, a B-s Magyarországon elterjedt.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-11",
+"ch": "e2",
+"t": "card",
+"q": "Cross kábel",
+"b": "Egyik vége A-s, a másik B-s bekötésű; két számítógép switch vagy router nélkül közvetlenül összeköthető vele.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-12",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik kábelkategória ad 1 Gbit/s sebességet?",
+"o": [
+"Cat3",
+"Cat5",
+"Cat5e",
+"Cat6"
+],
+"a": 2,
+"e": "Cat3: 10 Mbit/s, Cat5: 100 Mbit/s, Cat5e: 1 Gbit/s, Cat6: akár 10 Gbit/s.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-13",
+"ch": "e2",
+"t": "tf",
+"q": "A patch kábel és a fali kábel felcserélhető, nincs köztük érdemi különbség.",
+"a": false,
+"e": "A patch kábel puha (aljzat–gép), a fali kábel merevebb (épületi kiépítés). A felcserélés szakmai hiba.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-14",
+"ch": "e2",
+"t": "card",
+"q": "Hogyan állapítható meg utólag egy kiépített kábelszakasz hossza?",
+"b": "A kábel köpenyén méterenként fel van tüntetve a hossz, a két végpont jelöléséből kiszámítható.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-15",
+"ch": "e2",
+"t": "mc",
+"q": "Mekkora a multimódusú optikai kábel maximális hossza a jegyzet szerint?",
+"o": [
+"100 m",
+"500 m",
+"2 km",
+"Több ezer km"
+],
+"a": 2,
+"e": "A multimódusú szál vastagabb, nagyobb a jelvesztesége; max. 2 km. A monomódusú sokkal nagyobb távolságra (tengeralatti kábelek) is alkalmas.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-16",
+"ch": "e2",
+"t": "mc",
+"q": "Mi jellemzi a monomódusú optikai szálat?",
+"o": [
+"A fény a falakon visszaverődik",
+"Egyetlen, egyenes fénysugár, nagy távolság",
+"Max. 100 m hossz",
+"Rézből készül"
+],
+"a": 1,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-17",
+"ch": "e2",
+"t": "tf",
+"q": "Az optikai kábel kiépítési költségének nagy részét a munkadíj teszi ki, ezért érdemes tartalék szálakat is behúzni.",
+"a": true,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-18",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik NEM optikai csatlakozótípus?",
+"o": [
+"RJ45",
+"ST",
+"LC",
+"SC"
+],
+"a": 0,
+"e": "Az RJ45 az UTP kábel csatlakozója; az optikaiak: FC, LC, SC, ST.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-19",
+"ch": "e2",
+"t": "mc",
+"q": "Mi igaz a 2,4 GHz-es Wi-Fi-re az 5 GHz-eshez képest?",
+"o": [
+"Gyorsabb és több csatornája van",
+"Jobban áthatol a falakon, nagyobb a hatótávolsága",
+"Kevésbé zavarja a mikrohullámú sütő",
+"Csak a 802.11ac használja"
+],
+"a": 1,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-20",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik Wi-Fi szabvány használhatja a 6 GHz-es sávot is?",
+"o": [
+"802.11g",
+"802.11n",
+"802.11ac",
+"802.11ax"
+],
+"a": 3,
+"e": "802.11ax (2019): 2,4, 5 és 6 GHz, elméleti max. 9,6 Gbit/s.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-21",
+"ch": "e2",
+"t": "mc",
+"q": "Mekkora az NFC hatótávolsága?",
+"o": [
+"Kb. 100 méter",
+"Néhány kilométer",
+"Pár centiméter",
+"Kb. 10 méter"
+],
+"a": 2,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-22",
+"ch": "e2",
+"t": "card",
+"q": "Powerline (PLC)",
+"b": "Adatátvitel az elektromos hálózaton; csak ugyanazon elektromos hálózaton belül működik. Utólagos bővítésre, műemlék épületekhez jó, hálózattervezésre nem szokás használni.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-23",
+"ch": "e2",
+"t": "card",
+"q": "Zigbee",
+"b": "WPAN technológia, főleg okosotthon-eszközökhöz; nagyon alacsony fogyasztás és sebesség, kb. 10–100 m hatótáv. Van titkosítása, de publikáltak rá támadásokat.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-24",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik topológiában „hall” minden eszköz minden forgalmat, és egy kábelszakadás az egészet megbénítja?",
+"o": [
+"Csillag",
+"Fa (hierarchikus)",
+"Sín (busz)",
+"Teljes háló (mesh)"
+],
+"a": 2,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-25",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik topológia matematikai megfelelője az, hogy bármely két pont pontosan egy úton érhető el?",
+"o": [
+"Gyűrű",
+"Mesh",
+"Fa",
+"Hibrid"
+],
+"a": 2,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-26",
+"ch": "e2",
+"t": "mc",
+"q": "Mi a mesh topológia fő előnye?",
+"o": [
+"Nincs szükség útválasztásra a hálózatban",
+"Kevesebb kábel és olcsóbb kiépítés",
+"Egyetlen központi eszköz, könnyű kezelés",
+"Redundancia, alternatív útvonalak"
+],
+"a": 3,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-27",
+"ch": "e2",
+"t": "card",
+"q": "Fizikai vs. logikai topológia",
+"b": "Fizikai: az eszközök elrendezése. Logikai: pontosan melyik eszköz melyik csatlakozóval, hogyan kapcsolódik, milyen címekkel (pl. nyomtató en0, 192.168.1.3, switch g0/3). Tervezéshez és üzemeltetéshez a logikait használjuk.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-28",
+"ch": "e2",
+"t": "mc",
+"q": "Mit jelent a SOHO?",
+"o": [
+"Secure Office Home Office",
+"Small Office Home Office",
+"Single Operator Home Office",
+"Standard Office Hardware"
+],
+"a": 1,
+"e": "Kis teljesítményű, csökkentett funkciójú eszközök otthonra, kis irodába; vállalati használatra nem ajánlott.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-29",
+"ch": "e2",
+"t": "card",
+"q": "Van Eck-phreaking",
+"b": "Wim van Eck 1985-ös publikációja: monitorok (eredetileg katódsugárcsöves) képének lehallgatása elektromágneses kisugárzásuk alapján. Ma vezetékes eszközökre is alkalmazható.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-30",
+"ch": "e2",
+"t": "card",
+"q": "TEMPEST",
+"b": "Az NSA 1960-as években indított projektje a kisugárzás elleni védelemre és az ellenséges eszközök lehallgatására; ma amerikai és NATO szabvány.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-31",
+"ch": "e2",
+"t": "tf",
+"q": "Egy kábel lehallgatásához mindenképp meg kell szakítani a kábelt.",
+"a": false,
+"e": "A kisugárzás mérésével megszakítás nélkül is lehetséges.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-32",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik hálózatméret-kategória a városi hálózat?",
+"o": [
+"LAN",
+"MAN",
+"WAN",
+"SMAN"
+],
+"a": 1,
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-33",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik frekvenciasávban működik a 802.11b szabványú WiFi?",
+"o": [
+"2,4 GHz",
+"5 GHz",
+"6 GHz",
+"2,4 és 5 GHz"
+],
+"a": 0,
+"e": "802.11b (1999): 2,4 GHz, max. 11 Mbit/s. Az 5 GHz-es 1999-es szabvány a 802.11a (54 Mbit/s).",
+"megj": "A jegyzet táblázatában tévesen 5 GHz szerepel a 802.11b-nél.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e2-34",
+"ch": "e2",
+"t": "mc",
+"q": "Melyik WiFi szabvány használhatja a 6 GHz-es sávot is?",
+"o": [
+"802.11ax",
+"802.11ac",
+"802.11n",
+"802.11g"
+],
+"a": 0,
+"e": "802.11ax (2019): 2,4, 5 és 6 GHz, elméleti max. 9,6 Gbit/s.",
+"src": "e2-fizikai-reteg.html",
+"osi": 1
+},
+{
+"id": "e3-01",
+"ch": "e3",
+"t": "mc",
+"q": "Hány bájtos egy Ethernet MAC cím?",
+"o": [
+"4",
+"6",
+"8",
+"16"
+],
+"a": 1,
+"e": "6 bájt, hexadecimálisan írva, pl. cc:08:fa:87:c3:9a.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-02",
+"ch": "e3",
+"t": "mc",
+"q": "Melyik a Cisco eszközökre jellemző MAC-cím írásmód?",
+"o": [
+"cc:08:fa:87:c3:9a",
+"cc-08-fa-87-c3-9a",
+"cc08.fa87.c39a",
+"cc08:fa87:c39a"
+],
+"a": 2,
+"e": "A Cisco kétbájtonként pontot használ.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-03",
+"ch": "e3",
+"t": "mc",
+"q": "Mit azonosít a MAC cím első 3 bájtja?",
+"o": [
+"A VLAN-t",
+"A gyártót (OUI)",
+"A portot",
+"Az alhálózatot"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-04",
+"ch": "e3",
+"t": "mc",
+"q": "Mi az Ethernet broadcast cím?",
+"o": [
+"00:00:00:00:00:00",
+"ff:ff:ff:ff:ff:ff",
+"255.255.255.255",
+"01:00:5e:00:00:01"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-05",
+"ch": "e3",
+"t": "card",
+"q": "BIA (Burned In Address)",
+"b": "A hálózati interfészbe gyárilag beégetett MAC cím. Cisco kimenetben: „address is 0060.3e45.5701 (bia 0060.3e45.5701)”. Szoftveresen gyakran felülírható.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-06",
+"ch": "e3",
+"t": "tf",
+"q": "A MAC-cím alapú szűrés erős védelmet nyújt, mert a MAC cím nem változtatható meg.",
+"a": false,
+"e": "A MAC cím szoftveresen gyakran módosítható (hamisítható), így a MAC szűrés könnyen kijátszható.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-07",
+"ch": "e3",
+"t": "mc",
+"q": "Melyik Windows paranccsal kérdezhető le a gép MAC címe (Physical Address)?",
+"o": [
+"ipconfig /all",
+"arp -d",
+"netstat -r",
+"tracert"
+],
+"a": 0,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-08",
+"ch": "e3",
+"t": "card",
+"q": "CRC (Cyclic Redundancy Check)",
+"b": "A feladó a keret bájtjaiból ellenőrző értéket számol és a végéhez fűzi; a vevő újraszámolja. Eltérés esetén a keret sérült, eldobják.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-09",
+"ch": "e3",
+"t": "mc",
+"q": "Milyen IEEE szabványszámon szabványosították az Ethernetet?",
+"o": [
+"802.1Q",
+"802.3",
+"802.11",
+"802.15"
+],
+"a": 1,
+"e": "802.3u: 100 Mbit/s, 802.3z: Gigabit, 802.1Q: VLAN, 802.11: Wi-Fi.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-10",
+"ch": "e3",
+"t": "mc",
+"q": "Melyik IEEE szabvány írja le a VLAN-okat?",
+"o": [
+"802.3u",
+"802.3z",
+"802.1Q",
+"802.11ac"
+],
+"a": 2,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-11",
+"ch": "e3",
+"t": "mc",
+"q": "Mi az Ethernet keret alapértelmezett maximális adatmérete a jegyzet szerint?",
+"o": [
+"512 bájt",
+"1500 bájt",
+"9000 bájt",
+"64 KB"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-12",
+"ch": "e3",
+"t": "card",
+"q": "Protokoll és RFC",
+"b": "Protokoll: egy kommunikációtípus szabályainak összessége, ami lehetővé teszi különböző gyártók eszközeinek együttműködését. A leírásuk RFC (Request for Comment) dokumentumokban van, pl. POP3: RFC 1939.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 0
+},
+{
+"id": "e3-13",
+"ch": "e3",
+"t": "mc",
+"q": "Mit tesz egy CSMA/CD-t használó interfész ütközés észlelésekor?",
+"o": [
+"Megduplázza a küldési sebességet és folytatja",
+"Abbahagyja, véletlenszerű idő után újrapróbálkozik",
+"Azonnal újraküldi a keretet a következő portra",
+"Eldobja a keretet és értesíti a felhasználót"
+],
+"a": 1,
+"e": "A véletlen várakozás megakadályozza, hogy újra azonos időzítéssel ütközzenek.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-14",
+"ch": "e3",
+"t": "mc",
+"q": "Hol használják a CSMA/CA-t?",
+"o": [
+"Optikai gerinchálózatban",
+"Vezeték nélküli hálózatokban",
+"Token Ringben",
+"Soros konzolkapcsolatban"
+],
+"a": 1,
+"e": "Vezeték nélkül az ütközés nem érzékelhető, ezért időablakokkal és nyugtákkal kerülik el.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-15",
+"ch": "e3",
+"t": "tf",
+"q": "Mai, switchelt, duplex Ethernet hálózatban normál esetben nincs ütközés.",
+"a": true,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-16",
+"ch": "e3",
+"t": "mc",
+"q": "Mi a jelismétlő (repeater) fő hátránya?",
+"o": [
+"Drága",
+"A zavarokat is felerősíti",
+"Csak optikán működik",
+"Nem tud broadcastot"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-17",
+"ch": "e3",
+"t": "mc",
+"q": "Mit csinál a hub egy beérkező kerettel?",
+"o": [
+"Csak a címzett portjára küldi",
+"Minden többi portra továbbítja",
+"Eldobja, ha broadcast",
+"IP alapján irányítja"
+],
+"a": 1,
+"e": "A hub nem ismeri a MAC–port összerendelést; ezért promiscuous módban bármelyik gép láthatja a teljes forgalmat.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-18",
+"ch": "e3",
+"t": "card",
+"q": "Promiscuous mód",
+"b": "Az interfész a neki nem szóló kereteket is feldolgozza. Hálózatelemzők (Wireshark) alapja; támadónak információforrás.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-19",
+"ch": "e3",
+"t": "mc",
+"q": "Mit tárol a switch CAM táblája?",
+"o": [
+"IP cím–MAC cím összerendeléseket",
+"Felhasználónév–jelszó párokat",
+"Hálózati cím–kimenő interfész párokat",
+"MAC cím–port összerendeléseket"
+],
+"a": 3,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-20",
+"ch": "e3",
+"t": "mc",
+"q": "Mit tesz a switch, ha a célcím nincs a CAM táblájában?",
+"o": [
+"Eldobja, és ICMP hibát küld vissza",
+"Visszaküldi a feladónak hibajelzéssel",
+"Az alapértelmezett átjárónak küldi",
+"Minden portra kiküldi (flooding)"
+],
+"a": 3,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-21",
+"ch": "e3",
+"t": "mc",
+"q": "Miből tanulja meg a switch a CAM tábla bejegyzéseit?",
+"o": [
+"A beérkező keretek feladó (forrás) MAC címéből",
+"A célcímből",
+"A DHCP szervertől",
+"A rendszergazda kézi beírásából kizárólag"
+],
+"a": 0,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-22",
+"ch": "e3",
+"t": "tf",
+"q": "Egy switch porthoz több MAC cím is tartozhat a CAM táblában.",
+"a": true,
+"e": "Ha azon a porton egy másik switch csatlakozik (fa topológia).",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-23",
+"ch": "e3",
+"t": "card",
+"q": "Bridge (híd)",
+"b": "2. rétegbeli eszköz, két eltérő protokollú hálózatot köt össze (pl. Ethernet és Token Ring): átalakítja a kereteket, kezeli az eltérő méreteket, címzést, sebességet. Speciális formája az Access Point.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-24",
+"ch": "e3",
+"t": "mc",
+"q": "Egy SOHO routerben a kék port általában mire szolgál?",
+"o": [
+"Hálózati nyomtató USB-portja",
+"WAN (internet) felé",
+"A konzolkábel csatlakoztatására",
+"Vezetékes LAN-kliensek felé"
+],
+"a": 1,
+"e": "WAN (internet) felé, router funkció. Kék: WAN/router, sárga: beépített switch portjai, antenna: AP.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-25",
+"ch": "e3",
+"t": "mc",
+"q": "Ki/mi dönti el, hogy egy gép melyik VLAN-ba tartozik?",
+"o": [
+"A gép operációs rendszere",
+"A switch portjának beállítása",
+"A DHCP szerver",
+"A felhasználó"
+],
+"a": 1,
+"e": "Ezért kritikus a fizikai biztonság: aki egy portra rádug, abba a VLAN-ba kerül.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-26",
+"ch": "e3",
+"t": "mc",
+"q": "Melyik VLAN-ba tartozik alapértelmezésben minden switch port?",
+"o": [
+"0",
+"1",
+"10",
+"1005"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-27",
+"ch": "e3",
+"t": "card",
+"q": "Trunk port",
+"b": "Olyan port, amely több (bármely) VLAN forgalmát továbbítja; a keretekbe VLAN ID kerül (802.1Q). Két switch összekötésére, közös erőforrás eléréséhez használják.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-28",
+"ch": "e3",
+"t": "tf",
+"q": "Két különböző VLAN gépei a switchen keresztül router nélkül is elérik egymást.",
+"a": false,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-29",
+"ch": "e3",
+"t": "mc",
+"q": "Mi történik a CAM tábla túlterheléses (CAM overflow) támadás során, amikor a tábla betelik?",
+"o": [
+"A switch hubként minden portra továbbít",
+"A switch minden ismeretlen keretet eldob",
+"A switch újraindul és törli a VLAN-okat",
+"A switch letiltja a támadó portját magától"
+],
+"a": 0,
+"e": "A switch fail-open módba vált és hubként minden portra továbbít. Így a támadó lehallgathatja a neki nem szóló forgalmat.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-30",
+"ch": "e3",
+"t": "mc",
+"q": "Melyik eszközzel lehet CAM táblát elárasztani hamis MAC címekkel?",
+"o": [
+"macof",
+"nslookup",
+"tracert",
+"ipcalc"
+],
+"a": 0,
+"e": "A macof (Kali és BackBox Linuxban is megtalálható) és a hyenae.",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-31",
+"ch": "e3",
+"t": "mc",
+"q": "Mi a hatékony védekezés a CAM overflow ellen menedzselhető switchen?",
+"o": [
+"Telnet kikapcsolása és SSH bekapcsolása",
+"Port security: MAC-címek számának korlátozása",
+"A CAM tábla lejárati idejének növelése",
+"VLAN 1 használata minden porton egyszerre"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"e": "Port security: a portonként tanulható MAC címek számának korlátozása.",
+"osi": 2
+},
+{
+"id": "e3-32",
+"ch": "e3",
+"t": "mc",
+"q": "Mi történik a következő beállításnál, ha a porton eltérő MAC cím jelenik meg?  switchport port-security violation shutdown",
+"o": [
+"Riasztást küld, de továbbít",
+"A port lekapcsol",
+"A MAC-et felveszi a táblába",
+"Átteszi a VLAN 1-be"
+],
+"a": 1,
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e3-33",
+"ch": "e3",
+"t": "card",
+"q": "Port security konfiguráció (Cisco), 1 engedélyezett MAC",
+"b": "switchport mode access\nswitchport port-security\nswitchport port-security maximum 1\nswitchport port-security mac-address 000A.4128.5543\nswitchport port-security violation shutdown",
+"src": "e3-adatkapcsolati-reteg.html",
+"osi": 2
+},
+{
+"id": "e4-01",
+"ch": "e4",
+"t": "mc",
+"q": "Miért nem alkalmas a MAC címzés nagy (internet méretű) hálózatokhoz?",
+"o": [
+"Titkosítatlan, ezért bárki lehallgathatja",
+"Nem kódol helyet, és nem route-olható",
+"Túl rövid, ezért kevés eszköz kaphat címet",
+"Gyártónként eltérő formátumú, nem egységes"
+],
+"a": 1,
+"src": "e4-halozati-reteg.html",
+"e": "Nem kódol helyet, nem route-olható, és a táblák mérete korlátos.",
+"osi": 3
+},
+{
+"id": "e4-02",
+"ch": "e4",
+"t": "card",
+"q": "Encapsulation (beágyazás)",
+"b": "A felsőbb réteg csomagja az alsóbb réteg protokolljának adatmezőjébe kerül (pl. az IP csomag az Ethernet keretbe). A vevő oldalon a kibontás: decapsulation.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-03",
+"ch": "e4",
+"t": "mc",
+"q": "Hány bájtos egy IPv4 cím?",
+"o": [
+"2",
+"4",
+"6",
+"16"
+],
+"a": 1,
+"e": "4 bájt, 0–255 közötti értékek pontokkal elválasztva; elméletileg 256⁴ = 4 294 967 296 cím.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-04",
+"ch": "e4",
+"t": "mc",
+"q": "Az IP fejléc Protokoll mezőjében milyen érték jelöli a TCP-t?",
+"o": [
+"1",
+"6",
+"17",
+"80"
+],
+"a": 1,
+"e": "TCP = 6, UDP = 17, ICMP = 1.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-05",
+"ch": "e4",
+"t": "mc",
+"q": "Az IP fejléc Protokoll mezőjében milyen érték jelöli az UDP-t?",
+"o": [
+"1",
+"6",
+"17",
+"53"
+],
+"a": 2,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-06",
+"ch": "e4",
+"t": "mc",
+"q": "Mi a loopback cím?",
+"o": [
+"0.0.0.0",
+"127.0.0.1",
+"169.254.0.1",
+"255.255.255.255"
+],
+"a": 1,
+"e": "A 127-tel kezdődő címek tesztelési célúak; hálózati kapcsolat nélkül is válaszolnak.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-07",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik szervezet osztja ki világszinten az IPv4 tartományokat?",
+"o": [
+"IEEE",
+"ISO",
+"IANA",
+"IETF"
+],
+"a": 2,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-08",
+"ch": "e4",
+"t": "mc",
+"q": "Mi alapján továbbít a router, és mi alapján a switch?",
+"o": [
+"Router: MAC, switch: IP",
+"Router: IP, switch: MAC",
+"Mindkettő IP alapján",
+"Mindkettő MAC alapján"
+],
+"a": 1,
+"src": "e4-halozati-reteg.html",
+"osi": 2
+},
+{
+"id": "e4-09",
+"ch": "e4",
+"t": "mc",
+"q": "Ha a cél egy másik alhálózatban van, milyen célcím kerül az Ethernet keretbe?",
+"o": [
+"A broadcast MAC-cím (FF:…:FF)",
+"A DNS-szerver MAC-címe",
+"A végső célgép MAC-címe",
+"Az alapértelmezett átjáró MAC-címe"
+],
+"a": 3,
+"src": "e4-halozati-reteg.html",
+"e": "A router (alapértelmezett átjáró) MAC címe.",
+"osi": 3
+},
+{
+"id": "e4-10",
+"ch": "e4",
+"t": "tf",
+"q": "Az alapértelmezett átjárónak ugyanabban az alhálózatban kell lennie, mint a többi állomásnak.",
+"a": true,
+"e": "Különben a gép nem tudná Ethernet kerettel közvetlenül elérni (ARP-pal feloldani).",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-11",
+"ch": "e4",
+"t": "mc",
+"q": "Milyen címre küldi a gép az ARP kérést?",
+"o": [
+"Az alapértelmezett átjáró MAC-címére",
+"A broadcast MAC-címre (FF:FF:FF:FF:FF:FF)",
+"A keresett gép IP-címére unicastban",
+"A DHCP szerver IP- és MAC-címére"
+],
+"a": 1,
+"e": "A broadcast MAC címre (FF:FF:FF:FF:FF:FF). Csak a keresett IP cím tulajdonosa válaszol a saját MAC címével.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-12",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik paranccsal listázható az ARP tábla Windows alatt?",
+"o": [
+"arp -a",
+"arp -s",
+"ipconfig /flushdns",
+"route print -arp"
+],
+"a": 0,
+"e": "arp -s: statikus bejegyzés, arp -d: törlés.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-13",
+"ch": "e4",
+"t": "card",
+"q": "ARP poisoning (ARP-hamisítás)",
+"b": "A támadó hamis ARP válaszokkal manipulálja az áldozat ARP tábláját (pl. a router IP-jéhez a saját MAC-jét rendeli), így a forgalom rajta halad át: lehallgathatja, módosíthatja (MITM).",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-14",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik privát A osztályú tartomány?",
+"o": [
+"10.0.0.0/8",
+"100.64.0.0/10",
+"127.0.0.0/8",
+"172.16.0.0/12"
+],
+"a": 0,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-15",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik tartomány privát (RFC 1918)?",
+"o": [
+"192.168.0.0/16",
+"193.225.32.0/24",
+"8.8.8.0/24",
+"224.0.0.0/4"
+],
+"a": 0,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-16",
+"ch": "e4",
+"t": "mc",
+"q": "Mi a privát B címtartomány pontos határa az RFC 1918 szerint?",
+"o": [
+"172.16.0.0/20 (172.16.0.0–172.16.15.255)",
+"172.16.0.0/12 (172.16.0.0–172.31.255.255)",
+"172.16.0.0/16 (172.16.0.0–172.16.255.255)",
+"172.0.0.0/8 (172.0.0.0–172.255.255.255)"
+],
+"a": 1,
+"e": "172.16.0.0/12, azaz 172.16.0.0–172.31.255.255 (16 egymást követő /16-os hálózat).",
+"src": "e4-halozati-reteg.html",
+"megj": "A jegyzetben tévesen 172.16.0.0/16 (172.16.0.0–172.16.255.255) szerepel.",
+"osi": 3
+},
+{
+"id": "e4-17",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik osztályba tartozik a 224.0.0.0–239.255.255.255 tartomány, és mire használják?",
+"o": [
+"C, privát hálózatok",
+"D, multicast",
+"E, kísérleti",
+"A, loopback"
+],
+"a": 1,
+"e": "Multicast: egy adat több címzettnek, kevesebb csomagmásolással (videókonferencia, streaming).",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-18",
+"ch": "e4",
+"t": "mc",
+"q": "Mely első oktett tartomány jelöli a B osztályú címeket?",
+"o": [
+"1–127",
+"128–191",
+"192–223",
+"224–239"
+],
+"a": 1,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-19",
+"ch": "e4",
+"t": "tf",
+"q": "A 11111000.11111111.11111111.00000000 érvényes alhálózati maszk.",
+"a": false,
+"e": "A maszkban balról folytonosan egyeseknek, utána csak nulláknak kell állniuk.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-20",
+"ch": "e4",
+"t": "mc",
+"q": "Mit jelent a /16 CIDR jelölés decimális maszkként?",
+"o": [
+"255.0.0.0",
+"255.255.0.0",
+"255.255.255.0",
+"255.255.255.240"
+],
+"a": 1,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-21",
+"ch": "e4",
+"t": "mc",
+"q": "Melyik logikai művelettel számoljuk ki a hálózati címet az IP címből és a maszkból?",
+"o": [
+"VAGY",
+"KIZÁRÓ VAGY",
+"ÉS",
+"NEM"
+],
+"a": 2,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-22",
+"ch": "e4",
+"t": "mc",
+"q": "Ugyanabban a hálózatban van-e a 192.168.10.11 és a 192.168.20.11, ha a maszk 255.255.255.0?",
+"o": [
+"Nem, routerre van szükség",
+"Igen, egy switch elég hozzá"
+],
+"a": 0,
+"e": "Hálózati címek: 192.168.10.0 és 192.168.20.0 – eltérnek.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-23",
+"ch": "e4",
+"t": "mc",
+"q": "Ugyanabban a hálózatban van-e a 192.168.10.11 és a 192.168.20.11, ha a maszk 255.255.0.0?",
+"o": [
+"Nem, routerre van szükség",
+"Igen, switch elég"
+],
+"a": 1,
+"e": "Mindkét hálózati cím 192.168.0.0.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-24",
+"ch": "e4",
+"t": "mc",
+"q": "Mi a 192.168.10.12/24 broadcast címe?",
+"o": [
+"192.168.10.0",
+"192.168.10.1",
+"192.168.10.254",
+"192.168.10.255"
+],
+"a": 3,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-25",
+"ch": "e4",
+"t": "tf",
+"q": "Egy hálózat hálózati címe és broadcast címe is kiosztható egy-egy gépnek.",
+"a": false,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-26",
+"ch": "e4",
+"t": "card",
+"q": "Alapértelmezett útvonal a routing táblában",
+"b": "0.0.0.0 hálózat, 0.0.0.0 maszk: minden címre illeszkedik (a 0 maszk minden bitet nulláz). A tábla utolsó sora; ide megy minden, ami másra nem illeszkedik.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-27",
+"ch": "e4",
+"t": "tf",
+"q": "A router a továbbítási döntésnél a csomag feladójának címét is vizsgálja.",
+"a": false,
+"e": "Csak a címzett számít – ezért lehetséges az IP spoofing.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-28",
+"ch": "e4",
+"t": "mc",
+"q": "Mi a TTL mező szerepe?",
+"o": [
+"A csomag titkosításának kulcsát hordozza",
+"A fejléc sérülését jelzi a célgép felé",
+"A csomagok sorrendjét adja meg a vevőnek",
+"Routerenként csökken, 0-nál eldobják a csomagot"
+],
+"a": 3,
+"src": "e4-halozati-reteg.html",
+"e": "Végtelen körbe-küldés megakadályozása: routerenként csökken, 0-nál eldobják.",
+"osi": 3
+},
+{
+"id": "e4-29",
+"ch": "e4",
+"t": "mc",
+"q": "Egy csomag 64-es TTL-lel indul és 61-gyel érkezik meg. Hány routeren haladt át?",
+"o": [
+"1",
+"3",
+"61",
+"64"
+],
+"a": 1,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-30",
+"ch": "e4",
+"t": "tf",
+"q": "A VPN és a VLAN ugyanazt jelenti.",
+"a": false,
+"e": "A VLAN 2. rétegbeli logikai szeparáció; a VPN titkosított alagút nyilvános hálózaton át egy távoli hálózatba.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-31",
+"ch": "e4",
+"t": "mc",
+"q": "Miért nem feltétlenül a támadót azonosítja a logban szereplő IP, ha VPN-t használt?",
+"o": [
+"Mert a VPN a TTL-t mindig nullára állítja",
+"Mert a VPN minden csomagot többször továbbít",
+"Mert a célszerver a VPN-átjáró IP-jét látja forrásként",
+"Mert a VPN-forgalom nem kerül a naplóba"
+],
+"a": 2,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-32",
+"ch": "e4",
+"t": "card",
+"q": "IP spoofing és DDoS",
+"b": "A támadó hamis feladó IP-t ír a csomagba. Mivel a routerek csak a címzettet nézik, célba ér; a válaszok a hamisított címre mennek. Ezt használja ki a reflexiós DDoS: sok gépnek küldött kérésre a válaszok az áldozatot bombázzák.",
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e4-33",
+"ch": "e4",
+"t": "mc",
+"q": "Mi a legbiztosabb védelem a közbeékelődéses (MITM) támadás ellen?",
+"o": [
+"Hosszabb TTL beállítása",
+"Statikus IP-cím a gépen",
+"A kommunikáció titkosítása",
+"Több VLAN kialakítása"
+],
+"a": 2,
+"src": "e4-halozati-reteg.html",
+"osi": 3
+},
+{
+"id": "e5-01",
+"ch": "e5",
+"t": "mc",
+"q": "Mi a DHCP címkérés négy lépésének helyes sorrendje?",
+"o": [
+"DISCOVER, OFFER, REQUEST, ACK",
+"REQUEST, OFFER, DISCOVER, ACK",
+"OFFER, DISCOVER, ACK, REQUEST",
+"DISCOVER, REQUEST, OFFER, ACK"
+],
+"a": 0,
+"e": "Szokásos memória: DORA (Discover, Offer, Request, Ack).",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-02",
+"ch": "e5",
+"t": "mc",
+"q": "Milyen forrás- és cél IP címmel megy ki a DHCPDISCOVER?",
+"o": [
+"0.0.0.0 → 255.255.255.255",
+"169.254.0.1 → 192.168.1.1",
+"127.0.0.1 → 0.0.0.0",
+"A gép IP-je → DHCP szerver IP-je"
+],
+"a": 0,
+"e": "A kliensnek még nincs címe, ezért 2. és 3. rétegbeli broadcastot használ.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-03",
+"ch": "e5",
+"t": "mc",
+"q": "Mit tartalmaz legalább egy DHCPOFFER?",
+"o": [
+"Csak DNS-szervert",
+"IP címet és netmaszkot",
+"MAC címet",
+"Csak alapértelmezett átjárót"
+],
+"a": 1,
+"e": "Opcionálisan átjáró, DNS, kapcsolatspecifikus utótag, időszerver is lehet benne.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-04",
+"ch": "e5",
+"t": "tf",
+"q": "A DHCPDISCOVER-re a hálózat minden DHCP-szolgáltatást futtató eszköze válaszol.",
+"a": true,
+"e": "Ezért kaphat a kliens több ajánlatot is, és ezért kell a REQUEST-ben megjelölnie, melyiket fogadta el.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-05",
+"ch": "e5",
+"t": "mc",
+"q": "Miért broadcast üzenet a DHCPREQUEST is?",
+"o": [
+"Mert a kliens még nem ismeri a szerver MAC-címét sem",
+"Mert a router csak broadcast DHCP-üzenetet továbbít",
+"Mert így a kliens gyorsabban kap választ a szervertől",
+"Hogy a többi szerver is lássa: nem az ő ajánlatát fogadták el"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"e": "Hogy a többi szerver is értesüljön: az ő ajánlatukat nem fogadták el, így azok a címek visszaszabadulnak.",
+"osi": 7
+},
+{
+"id": "e5-06",
+"ch": "e5",
+"t": "mc",
+"q": "Mire használja a kliens az ARP-ot a DHCPACK után?",
+"o": [
+"Megújítja vele a bérleti időt a lejárat előtt",
+"Kideríti, melyik routeren át éri el a szervert",
+"Megkeresi a DNS-szerver MAC-címét a hálózaton",
+"Megnézi, nem használja-e más a kapott címet"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"e": "Annak ellenőrzésére, hogy a kapott cím nem tartozik-e már másik géphez.",
+"osi": 7
+},
+{
+"id": "e5-07",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik NEM tartozik a DHCP-vel jellemzően kiosztott paraméterek közé?",
+"o": [
+"IP-cím és netmaszk",
+"Alapértelmezett átjáró",
+"DNS-szerver",
+"A kliens MAC-címe"
+],
+"a": 3,
+"e": "A MAC-cím a hálózati kártya hardveres azonosítója, a kliens küldi, nem kapja.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-08",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik eszközökre ajánlott a jegyzet szerint FIX (statikus) IP-cím az operációs rendszerben megadva?",
+"o": [
+"Vendég okostelefonokra",
+"Szerverekre",
+"Minden eszközre",
+"Munkaállomásokra"
+],
+"a": 1,
+"e": "A szerverek címe ritkán változik, cseréjük tervezett szolgáltatáskieséssel jár.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-09",
+"ch": "e5",
+"t": "mc",
+"q": "Miért praktikus a nyomtatók, AP-k, IP-kamerák címét is a DHCP szerveren (MAC–IP összerendeléssel) kezelni?",
+"o": [
+"Így nincs szükség alapértelmezett átjáróra rajtuk",
+"Így a beállítás központilag, a DHCP szerveren módosítható",
+"Így ezek az eszközök titkosítva kommunikálhatnak",
+"Így az eszközök gyorsabban kapcsolódnak a WiFi-hez"
+],
+"a": 1,
+"src": "e5-dhcp.html",
+"e": "Mert így a beállításuk a DHCP szerveren módosítható, nem kell az (akár álmennyezetben lévő) eszközhöz menni.",
+"osi": 7
+},
+{
+"id": "e5-10",
+"ch": "e5",
+"t": "card",
+"q": "Statikus DHCP cím",
+"b": "A DHCP szerveren egy adott MAC-címhez mindig ugyanaz az IP-cím rendelődik (pl. 28:F0:76:1F:ED:72 → 192.168.10.20). A Packet Tracer ezt nem támogatja, valódi routerek (pl. Mikrotik) igen.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-11",
+"ch": "e5",
+"t": "mc",
+"q": "Mi a bérleti idő (lease) létezésének fő oka?",
+"o": [
+"Mobil eszközök jelzés nélkül távozhatnak",
+"A routernek tudnia kell, mikor kapcsolja ki a portot",
+"Így a DNS-szerver gyorsítótára mindig friss marad",
+"A címek rendszeres cseréje növeli a hálózat biztonságát"
+],
+"a": 0,
+"src": "e5-dhcp.html",
+"e": "A mobil eszközök jelzés nélkül elhagyhatják a hálózatot, a címüket idővel vissza kell kapni.",
+"osi": 7
+},
+{
+"id": "e5-12",
+"ch": "e5",
+"t": "mc",
+"q": "Hol jellemző a jegyzet szerint akár egyórás bérleti idő?",
+"o": [
+"Sehol, a minimum egy nap",
+"Otthoni SOHO routereken",
+"Forgalmas helyeken (étterem, reptér)",
+"Szervertermekben, fix címekkel"
+],
+"a": 2,
+"e": "Forgalmas helyeken, pl. étteremben, repülőtéren. SOHO routeren akár egy hét, gyakori az egy nap.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-13",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik Windows parancs mutatja meg a DHCP szerver címét és a bérlet kezdetét is?",
+"o": [
+"netstat -r",
+"arp -a",
+"ipconfig",
+"ipconfig /all"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-14",
+"ch": "e5",
+"t": "mc",
+"q": "Linuxon melyik parancs adja vissza (engedi el) a DHCP-vel kapott címet?",
+"o": [
+"ip address list",
+"dhclient -r",
+"dhclient",
+"dhclient -v"
+],
+"a": 1,
+"e": "dhclient paraméter nélkül: lekérés/megújítás; -v: a folyamat követése.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-15",
+"ch": "e5",
+"t": "mc",
+"q": "Milyen tartományból választ címet a kliens, ha nem kap választ a DHCPDISCOVER-re?",
+"o": [
+"10.0.0.0/8",
+"192.168.0.0/16",
+"127.0.0.0/8",
+"169.254.0.0/16"
+],
+"a": 3,
+"e": "Ad-hoc hálózat / APIPA.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-16",
+"ch": "e5",
+"t": "tf",
+"q": "Ha egy gép 169.254.x.x címet kapott, az azt jelzi, hogy a DHCP címigénylés sikertelen volt.",
+"a": true,
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-17",
+"ch": "e5",
+"t": "tf",
+"q": "Az APIPA címet használó gépek egyáltalán nem tudnak kommunikálni egymással.",
+"a": false,
+"e": "Az azonos módon címet választó gépek egymással kommunikálni tudnak, ezért is fontos ez információbiztonsági szempontból.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-18",
+"ch": "e5",
+"t": "mc",
+"q": "Hogyan biztosítja az APIPA, hogy a választott cím ne ütközzön?",
+"o": [
+"Sehogy, az ütközést a felhasználó oldja meg",
+"A DHCP szervertől kér megerősítést a címre",
+"ARP-kéréssel ellenőrzi, foglalt-e; ha igen, újat választ",
+"A saját MAC-címéből számolja ki a címet"
+],
+"a": 2,
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-19",
+"ch": "e5",
+"t": "mc",
+"q": "Mit jelent az APIPA rövidítés?",
+"o": [
+"Automatic Private IP Addressing",
+"Advanced Public IP Allocation",
+"Automatic Protocol for IP Assignment",
+"Address Pool IP Agent"
+],
+"a": 0,
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-20",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik a DHCP hátránya a jegyzet szerint forenzikai szempontból?",
+"o": [
+"A naplók titkosítva vannak, nem olvashatók",
+"Nem lehet benne MAC-címet rögzíteni",
+"Minden kliens ugyanazt a címet kapja",
+"A naplókat általában nem őrzik meg sokáig"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"e": "A címkiosztási naplókat általában nem tárolják sokáig, így évekkel később nehéz azonosítani egy incidens forrását.",
+"osi": 7
+},
+{
+"id": "e5-21",
+"ch": "e5",
+"t": "mc",
+"q": "Mi a DHCP starving (kiéheztetés) támadás célja?",
+"o": [
+"A DHCP szerver átjáró-beállításának lecserélése",
+"A kliensek MAC-címének ellopása és felhasználása",
+"A bérleti idő végtelenre állítása minden kliensnél",
+"A címtartomány kimerítése, így új kliens nem kap címet"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"e": "A DHCP szerver címtartományának kimerítése, hogy új kliensek ne kapjanak címet.",
+"osi": 7
+},
+{
+"id": "e5-22",
+"ch": "e5",
+"t": "mc",
+"q": "Hogyan valósítja meg a támadó a DHCP kiéheztetést?",
+"o": [
+"Hamis ARP-válaszokkal elhiteti, hogy a címek foglaltak",
+"Sok hamis MAC-címmel DISCOVER-t küld",
+"Egyetlen MAC-címmel nagyon lassan kér újra és újra címet",
+"Kikapcsolja a DHCP szerver portját a switchen távolról"
+],
+"a": 1,
+"src": "e5-dhcp.html",
+"e": "Sok hamis MAC-címmel DHCPDISCOVER kéréseket küld, a válaszokat figyelmen kívül hagyja.",
+"osi": 7
+},
+{
+"id": "e5-23",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik NEM DHCP kiéheztető eszköz a jegyzet felsorolásában?",
+"o": [
+"DHCPig",
+"Yersinia",
+"Wireshark",
+"Gobbler"
+],
+"a": 2,
+"e": "A felsorolás: Yersinia, Hyenae, Dhcpstarv, Gobbler, DHCPig. A Wireshark forgalomelemző.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-24",
+"ch": "e5",
+"t": "tf",
+"q": "A kiéheztető támadás leállítása után a lefoglalt bérletek azonnal felszabadulnak.",
+"a": false,
+"e": "A bérletek csak lejáratukkor szabadulnak fel; egynapos vagy egyhetes bérletnél a hatás sokáig tart.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-25",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik Cisco parancs korlátozza a DHCP kérések számát időegységenként?",
+"o": [
+"ip dhcp pool LIMIT",
+"ip dhcp snooping limit rate 10",
+"switchport port-security",
+"ip dhcp snooping trust"
+],
+"a": 1,
+"src": "e5-dhcp.html",
+"e": "ip dhcp snooping limit rate [sebesség].",
+"osi": 7
+},
+{
+"id": "e5-26",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik védekezés hatékony a DHCP kiéheztetés ellen (a CAM-támadásnál is ismert)?",
+"o": [
+"Nagyobb címtartomány",
+"Portonkénti MAC-cím korlát",
+"Hosszabb bérleti idő",
+"DNS titkosítás"
+],
+"a": 1,
+"e": "Emellett: statikus beállítás, MAC–IP összerendelés a dinamikus kiosztás tiltásával, rate limit.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-27",
+"ch": "e5",
+"t": "mc",
+"q": "Mi a csaló (rogue) DHCP szerver fő célja?",
+"o": [
+"MITM: a kliensek átjáróját vagy DNS-ét a támadóra állítja",
+"A címtartomány bővítése új, nagyobb hálózati maszkkal",
+"A bérletek naplózása a hatóságok kérésére, titokban",
+"A hálózat gyorsítása egy második, erősebb szerverrel"
+],
+"a": 0,
+"src": "e5-dhcp.html",
+"e": "Közbeékelődéses (MITM) támadás: a kliensek átjáróját vagy DNS-szerverét a támadó gépére állítja.",
+"osi": 7
+},
+{
+"id": "e5-28",
+"ch": "e5",
+"t": "mc",
+"q": "Mire jó a támadónak, ha a csaló DHCP-vel a kliensek DNS-szerverét módosítja?",
+"o": [
+"Elrejti a saját MAC-címét a switch elől",
+"Titkosítja a kliensek teljes forgalmát",
+"Gyorsabb lesz a kliensek névfeloldása",
+"Csaló oldalra irányíthatja a klienseket"
+],
+"a": 3,
+"src": "e5-dhcp.html",
+"e": "A klienseket egy adott weboldal helyett csaló oldalra irányíthatja.",
+"osi": 7
+},
+{
+"id": "e5-29",
+"ch": "e5",
+"t": "tf",
+"q": "A csaló DHCP szerveres támadás gyakran a legitim DHCP szerver kiéheztetésével kezdődik.",
+"a": true,
+"e": "Így az eredeti szerver nem tud válaszolni, csak a támadóé.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-30",
+"ch": "e5",
+"t": "mc",
+"q": "DHCP snooping esetén mit engednek át a nem megbízható (untrusted) portok?",
+"o": [
+"Csak a DHCPOFFER és a DHCPACK üzeneteket",
+"Semmilyen DHCP-üzenetet, kérést sem",
+"Csak a kliensek kéréseit, szerverválaszt nem",
+"Mindent, csak naplózzák a DHCP-forgalmat"
+],
+"a": 2,
+"src": "e5-dhcp.html",
+"e": "Csak a DHCP kéréseket; a DHCPOFFER és DHCPACK üzeneteket blokkolják.",
+"osi": 7
+},
+{
+"id": "e5-31",
+"ch": "e5",
+"t": "mc",
+"q": "Melyik paranccsal jelöljük meg a legitim DHCP szerver felé néző portot snooping esetén?",
+"o": [
+"ip dhcp snooping trust",
+"ip dhcp excluded-address",
+"ip dhcp snooping",
+"service dhcp"
+],
+"a": 0,
+"e": "Előtte globálisan: ip dhcp snooping.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-32",
+"ch": "e5",
+"t": "card",
+"q": "DHCP snooping",
+"b": "Cisco switch funkció: meghatározza a legitim DHCP szervereket. Untrusted portokon csak kliens kérés mehet át (OFFER/ACK tiltva), a trusted porton (ip dhcp snooping trust) jöhet a szerver válasza. Védelem csaló DHCP szerver ellen.",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e5-33",
+"ch": "e5",
+"t": "card",
+"q": "DHCP folyamat (DORA)",
+"b": "1. DISCOVER (broadcast, 0.0.0.0 → 255.255.255.255), 2. OFFER (szerverenként ajánlat: IP + maszk, opcionálisan átjáró, DNS), 3. REQUEST (broadcast: melyik ajánlatot fogadja el), 4. ACK (nyugta; a kliens ARP-pal ellenőrzi a címet).",
+"src": "e5-dhcp.html",
+"osi": 7
+},
+{
+"id": "e6-01",
+"ch": "e6",
+"t": "tf",
+"q": "Az IP protokoll önmagában garantálja, hogy a csomagok megérkeznek és eredeti sorrendben érkeznek.",
+"a": false,
+"e": "Az épség és sorrend ellenőrzése a végpontokon, a szállítási rétegben történik, így a routerek tehermentesülnek.",
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-02",
+"ch": "e6",
+"t": "mc",
+"q": "Hol történik a csomagok épségének és sorrendjének ellenőrzése?",
+"o": [
+"Minden routeren, a hálózati rétegben",
+"A DNS-szerveren, a névfeloldás során",
+"A végpontokon, a szállítási rétegben",
+"A switcheken, az adatkapcsolati rétegben"
+],
+"a": 2,
+"src": "e6-szallitasi-reteg.html",
+"e": "A végfelhasználói gépeken (szállítási réteg).",
+"osi": 4
+},
+{
+"id": "e6-03",
+"ch": "e6",
+"t": "mc",
+"q": "Miért érkezhetnek a csomagok más sorrendben, mint ahogy elküldték őket?",
+"o": [
+"Mert a switch véletlenszerűen továbbít",
+"Mert a csomagok útvonala változhat",
+"Mert a TTL routerenként eggyel csökken",
+"Mert a TCP szándékosan összekeveri őket"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"e": "Mert az útvonaluk változhat (redundáns útvonalak, terheléselosztás).",
+"osi": 4
+},
+{
+"id": "e6-04",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik alkalmazásnál fontosabb a gyorsaság, mint a hibamentes átvitel?",
+"o": [
+"Dokumentum letöltése",
+"E-mail küldése",
+"Fájl feltöltése tárhelyre",
+"IP-telefónia, videokonferencia"
+],
+"a": 3,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-05",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik az összeköttetés alapú (megbízható) szállítási protokoll?",
+"o": [
+"UDP",
+"TCP",
+"ICMP",
+"ARP"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-06",
+"ch": "e6",
+"t": "mc",
+"q": "Mi jellemzi az összeköttetés nélküli átvitelt?",
+"o": [
+"Minden csomag titkosítva és sorszámozva utazik",
+"Nincs kapcsolatfelépítés, a csomagok kézbesítése nem garantált",
+"Kapcsolatfelépítéssel indul, minden csomagot nyugtáz",
+"Csak helyi hálózaton belül használható, routeren nem"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-07",
+"ch": "e6",
+"t": "mc",
+"q": "Mi a Protocol mező értéke az IP fejlécben TCP esetén?",
+"o": [
+"1",
+"6",
+"17",
+"80"
+],
+"a": 1,
+"e": "UDP: 17, (ICMP: 1).",
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-08",
+"ch": "e6",
+"t": "mc",
+"q": "Mi a Protocol mező értéke az IP fejlécben UDP esetén?",
+"o": [
+"6",
+"53",
+"1",
+"17"
+],
+"a": 3,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-09",
+"ch": "e6",
+"t": "mc",
+"q": "Mit tesz a TCP vevő, ha egy csomag ellenőrző összege eltér?",
+"o": [
+"Eldobja és nem csinál semmit",
+"Újraküldést kér",
+"Átadja az alkalmazásnak",
+"Bontja a kapcsolatot"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-10",
+"ch": "e6",
+"t": "mc",
+"q": "Mit tesz az UDP vevő, ha az ellenőrző összeg nem egyezik?",
+"o": [
+"Eldobja a csomagot, újraküldést nem kér",
+"Átadja az alkalmazásnak hibajelzéssel",
+"Újraküldést kér a feladótól",
+"Kijavítja a hibás biteket"
+],
+"a": 0,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-11",
+"ch": "e6",
+"t": "tf",
+"q": "Az UDP sorszámozza a csomagokat és pótolja az elveszetteket.",
+"a": false,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-12",
+"ch": "e6",
+"t": "mc",
+"q": "Mikor tekinti a TCP elveszettnek a csomagot?",
+"o": [
+"Ha a TTL értéke nullára csökken",
+"Ha nagyobb, mint 1500 bájt",
+"Soha, minden csomag megérkezik",
+"Ha egy megadott időn belül nem érkezik meg"
+],
+"a": 3,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-13",
+"ch": "e6",
+"t": "mc",
+"q": "Hogyan fordulhat elő TCP-nél duplikáció?",
+"o": [
+"A UDP és a TCP csomagok összekeverednek a vevőnél",
+"A késő csomag újraküldése után az eredeti is megérkezik",
+"A switch a broadcast miatt minden csomagot megkettőz",
+"A router minden TCP-csomagot kétszer küld el biztonságból"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"e": "Egy nagyon késő csomagot a feladó újraküld, majd az eredeti is megérkezik.",
+"osi": 4
+},
+{
+"id": "e6-14",
+"ch": "e6",
+"t": "card",
+"q": "TCP lépései (jegyzet szerint)",
+"b": "1. Darabolás + ellenőrző összeg. 2. TCP csomag sorszámmal és összeggel. 3. Becsomagolás IP-be (Protocol=6). 4. Vevő sorba rendez, ellenőriz; sérült/elveszett csomagnál újraküldést kér. 5. Ha minden megvan, átadja az alkalmazásnak.",
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-15",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik OSI réteghez tartozik az ICMP?",
+"o": [
+"Szállítási (4.)",
+"Hálózati (3.)",
+"Adatkapcsolati (2.)",
+"Alkalmazási (7.)"
+],
+"a": 1,
+"e": "Az ICMP az IP-hez kapcsolódó vezérlőprotokoll.",
+"megj": "A jegyzet az ICMP-t a szállítási réteg fejezetében tárgyalja; valójában a hálózati réteg része.",
+"src": "e6-szallitasi-reteg.html",
+"osi": 3
+},
+{
+"id": "e6-16",
+"ch": "e6",
+"t": "mc",
+"q": "Mi az ICMP elsődleges célja?",
+"o": [
+"IP-címek kiosztása a klienseknek",
+"Nagy fájlok gyors átvitele",
+"Titkosított kapcsolat kiépítése",
+"Hibák jelzése és diagnosztika"
+],
+"a": 3,
+"src": "e6-szallitasi-reteg.html",
+"e": "Hálózati események, hibák jelzése és diagnosztika.",
+"osi": 3
+},
+{
+"id": "e6-17",
+"ch": "e6",
+"t": "mc",
+"q": "Milyen ICMP üzenetet küld a ping, és mi a válasz?",
+"o": [
+"Time Exceeded → Echo",
+"SYN → ACK",
+"Echo Request → Echo Reply",
+"DISCOVER → OFFER"
+],
+"a": 2,
+"src": "e6-szallitasi-reteg.html",
+"osi": 3
+},
+{
+"id": "e6-18",
+"ch": "e6",
+"t": "mc",
+"q": "Hogyan deríti fel a traceroute (tracert) az útvonal routereit?",
+"o": [
+"A TTL-t 1-től növeli, a routerek ICMP hibával válaszolnak",
+"Lekérdezi minden router routing tábláját SNMP-vel",
+"ARP-kérésekkel keresi meg a routerek MAC-címét",
+"DNS-lekérdezésekkel deríti ki a routerek nevét"
+],
+"a": 0,
+"src": "e6-szallitasi-reteg.html",
+"e": "A TTL-t 1-től növelve küldi a csomagokat; minden router, ahol a TTL 0-ra csökken, ICMP hibaüzenetet küld vissza.",
+"osi": 3
+},
+{
+"id": "e6-19",
+"ch": "e6",
+"t": "tf",
+"q": "Az ICMP üzenetek kézbesítése és sértetlensége garantált.",
+"a": false,
+"src": "e6-szallitasi-reteg.html",
+"osi": 3
+},
+{
+"id": "e6-20",
+"ch": "e6",
+"t": "mc",
+"q": "A tracert egy egyetemi webszerver felé a belső hálózat előtt 'Destination net unreachable' üzenettel megáll. Mi a legvalószínűbb ok a jegyzet példája szerint?",
+"o": [
+"Az intézmény letiltja az ICMP válaszokat",
+"A DNS-szerver nem válaszol",
+"A tracert csak 4 lépést mér",
+"A célszerver ki van kapcsolva"
+],
+"a": 0,
+"src": "e6-szallitasi-reteg.html",
+"osi": 3
+},
+{
+"id": "e6-21",
+"ch": "e6",
+"t": "mc",
+"q": "Mekkora a TCP/UDP port mező, és milyen értékeket vehet fel?",
+"o": [
+"1 bájt, 0–255",
+"2 bájt, 0–65535",
+"4 bájt, 0–4 294 967 295",
+"2 bájt, 1–1024"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-22",
+"ch": "e6",
+"t": "mc",
+"q": "Mire szolgál a portszám?",
+"o": [
+"Hogy a router melyik interfészén menjen ki a csomag",
+"Hogy a gépen belül melyik alkalmazás kapja a csomagot",
+"Hogy a switch melyik VLAN-ba sorolja a keretet",
+"Hogy melyik gép kapja a csomagot a helyi hálózaton"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"e": "Arra, hogy a szállítási réteg a gépen belül a megfelelő alkalmazásnak adja át a csomagot.",
+"osi": 4
+},
+{
+"id": "e6-23",
+"ch": "e6",
+"t": "mc",
+"q": "Mi lesz a válaszcsomag célportja?",
+"o": [
+"Mindig 80",
+"A kérés forrásportja",
+"A kérés célportja",
+"Véletlenszerű"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-24",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik port tartozik a titkosított webszerverhez (HTTPS)?",
+"o": [
+"25",
+"993",
+"443",
+"80"
+],
+"a": 2,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-25",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik port tartozik az SMTP-hez a jegyzet táblázata szerint?",
+"o": [
+"143",
+"110",
+"443",
+"25"
+],
+"a": 3,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-26",
+"ch": "e6",
+"t": "mc",
+"q": "Melyik port az IMAP titkosított változata (IMAPS)?",
+"o": [
+"143",
+"993",
+"995",
+"465"
+],
+"a": 1,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-27",
+"ch": "e6",
+"t": "mc",
+"q": "Mi az alapértelmezett célportja a böngészőből induló titkosítatlan kérésnek?",
+"o": [
+"80",
+"443",
+"8080",
+"21"
+],
+"a": 0,
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-28",
+"ch": "e6",
+"t": "mc",
+"q": "Hol található Unix/macOS rendszeren a szolgáltatásnevek és portszámok listája?",
+"o": [
+"/var/log/ports",
+"/etc/resolv.conf",
+"/etc/services",
+"/etc/hosts"
+],
+"a": 2,
+"e": "Windowson: \\Windows\\system32\\Drivers\\etc\\services.",
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e6-29",
+"ch": "e6",
+"t": "card",
+"q": "Szállítási réteg feladatai",
+"b": "Az adatfolyam egységeinek sorszámozása, a sérülések ellenőrzése és a csomag eljuttatása a gépen belül a megfelelő alkalmazáshoz (portszám alapján).",
+"src": "e6-szallitasi-reteg.html",
+"osi": 4
+},
+{
+"id": "e8-01",
+"ch": "e8",
+"t": "mc",
+"q": "Miért alkalmas az átjáró (router) tűzfal szerepre?",
+"o": [
+"Mert neki van a legnagyobb memóriája a hálózatban",
+"Mert minden kimenő és bejövő csomag rajta megy át",
+"Mert ő végzi a névfeloldást minden belső gépnek",
+"Mert ő osztja ki a belső gépek IP-címeit"
+],
+"a": 1,
+"src": "e7-firewalls.html",
+"e": "Mert a belső hálózat és az Internet közötti minden csomag áthalad rajta.",
+"osi": 3
+},
+{
+"id": "e8-02",
+"ch": "e8",
+"t": "card",
+"q": "Tűzfal",
+"b": "Az átjárón futó szoftver, amely minden áthaladó csomagot megvizsgál, és dönt róla, hogy áthaladhat-e. (A 7. fejezet többi része a jegyzetben még vázlat: port filter, alkalmazás tűzfal, proxy, DMZ, port forward.)",
+"src": "e7-firewalls.html",
+"osi": 3
+},
+{
+"id": "e8-03",
+"ch": "e8",
+"t": "mc",
+"q": "Hány elvi IPv4 cím létezik?",
+"o": [
+"Kb. 400 millió",
+"2³² ≈ 4,29 milliárd",
+"2⁶⁴",
+"256 × 4 = 1024"
+],
+"a": 1,
+"e": "32 bites cím → 2³² = 4 294 967 296.",
+"megj": "A jegyzetben tévesen „valamivel több, mint 41 milliárd” szerepel.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-04",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik a 10-es privát tartomány?",
+"o": [
+"10.0.0.0/12",
+"10.0.0.0/16",
+"10.0.0.0/8",
+"10.0.0.0/24"
+],
+"a": 2,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-05",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik a privát B tartomány az RFC 1918 szerint?",
+"o": [
+"172.16.0.0/16",
+"172.16.0.0/12",
+"172.0.0.0/8",
+"172.31.0.0/16"
+],
+"a": 1,
+"e": "172.16.0.0–172.31.255.255.",
+"megj": "A jegyzetben tévesen 172.16.0.0/16 szerepel.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-06",
+"ch": "e8",
+"t": "mc",
+"q": "Hány C osztályú hálózatot foglal magában a 192.168.0.0/16 tartomány?",
+"o": [
+"128",
+"256",
+"16",
+"65536"
+],
+"a": 1,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-07",
+"ch": "e8",
+"t": "tf",
+"q": "Az internetes útválasztók nem továbbítják a privát címekre szóló forgalmat.",
+"a": true,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-08",
+"ch": "e8",
+"t": "tf",
+"q": "Ha két különböző cég belső hálózata ugyanazt a privát tartományt használja, az ütközést okoz az interneten.",
+"a": false,
+"e": "A privát címek nem kerülnek ki az internetre, ezért nem ütköznek.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-09",
+"ch": "e8",
+"t": "mc",
+"q": "Mire való a 127.0.0.0/8 tartomány?",
+"o": [
+"A privát B osztályú tartomány",
+"Loopback: a gép saját magát címzi",
+"Multicast csoportok címtartománya",
+"Ad-hoc (APIPA) címek tartománya"
+],
+"a": 1,
+"megj": "A jegyzet a privát tartományok közé sorolja.",
+"src": "e8-nat.html",
+"e": "Loopback: az eszköz saját magát címzi meg. A loopback nem RFC 1918 privát tartomány, hanem külön, foglalt tartomány.",
+"osi": 3
+},
+{
+"id": "e8-10",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik eszköz végzi a címfordítást?",
+"o": [
+"Router",
+"DNS-szerver",
+"Access point",
+"Switch"
+],
+"a": 0,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-11",
+"ch": "e8",
+"t": "mc",
+"q": "Hol használható jól a „klasszikus” (több publikus címes) NAT a jegyzet szerint?",
+"o": [
+"Sehol, mára teljesen elavult",
+"Nagyvállalati hálózatokban",
+"Csak szervereknél, kívülről",
+"Otthoni SOHO routereken"
+],
+"a": 1,
+"e": "A PAT a kisebb (SOHO) hálózatokban terjedt el.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-12",
+"ch": "e8",
+"t": "mc",
+"q": "Mi a NAT tábla négy oszlopa?",
+"o": [
+"MAC-cím, IP-cím, VLAN, port, bérleti idő",
+"Belső helyi, belső globális, külső helyi, külső globális cím",
+"Forrás IP, cél IP, forrás port, cél port, protokoll",
+"Hálózat, maszk, átjáró, metrika, interfész"
+],
+"a": 1,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-13",
+"ch": "e8",
+"t": "mc",
+"q": "NAT esetén a 192.168.1.11:40001 → 142.251.208.142:80 csomagot a router kiküldi. Mit cserél ki benne?",
+"o": [
+"A célcímet a router belső címére",
+"A célportot egy szabad véletlen portra",
+"A forráscímet egy szabad publikus címre",
+"A forrás MAC-címet a router címére"
+],
+"a": 2,
+"src": "e8-nat.html",
+"e": "A forrás IP-t egy szabad publikus címre (pl. 193.225.32.2).",
+"osi": 3
+},
+{
+"id": "e8-14",
+"ch": "e8",
+"t": "mc",
+"q": "Mi a belső globális cím a NAT táblában?",
+"o": [
+"A külső szerver valódi publikus címe",
+"A belső gép eredeti, privát címe",
+"A router belső interfészének címe",
+"A belső géphez rendelt publikus cím"
+],
+"a": 3,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-15",
+"ch": "e8",
+"t": "mc",
+"q": "Visszaérkező válasznál mi alapján írja vissza a router a cél IP-t a belső címre?",
+"o": [
+"NAT tábla bejegyzése",
+"A DNS gyorsítótár",
+"A routing tábla",
+"Az ARP tábla"
+],
+"a": 0,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-16",
+"ch": "e8",
+"t": "mc",
+"q": "Miben különbözik a PAT a NAT-tól?",
+"o": [
+"A PAT egy publikus címet használ, a portok különböztetik meg",
+"A PAT a célcímet cseréli, a NAT a forráscímet, ez a különbség",
+"A PAT több publikus címet használ, a MAC-címek döntenek",
+"A PAT csak UDP-forgalmat fordít, a TCP-t érintetlenül hagyja"
+],
+"a": 0,
+"src": "e8-nat.html",
+"e": "A PAT egyetlen publikus címet használ, a kapcsolatokat portszámok alapján különbözteti meg.",
+"osi": 3
+},
+{
+"id": "e8-17",
+"ch": "e8",
+"t": "mc",
+"q": "PAT esetén mit tesz a router, ha a belső gép forrásportja (40001) már foglalt a PAT táblában?",
+"o": [
+"Eldobja a csomagot, és ICMP hibát küld vissza",
+"Szabad portot keres (pl. 62126), és azt használja",
+"Új publikus címet kér az internetszolgáltatótól",
+"Megvárja, amíg a 40001-es port felszabadul"
+],
+"a": 1,
+"src": "e8-nat.html",
+"e": "Szabad portot keres (pl. 62126), és azt használja forrásportként.",
+"osi": 3
+},
+{
+"id": "e8-18",
+"ch": "e8",
+"t": "mc",
+"q": "PAT esetén mi lesz a kimenő csomag forráscíme?",
+"o": [
+"A router külső (publikus) címe",
+"0.0.0.0",
+"A szerver címe",
+"A belső gép privát címe"
+],
+"a": 0,
+"megj": "A jegyzet PAT példájának 3. lépésében tévesen 193.225.32.2 szerepel célcímként.",
+"src": "e8-nat.html",
+"e": "A válaszcsomag célcíme is a router külső címe (193.225.32.1), célportja a PAT-port.",
+"osi": 3
+},
+{
+"id": "e8-19",
+"ch": "e8",
+"t": "tf",
+"q": "A NAT részleges védelmet nyújt, mert kívülről kezdeményezett új kapcsolatnak nincs NAT bejegyzése, így a router eldobja.",
+"a": true,
+"e": "A jegyzet szerint ez önmagában nem elegendő védelem.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-20",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik a NAT előnye?",
+"o": [
+"Takarékoskodik a publikus címekkel",
+"Gyorsítja az IPSec-et",
+"Csökkenti a router terhelését",
+"Megkönnyíti a nyomon követést"
+],
+"a": 0,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-21",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik protokoll/szolgáltatás működik rosszul NAT mögött a jegyzet szerint?",
+"o": [
+"DNS (a nevek nem oldhatók fel)",
+"ARP (a MAC-címek nem láthatók)",
+"DHCP (nem kap címet a kliens)",
+"IPSec (nem végpontok között ér véget)"
+],
+"a": 3,
+"src": "e8-nat.html",
+"e": "IPSec (nem végponttól végpontig tart a kapcsolat).",
+"osi": 3
+},
+{
+"id": "e8-22",
+"ch": "e8",
+"t": "mc",
+"q": "Melyik alkalmazás nem működik, ha a kliens és a szerver is NAT mögött van (jegyzet példája)?",
+"o": [
+"Passzív módú FTP",
+"HTTPS böngészés",
+"Ping",
+"DNS-lekérdezés"
+],
+"a": 0,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-23",
+"ch": "e8",
+"t": "mc",
+"q": "Miért nehezíti a NAT az incidenskezelést?",
+"o": [
+"Titkosítja a router naplóit",
+"Elrejti a kérő belső gép kilétét",
+"Törli a kliensek MAC-címét",
+"Kikapcsolja az ICMP-üzeneteket"
+],
+"a": 1,
+"src": "e8-nat.html",
+"e": "Elrejti a szolgáltatást kérő belső gép kilétét.",
+"osi": 3
+},
+{
+"id": "e8-24",
+"ch": "e8",
+"t": "mc",
+"q": "Miért érdemes új hálózat tervezésekor kerülni a 192.168.0.0/24 és 192.168.1.0/24 tartományokat?",
+"o": [
+"Mert ezek publikus címek, az interneten ütköznének",
+"Mert a Cisco routerek nem támogatják ezeket",
+"A SOHO routerek ezeket használják, VPN-nél ütközés lesz",
+"Mert túl kicsik, csak 126 gép fér el bennük"
+],
+"a": 2,
+"e": "Mert a SOHO routerek alapértelmezettként ezeket használják, és home office VPN-nél ütközés lesz. A jegyzet pl. 192.168.22.0/24 használatát javasolja.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-25",
+"ch": "e8",
+"t": "mc",
+"q": "Hogyan nevezik más gyártók (pl. Mikrotik) a belső hálózatból kifelé irányuló NAT-ot?",
+"o": [
+"dstnat",
+"srcnat",
+"masq-in",
+"PAT-out"
+],
+"a": 1,
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e8-26",
+"ch": "e8",
+"t": "card",
+"q": "NAT vs. PAT",
+"b": "NAT: a router egy publikus címtartományból kölcsönöz címet a belső gépnek (belső helyi ↔ belső globális). PAT: egyetlen publikus cím (a router külső címe), a kapcsolatokat a portszámok különböztetik meg; SOHO routereken ez a jellemző.",
+"src": "e8-nat.html",
+"osi": 3
+},
+{
+"id": "e9-01",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a DNS feladata?",
+"o": [
+"Csomagok titkosítása a hálózaton",
+"IP-címek kiosztása a kliensek számára",
+"IP-címek MAC-címre fordítása",
+"Nevek és IP-címek egymásba alakítása"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Nevek IP-címmé (és IP-címek névvé) alakítása.",
+"osi": 7
+},
+{
+"id": "e9-02",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a különbség a névfeloldás és a címfeloldás között?",
+"o": [
+"Névfeloldás: név → IP; címfeloldás: IP → név",
+"Névfeloldás: IP → MAC; címfeloldás: MAC → IP",
+"Nincs különbség",
+"A címfeloldás csak IPv6-ban van"
+],
+"a": 0,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-03",
+"ch": "e9",
+"t": "mc",
+"q": "Hol található a hosts fájl Unix rendszereken (és Androidon)?",
+"o": [
+"/usr/hosts",
+"/var/hosts",
+"/etc/services",
+"/etc/hosts"
+],
+"a": 3,
+"e": "Windowson: \\windows\\system32\\drivers\\etc\\hosts.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-04",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik a hosts fájl tipikus biztonsági veszélye?",
+"o": [
+"Kikapcsolja a böngésző tanúsítvány-ellenőrzését",
+"Egy bank nevét hamis IP-címhez lehet kötni",
+"Lelassítja a gép indulását, ha túl sok sort tartalmaz",
+"Törli a böngésző sütijeit minden újraindításnál"
+],
+"a": 1,
+"e": "Támadó egy bank nevét hamis IP-címhez rendelheti, és csaló oldalra irányíthatja a felhasználót. Szoftver jogosulatlan aktiválására és oldalak elérhetetlenné tételére is használható.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-05",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a TLD a www.uni-nke.hu névben?",
+"o": [
+".hu",
+"uni-nke",
+"www",
+"uni-nke.hu"
+],
+"a": 0,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-06",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a typosquatting?",
+"o": [
+"A DNS gyorsítótár szándékos törlése",
+"Egy domain regisztrációjának lejáratása",
+"Túl hosszú domain név használata",
+"Elírásra épülő, megtévesztő domain regisztrálása"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Apró elírásra épülő, megtévesztő domain regisztrálása (pl. .qov.hu a .gov.hu helyett).",
+"osi": 7
+},
+{
+"id": "e9-07",
+"ch": "e9",
+"t": "tf",
+"q": "Magyarországon a domaint az kapja, aki elsőként kéri, meghirdetés nélkül.",
+"a": false,
+"e": "Magyarországon kéthetes meghirdetés után lehet megvásárolni; Amerikában az kapja, aki előbb kéri.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-08",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a névfeloldás első lépése a munkaállomáson?",
+"o": [
+"A helyi gyorsítótár (cache) ellenőrzése",
+"A gyökérnévszerver megkérdezése",
+"A whois lekérdezése",
+"A .hu szerver megkérdezése"
+],
+"a": 0,
+"e": "Utána a hosts fájl, majd a beállított helyi névszerver.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-09",
+"ch": "e9",
+"t": "mc",
+"q": "Mit jelent az authoritative DNS válasz?",
+"o": [
+"A névszerver a saját adatait küldi",
+"A névszerver máshonnan kérdezte le",
+"A válasz titkosított",
+"A válasz a hosts fájlból jön"
+],
+"a": 0,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-10",
+"ch": "e9",
+"t": "mc",
+"q": "Kihez fordul a névszerver, ha nincs információja a kért névről?",
+"o": [
+"A DHCP szerverhez",
+"A gyökérnévszerverekhez",
+"A routerhez",
+"A böngészőhöz"
+],
+"a": 1,
+"e": "A gyökér → .hu TLD szerver → uni-nke.hu szerver → www.uni-nke.hu cím.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-11",
+"ch": "e9",
+"t": "mc",
+"q": "Mi határozza meg, meddig marad a DNS válasz a gyorsítótárban?",
+"o": [
+"A böngésző beállítása",
+"A válasz TTL értéke",
+"A DHCP bérleti idő",
+"A kliens MAC-címe"
+],
+"a": 1,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-12",
+"ch": "e9",
+"t": "mc",
+"q": "Miért kell a munkaállomáson a DNS szervert IP-címmel megadni?",
+"o": [
+"Mert a DNS-szerverek neve titkos, nem publikus",
+"Mert névvel megadva lassabban válaszolna a szerver",
+"Mert a DHCP csak IP-címet tud átadni a kliensnek",
+"Mert a névszerver nevét is egy névszerver oldaná fel"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Mert a névszervert nem lehet névvel megadni (a név feloldásához épp ő kellene).",
+"osi": 7
+},
+{
+"id": "e9-13",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik Windows parancs törli a DNS gyorsítótárat?",
+"o": [
+"ipconfig /flushdns",
+"ipconfig /release",
+"dig +trace",
+"nslookup -c"
+],
+"a": 0,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-14",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik parancs ad részletes technikai DNS információt Unixon?",
+"o": [
+"whois",
+"host",
+"dig",
+"ping"
+],
+"a": 2,
+"e": "nslookup: név↔IP lekérdezés; host: rövidebb kimenet.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-15",
+"ch": "e9",
+"t": "mc",
+"q": "Mire való a dinamikus DNS (pl. no-ip)?",
+"o": [
+"Saját gyökérnévszerver futtatása otthoni routeren",
+"Változó IP-című eszköz neve kövesse az aktuális IP-t",
+"A DNS-forgalom titkosítása a szolgáltató felé",
+"Domain név regisztrálása ideiglenesen, ingyen"
+],
+"a": 1,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Változó IP-című eszköz (pl. otthoni router) neve automatikusan kövesse az aktuális IP-t.",
+"osi": 7
+},
+{
+"id": "e9-16",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a DNS alapvető gyengesége a jegyzet szerint?",
+"o": [
+"Nem használ gyorsítótárat, ezért nagyon lassú",
+"Csak IPv6-címeket képes feloldani a kliensek számára",
+"Minden lekérdezés titkosított, nem ellenőrizhető",
+"A résztvevők nincsenek azonosítva, a válaszok könnyen hamisíthatók"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-17",
+"ch": "e9",
+"t": "mc",
+"q": "Hogyan működik a DNS-alapú (reflexiós) DDoS?",
+"o": [
+"Hamis forráscímű kérésekre nagy válaszok mennek a célpontra",
+"A támadó lekapcsolja a gyökérnévszervereket egyenként",
+"A támadó a célpont DNS-gyorsítótárát nullázza",
+"A támadó átírja a célpont hosts fájlját távolról"
+],
+"a": 0,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Fertőzött gépek a célpont nevében (hamis forráscímmel) nagy válaszokat kiváltó kéréseket küldenek, a válaszok a célpontot terhelik.",
+"osi": 7
+},
+{
+"id": "e9-18",
+"ch": "e9",
+"t": "mc",
+"q": "Mire használható incidenskezelés során a WhoIs adatbázis?",
+"o": [
+"Egy gép elfelejtett jelszavának visszaállítására",
+"A DNS-gyorsítótár távoli törlésére a támadónál",
+"Egy weboldal tanúsítványának kiállítására",
+"Egy IP-cím tulajdonosának azonosítására"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Egy IP-cím/hálózat tulajdonosának és kapcsolattartójának azonosítására.",
+"osi": 7
+},
+{
+"id": "e9-19",
+"ch": "e9",
+"t": "mc",
+"q": "Hol írják le a protokollokat?",
+"o": [
+"Cisco kézikönyvekben",
+"A hosts fájlban",
+"RFC dokumentumokban",
+"A böngésző súgójában"
+],
+"a": 2,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "RFC (Request for Comments) dokumentumokban.",
+"osi": 7
+},
+{
+"id": "e9-20",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik protokoll szolgál levél küldésére?",
+"o": [
+"POP3",
+"IMAP",
+"SMTP",
+"HTTP"
+],
+"a": 2,
+"e": "POP3: letöltés; IMAP: postafiók kezelése a szerveren.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-21",
+"ch": "e9",
+"t": "mc",
+"q": "SMTP telnetes párbeszédben mit jelent a szerver 354-es válasza?",
+"o": [
+"Sikeres parancs, a szerver készen áll",
+"Üdvözlés, a szerver elérhető",
+"Jöhet az üzenet, egy pont zárja",
+"A kapcsolat lezárult, viszlát"
+],
+"a": 2,
+"e": "Kezdheted az üzenet bevitelét, egy sorban álló ponttal zárd. 220: üdvözlés, 250: OK, 221: kapcsolat bontása.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-22",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik az SMTP parancsok helyes sorrendje egy levél küldésekor?",
+"o": [
+"mail from, EHLO, data, rcpt to, quit",
+"rcpt to, mail from, EHLO, data, quit",
+"EHLO, mail from, rcpt to, data, quit",
+"data, EHLO, rcpt to, mail from, quit"
+],
+"a": 2,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-23",
+"ch": "e9",
+"t": "mc",
+"q": "Mit jelent a protokollnév végén az S (pl. HTTPS, SMTPS)?",
+"o": [
+"Static: statikus címes",
+"Server: szerveroldali",
+"Simple: egyszerűsített",
+"Secure: titkosított"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Secure: titkosított változat.",
+"osi": 7
+},
+{
+"id": "e9-24",
+"ch": "e9",
+"t": "mc",
+"q": "Mit igazol egy hitelesítő szervezet által aláírt tanúsítvány?",
+"o": [
+"Hogy az oldal gyorsan és megbízhatóan töltődik be",
+"Hogy az oldal használata ingyenes",
+"Hogy az oldalon nincs kártékony program",
+"Hogy a felhasználó valóban a kívánt oldalon van"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-25",
+"ch": "e9",
+"t": "mc",
+"q": "Mikor figyelmeztet a böngésző tanúsítvány miatt?",
+"o": [
+"Ha az oldal .hu végződésű, de külföldi kiadótól van",
+"Ha az aláírás idegen, a név nem egyezik, vagy lejárt",
+"Ha az oldal lassan töltődik be, vagy sok a hirdetés",
+"Ha az oldal HTTP-n érhető el titkosítás nélkül"
+],
+"a": 1,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-26",
+"ch": "e9",
+"t": "tf",
+"q": "A LetsEncrypt tanúsítvány titkosított átvitelt ad, de a jegyzet szerint az oldal valódiságát (a tulajdonos kilétét) nem igazolja.",
+"a": true,
+"e": "Ingyenes, iratok nélkül igényelhető.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-27",
+"ch": "e9",
+"t": "mc",
+"q": "A jelszoellenorzes.uni-esztehazy.hu oldalnak hibátlan tanúsítványa van. Miért veszélyes mégis?",
+"o": [
+"Nem HTTPS-en érhető el",
+"A tanúsítványa már lejárt",
+"Megtévesztő név: hiányzik egy „r”",
+"Külföldi a tanúsítvány kiadója"
+],
+"a": 2,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Megtévesztő név: hiányzik egy „r” (eszterhazy).",
+"osi": 7
+},
+{
+"id": "e9-28",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a proxy szerver eredeti célja?",
+"o": [
+"IP-címek kiosztása a belső hálózat gépeinek",
+"Nevek IP-címmé alakítása a belső gépek számára",
+"A forgalom titkosítása a kliensek és a szerver között",
+"Tartalom tárolása (cache) és újrafelhasználása"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Tartalom átmeneti tárolása (cache) és újrafelhasználása, sávszélesség-megtakarítás.",
+"osi": 7
+},
+{
+"id": "e9-29",
+"ch": "e9",
+"t": "tf",
+"q": "A böngésző privát módja teljes anonimitást nyújt, az ISP és a DNS-szolgáltató sem látja a forgalmat.",
+"a": false,
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-30",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik a VPN-használat kockázata BYOD esetén?",
+"o": [
+"A ping nem működik a VPN-alagúton keresztül",
+"Ellenőrizetlen saját eszköz kerül a belső hálózatba",
+"A VPN miatt a DNS-lekérdezések lelassulnak",
+"A vállalati hálózat portjai hamar elfogynak"
+],
+"a": 1,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Ellenőrizetlen saját eszköz (malware, hiányzó vírusvédelem) kerül a belső hálózatba.",
+"osi": 7
+},
+{
+"id": "e9-31",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik rétegben működik az IPsec VPN a jegyzet szerint?",
+"o": [
+"Alkalmazási",
+"IP (hálózati) réteg",
+"Fizikai",
+"Adatkapcsolati"
+],
+"a": 1,
+"e": "A böngészőbe épített VPN az alkalmazási rétegben működik.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-32",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a különbség az IDS és az IPS között?",
+"o": [
+"Az IPS csak naplóz, az IDS blokkolja a forgalmat is",
+"Az IDS a vírusokat, az IPS a spamet szűri ki",
+"Nincs különbség, ugyanannak a két neve van",
+"Az IDS jelez, az IPS a támadó kapcsolatot meg is szakítja"
+],
+"a": 3,
+"src": "e9-alkalmazasi-reteg.html",
+"e": "Az IDS felügyel és riportol, az IPS ezen túl blokkolja/megszakítja a támadó kapcsolatot.",
+"osi": 7
+},
+{
+"id": "e9-33",
+"ch": "e9",
+"t": "mc",
+"q": "Mi a SIEM rendszer feladata?",
+"o": [
+"Domain nevek regisztrálása és megújítása a szervezet nevében",
+"IP-címek kiosztása és nyilvántartása a vállalati hálózatban",
+"Vírusirtás a munkaállomásokon, vírusdefiníció-frissítéssel",
+"Több eszköz felügyelete, események összefüggéseinek elemzése"
+],
+"a": 3,
+"e": "Több eszköz egyidejű felügyelete, összefüggések elemzése, gyors incidensreagálás. Példa: Wazuh (ingyenes).",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-34",
+"ch": "e9",
+"t": "mc",
+"q": "Melyik sérülékenységvizsgáló eszköz?",
+"o": [
+"Nessus",
+"Wazuh",
+"tcpdump",
+"Tor"
+],
+"a": 0,
+"e": "Nessus, Nexpose. A tcpdump/Wireshark forgalomelemző.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "e9-35",
+"ch": "e9",
+"t": "card",
+"q": "DNS lekérdezés lépései",
+"b": "1. helyi cache → 2. hosts fájl → 3. beállított helyi névszerver → 4. gyökérnévszerver → 5. TLD (.hu) szerver → 6. a domain (uni-nke.hu) szervere → 7. válasz cache-be (TTL-ig) → 8. az alkalmazás megkapja.",
+"src": "e9-alkalmazasi-reteg.html",
+"osi": 7
+},
+{
+"id": "gy0-01",
+"ch": "gy0",
+"t": "mc",
+"q": "Melyik volt az első, korlátozott funkciójú PC-s böngésző (1993)?",
+"o": [
+"Netscape Navigator",
+"Opera",
+"Internet Explorer",
+"Mosaic"
+],
+"a": 3,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-02",
+"ch": "gy0",
+"t": "mc",
+"q": "Miből származik a böngészőgyártók bevétele, ha a böngésző ingyenes?",
+"o": [
+"A keresőszolgáltatás eladásából és célzott hirdetésekből",
+"Állami támogatásból, mert a böngésző közszolgáltatás",
+"Havi előfizetési díjból, amelyet a felhasználó fizet",
+"Az operációs rendszer licencdíjának egy részéből"
+],
+"a": 0,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "A keresőszolgáltatás értékesítéséből és a gyűjtött felhasználói adatokra épülő célzott hirdetésekből.",
+"osi": 7
+},
+{
+"id": "gy0-03",
+"ch": "gy0",
+"t": "mc",
+"q": "Hogyan határozható meg egy WiFi-hez kapcsolódó gép helye IP-cím nélkül is?",
+"o": [
+"A DNS-szerver címéből, amely országonként eltér",
+"A környező WiFi-hálózatok azonosítóiból és azok gyűjtött helyadataiból",
+"A gép MAC-címéből, amely a gyártás helyét kódolja",
+"A böngésző sütijeiből, amelyek a pozíciót tárolják"
+],
+"a": 1,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-04",
+"ch": "gy0",
+"t": "mc",
+"q": "Mi a rosszindulatú böngészőbővítmény elleni védekezés?",
+"o": [
+"Engedjük a bővítményeket csak privát módban futni",
+"Használjunk proxyt, az kiszűri a kártékony bővítményt",
+"Kapcsoljuk ki a böngésző automatikus frissítését végleg",
+"Olvassuk el az ablakokat, és töröljük a felesleges bővítményeket"
+],
+"a": 3,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "Olvassuk el a párbeszédablakokat, és rendszeresen nézzük át, töröljük a felesleges beépülőket.",
+"osi": 7
+},
+{
+"id": "gy0-05",
+"ch": "gy0",
+"t": "mc",
+"q": "Honnan szabad böngészőfrissítést telepíteni?",
+"o": [
+"Bármely weboldal felugró ablakából, ha sürgeti",
+"E-mail mellékletből, ha a gyártó nevében érkezik",
+"A gyártó oldaláról vagy az OS frissítőjéből",
+"Fájlmegosztó oldalról, ha sokan letöltötték már"
+],
+"a": 2,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "A gyártó weboldaláról vagy az OS saját frissítési szolgáltatásán keresztül.",
+"osi": 7
+},
+{
+"id": "gy0-06",
+"ch": "gy0",
+"t": "mc",
+"q": "Miért veszélyes, ha a támadó kiolvassa a könyvjelzőket/előzményeket?",
+"o": [
+"Nem veszélyes, ezek nyilvános adatok",
+"A mentett jelszavak automatikusan törlődnek",
+"A böngésző lelassul, és újra kell telepíteni",
+"Kiderülhet a bankunk, és célzott csalóleveleket kaphatunk"
+],
+"a": 3,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "Megtudhatja pl. melyik bankkal állunk kapcsolatban, és célzott megtévesztő levelet küldhet.",
+"osi": 7
+},
+{
+"id": "gy0-07",
+"ch": "gy0",
+"t": "mc",
+"q": "Mi a böngészőben tárolt jelszavak leggyakoribb gyengesége a jegyzet szerint?",
+"o": [
+"A szinkronizálás hiánya miatt elvesznek",
+"A böngésző gyenge titkosítást használ",
+"A gép nincs zárolva, így bárki hozzáfér",
+"A jelszavak túl hosszúak, könnyű elírni"
+],
+"a": 2,
+"e": "A gép nincs jelszóval védve/zárolva, így bárki hozzáfér a tárolóhoz. Őrizetlen gépet zárolni kell (Windows + L).",
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-08",
+"ch": "gy0",
+"t": "mc",
+"q": "Melyik oldalon ellenőrizhető, hogy egy e-mail cím vagy jelszó érintett-e adatszivárgásban?",
+"o": [
+"haveibeenpwned.com",
+"domain.hu",
+"myactivity.google.com",
+"hak5.org"
+],
+"a": 0,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-09",
+"ch": "gy0",
+"t": "mc",
+"q": "Melyik a cookie-k biztonsági kockázata?",
+"o": [
+"Vírust tartalmazhat, amely magától települ a gépre",
+"Törli a böngésző gyorsítótárát minden bezáráskor",
+"Átmásolva más gépen is bejelentkezett állapotot adhat",
+"Lelassítja a hálózatot, mert minden kérésnél letöltődik"
+],
+"a": 2,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "A cookie-fájl átmásolható más gépre, ahol akár bejelentkezett állapotot is biztosíthat.",
+"osi": 7
+},
+{
+"id": "gy0-10",
+"ch": "gy0",
+"t": "mc",
+"q": "Melyik böngésző vezette be elsőként a cookie-kat?",
+"o": [
+"Netscape Navigator",
+"Internet Explorer",
+"Google Chrome",
+"Mosaic"
+],
+"a": 0,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-11",
+"ch": "gy0",
+"t": "tf",
+"q": "Idegen gépen bejelentkezni a saját böngészőfiókunkba súlyos biztonsági hiba, mert a szinkronizált adatok (jelszavak, cookie-k, akár bankkártyaadatok) letöltődnek oda.",
+"a": true,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-12",
+"ch": "gy0",
+"t": "mc",
+"q": "Mit NEM ment helyben a böngésző privát módban?",
+"o": [
+"A könyvjelzőket, amelyeket felvettünk",
+"A letöltött fájlokat a mappában",
+"A cookie-kat, jelszavakat és meglátogatott címeket",
+"Semmit, csak a megjelenés sötétebb"
+],
+"a": 2,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-13",
+"ch": "gy0",
+"t": "mc",
+"q": "Privát módban ki láthatja továbbra is a meglátogatott oldalakat?",
+"o": [
+"A hálózat üzemeltetője, az ISP és a DNS-szolgáltató",
+"Senki, a privát mód mindent elrejt",
+"Csak a böngésző gyártója, más senki",
+"Csak a felhasználó a saját gépén"
+],
+"a": 0,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "A szervezet hálózati eszközei, az internetszolgáltató és a DNS-szolgáltató.",
+"osi": 7
+},
+{
+"id": "gy0-14",
+"ch": "gy0",
+"t": "mc",
+"q": "Mi a proxy szerver kockázata a böngészés szempontjából?",
+"o": [
+"Az üzemeltető részletes böngészési statisztikát készíthet",
+"A proxy törli a böngésző mentett jelszavait",
+"A proxy miatt a gép IP-címe nyilvánossá válik",
+"A proxy minden HTTPS-oldalt automatikusan letilt"
+],
+"a": 0,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "Az üzemeltető részletes böngészési statisztikát készíthet; kompromittált proxy információt adhat a támadónak.",
+"osi": 7
+},
+{
+"id": "gy0-15",
+"ch": "gy0",
+"t": "mc",
+"q": "Milyen végződésűek a darknet oldalak címei?",
+"o": [
+".dark",
+".onion",
+".tor",
+".hidden"
+],
+"a": 1,
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-16",
+"ch": "gy0",
+"t": "mc",
+"q": "Hogyan biztosítja a Tor a látogató névtelenségét?",
+"o": [
+"Hamis MAC-címet használ, ezért a szerver nem azonosítja",
+"Titkosítja a hosts fájlt, így a DNS nem látja a kéréseket",
+"Több csomóponton át továbbít, a cél csak a kilépési pontot látja",
+"Minden csomagot VPN-en küld, amely elrejti a forrás IP-címét"
+],
+"a": 2,
+"src": "gy0-internet-szolgaltatasok.html",
+"e": "Több csomóponton át továbbít; a célszerver csak a kilépési pontot látja.",
+"osi": 7
+},
+{
+"id": "gy0-17",
+"ch": "gy0",
+"t": "tf",
+"q": "A Tor használatának ténye forgalomelemzéssel kimutatható, és tűzfallal szűrhető.",
+"a": true,
+"e": "A be- és kilépési pontok ismertek lehetnek.",
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gy0-18",
+"ch": "gy0",
+"t": "card",
+"q": "Böngészők adatvédelmi kockázatai",
+"b": "Beépülők (kártékony bővítmény), könyvjelzők/előzmények, tárolt jelszavak (mesterjelszó, gépzárolás!), cookie-k (átmásolható munkamenet), szinkronizálás (idegen gépre is letöltődik), cache és Letöltések mappa, privát mód korlátai, proxy naplózás.",
+"src": "gy0-internet-szolgaltatasok.html",
+"osi": 7
+},
+{
+"id": "gyios-01",
+"ch": "gyios",
+"t": "mc",
+"q": "Hogyan végezzük egy új hálózati eszköz kezdeti beállítását, amelyhez nem köthető monitor és billentyűzet?",
+"o": [
+"Telnettel a gyári alapértelmezett jelszóval",
+"A konzol porton, konzolkábellel és terminálprogrammal",
+"SSH-val a switch első Ethernet-portján át",
+"Webes felületen a gyári alapértelmezett IP-címen"
+],
+"a": 1,
+"src": "gy1-cisco-startup.html",
+"e": "A konzol porton, konzolkábellel és terminálemulátorral (pl. PuTTY).",
+"osi": 0
+},
+{
+"id": "gyios-02",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a szokásos soros konzolkapcsolat sebessége Cisco eszközön?",
+"o": [
+"115200 bit/s",
+"56 000 bit/s",
+"1 Gbit/s",
+"9600 bit/s"
+],
+"a": 3,
+"e": "8 adatbit, nincs paritás, 1 stop bit, nincs flow control.",
+"src": "gy1-cisco-startup.html",
+"osi": 0
+},
+{
+"id": "gyios-03",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a Cisco operációs rendszerének neve?",
+"o": [
+"JunOS",
+"CatOS",
+"RouterOS",
+"IOS"
+],
+"a": 3,
+"src": "gy1-cisco-startup.html",
+"e": "IOS (Internetwork Operating System).",
+"osi": 0
+},
+{
+"id": "gyios-04",
+"ch": "gyios",
+"t": "mc",
+"q": "Hová töltődik be bekapcsoláskor az IOS?",
+"o": [
+"TFTP szerverre",
+"ROM-ba",
+"RAM-ba",
+"NVRAM-ba"
+],
+"a": 2,
+"src": "gy1-cisco-startup.html",
+"osi": 0
+},
+{
+"id": "gyios-05",
+"ch": "gyios",
+"t": "tf",
+"q": "A konzol jelszó megfelelő eljárással törölhető, ezért a hálózati eszközöket zárt helyen (rack szekrényben) kell tartani.",
+"a": true,
+"src": "gy1-cisco-startup.html",
+"osi": 0
+},
+{
+"id": "gyios-06",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a DD-WRT és az OpenWrt?",
+"o": [
+"A Packet Tracer bővítményei Cisco eszközökhöz",
+"Cisco IOS változatok otthoni felhasználásra",
+"Terminálemulátorok a konzolos csatlakozáshoz",
+"Otthoni routerekre telepíthető alternatív rendszerek"
+],
+"a": 3,
+"src": "gy1-cisco-startup.html",
+"e": "Otthoni routerekre telepíthető alternatív operációs rendszerek.",
+"osi": 0
+},
+{
+"id": "gyios-07",
+"ch": "gyios",
+"t": "mc",
+"q": "Mire alkalmas a Packet Tracer a jegyzet szerint?",
+"o": [
+"Valódi eszközök távoli konfigurálására élesben",
+"Tanulásra, előzetes tesztelésre, eszközválasztásra",
+"Hálózati forgalom lehallgatására és elemzésére",
+"Csak a Cisco vizsgák hivatalos lebonyolítására"
+],
+"a": 1,
+"src": "gy2-packet-tracer.html",
+"e": "Tanulásra, konfigurációk előzetes tesztelésére, eszközválasztásra és költségbecslésre.",
+"osi": 0
+},
+{
+"id": "gyios-08",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik a Packet Tracer két futási módja?",
+"o": [
+"Realtime és Simulation",
+"Online és Offline",
+"Logical és Physical",
+"Debug és Release"
+],
+"a": 0,
+"e": "A Logical/Physical a nézet, nem a futási mód.",
+"src": "gy2-packet-tracer.html",
+"osi": 0
+},
+{
+"id": "gyios-09",
+"ch": "gyios",
+"t": "mc",
+"q": "Milyen prompt jelzi a user (felhasználói) módot?",
+"o": [
+"Switch(config)#",
+"Switch>",
+"switch:",
+"Switch#"
+],
+"a": 1,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-10",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik paranccsal lépünk privilegizált módba?",
+"o": [
+"configure terminal",
+"login",
+"privilege",
+"enable"
+],
+"a": 3,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-11",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik paranccsal lépünk globális konfigurációs módba?",
+"o": [
+"enable secret",
+"setup mode",
+"configure terminal",
+"login local"
+],
+"a": 2,
+"src": "gy3-cisco-basic-setup.html",
+"e": "configure terminal (conf t).",
+"osi": 0
+},
+{
+"id": "gyios-12",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a különbség az exit és az end parancs között?",
+"o": [
+"Nincs különbség, mindkettő a user módba lép vissza",
+"end egy szintet lép vissza, exit kijelentkezik az eszközről",
+"exit menti a konfigurációt, end menti és újraindít",
+"exit egy szintet lép vissza, end a privilegizált módba visz"
+],
+"a": 3,
+"src": "gy3-cisco-basic-setup.html",
+"e": "exit egy szinttel lép vissza, end kilép minden konfigurációs módból a privilegizált módba.",
+"osi": 0
+},
+{
+"id": "gyios-13",
+"ch": "gyios",
+"t": "tf",
+"q": "User módban kiadható a reload parancs.",
+"a": false,
+"e": "A reload csak privilegizált módban működik.",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-14",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit csinál a show ip interface brief?",
+"o": [
+"Röviden listázza az interfészeket és állapotukat",
+"Megmutatja a teljes futó konfigurációt",
+"Kiírja a routing tábla összes bejegyzését",
+"Törli az interfészek IP-címét és újraindít"
+],
+"a": 0,
+"src": "gy3-cisco-basic-setup.html",
+"e": "Röviden listázza az interfészeket: név, IP-cím, állapot, protokoll.",
+"osi": 0
+},
+{
+"id": "gyios-15",
+"ch": "gyios",
+"t": "mc",
+"q": "Moduláris eszközön mit jelent a FastEthernet3/1 jelölés?",
+"o": [
+"3. port, 1. slot",
+"3. slot, 1. port",
+"3 Mbit/s, 1 port",
+"VLAN 3, port 1"
+],
+"a": 1,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-16",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit csinál a no shutdown parancs interfész módban?",
+"o": [
+"Újraindítja az eszközt",
+"Kikapcsolja az interfészt",
+"Törli az IP-címet",
+"Bekapcsolja az interfészt"
+],
+"a": 3,
+"e": "Az IOS-ban a no előtag a parancs hatását ellentétesére fordítja.",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-17",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik interfészen kap IP-címet egy 2960-as switch a menedzsmenthez?",
+"o": [
+"FastEthernet0/1",
+"Vlan1 (SVI)",
+"Console 0",
+"GigabitEthernet0/1"
+],
+"a": 1,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-18",
+"ch": "gyios",
+"t": "mc",
+"q": "Hol tárolódik a running-config?",
+"o": [
+"TFTP",
+"Flash",
+"RAM",
+"NVRAM"
+],
+"a": 2,
+"e": "Kikapcsoláskor elvész.",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-19",
+"ch": "gyios",
+"t": "mc",
+"q": "Hol tárolódik a startup-config?",
+"o": [
+"CPU cache",
+"RAM",
+"ROM",
+"NVRAM"
+],
+"a": 3,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-20",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik paranccsal mentjük a futó konfigurációt, hogy újraindítás után is megmaradjon?",
+"o": [
+"copy startup-config running-config",
+"copy running-config startup-config",
+"save config",
+"write erase"
+],
+"a": 1,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-21",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit csinál az erase startup-config?",
+"o": [
+"Törli a mentett konfigurációt az NVRAM-ból",
+"Törli az IOS operációs rendszer fájlját",
+"Törli a VLAN-adatbázist (vlan.dat) is",
+"Azonnal törli a futó konfigurációt a RAM-ból"
+],
+"a": 0,
+"src": "gy3-cisco-basic-setup.html",
+"e": "Törli a mentett konfigurációt; a következő induláskor az eszköz alapbeállításokkal indul.",
+"osi": 0
+},
+{
+"id": "gyios-22",
+"ch": "gyios",
+"t": "mc",
+"q": "Hol tárolja a switch a VLAN-adatokat?",
+"o": [
+"running-config",
+"NVRAM config.text",
+"startup-config",
+"vlan.dat a flash-ben"
+],
+"a": 3,
+"e": "Ezért teljes alaphelyzetbe állításnál a delete flash:vlan.dat is kell.",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-23",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik szűrő mutatja csak azokat a sorokat, amelyekben a minta szerepel (mint a grep)?",
+"o": [
+"| begin",
+"| include",
+"| exclude",
+"| section"
+],
+"a": 1,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-24",
+"ch": "gyios",
+"t": "mc",
+"q": "Switchen hogyan indítható jelszó-helyreállítás, ha van Mode gomb?",
+"o": [
+"Mode gombot nyomva bekapcsol, majd config.text átnevezése",
+"A reload paranccsal, majd az enable jelszó törlésével",
+"Az erase startup-config paranccsal user módból",
+"Ctrl-Break a boot alatt, majd confreg 0x2142 megadása"
+],
+"a": 0,
+"src": "gy3-cisco-basic-setup.html",
+"e": "A Mode gombot nyomva tartva kapcsoljuk be; utána flash_init, a config.text átnevezése, boot.",
+"osi": 0
+},
+{
+"id": "gyios-25",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik konfigurációs regiszter érték hagyja figyelmen kívül a startup-configot (jelszó-helyreállításhoz) routeren?",
+"o": [
+"0x2102",
+"0xFFFF",
+"0x2142",
+"0x0000"
+],
+"a": 2,
+"e": "A normál működéshez 0x2102-t kell visszaállítani.",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-26",
+"ch": "gyios",
+"t": "mc",
+"q": "Hogyan lép a router ROM monitor (rommon) módba?",
+"o": [
+"A boot alatt Ctrl-Break nyomogatásával",
+"A Mode gomb nyomva tartásával",
+"Az enable paranccsal user módból",
+"A rommon paranccsal konfig módban"
+],
+"a": 0,
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-27",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik parancssor állít be konzol jelszót?",
+"o": [
+"line vty 0 15 → password X",
+"line console 0 → password X → login",
+"enable secret X",
+"username X"
+],
+"a": 1,
+"e": "A login nélkül a jelszót nem kéri.",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 0
+},
+{
+"id": "gyios-28",
+"ch": "gyios",
+"t": "mc",
+"q": "Mire való a banner motd?",
+"o": [
+"Az eszköz nevének beállítására a promptban",
+"A jelszavak titkosítására a konfigurációban",
+"A belépések naplózására egy külső szerveren",
+"Figyelmeztető üzenet belépéskor (jogi okból)"
+],
+"a": 3,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "Figyelmeztető üzenet megjelenítésére belépéskor (jogi szempontból fontos).",
+"osi": 0
+},
+{
+"id": "gyios-29",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a különbség az enable password és az enable secret között?",
+"o": [
+"A secret csak SSH-hoz kell, telnethez nem",
+"Nincs különbség, a kettő ugyanazt jelenti",
+"A password erősebb, mert hosszabb jelszót enged",
+"A secret hash-elve tárolódik, és elsőbbséget élvez"
+],
+"a": 3,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "Az enable secret hash-elve tárolódik, a show running-config nem mutatja olvashatóan; ha mindkettő be van állítva, a secret érvényes.",
+"osi": 0
+},
+{
+"id": "gyios-30",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit csinál a service password-encryption?",
+"o": [
+"Minden jelszót erős, visszafejthetetlen hash-sel tárol",
+"Csak az enable jelszót titkosítja, a többit nem",
+"Bekapcsolja az SSH-t, és letiltja a telnetet",
+"Minden jelszót gyenge, visszafejthető (type 7) formára alakít"
+],
+"a": 3,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "A konfigurációban lévő összes jelszót gyenge, visszafejthető (type 7) titkosítással elrejti.",
+"osi": 0
+},
+{
+"id": "gyios-31",
+"ch": "gyios",
+"t": "mc",
+"q": "Miért nem ajánlott a telnet?",
+"o": [
+"Csak IPv6-hálózaton érhető el",
+"Cisco eszközökön egyáltalán nem működik",
+"Nem titkosít, lehallgatással a jelszó megszerezhető",
+"Lassú, sok hálózati forgalmat generál"
+],
+"a": 2,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-32",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik paranccsal korlátozzuk a vty vonalakat egy hozzáférési listára?",
+"o": [
+"access-class X in",
+"ip access-group X in",
+"privilege level X",
+"transport input X"
+],
+"a": 0,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-33",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik NEM szükséges az SSH beállításához Cisco eszközön?",
+"o": [
+"crypto key generate rsa",
+"ip dhcp pool",
+"username",
+"ip domain-name"
+],
+"a": 1,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-34",
+"ch": "gyios",
+"t": "mc",
+"q": "Mekkora RSA kulcs kell legalább az SSH v2-höz a Cisco üzenet szerint?",
+"o": [
+"512 bit",
+"4096 bit",
+"768 bit",
+"360 bit"
+],
+"a": 2,
+"e": "A gyakorlatban 2048 bit ajánlott.",
+"megj": "A jegyzet példája 512 bites kulcsot generál; ez SSH v2-höz kevés, helyesen legalább 768, a gyakorlatban 2048 bit (crypto key generate rsa modulus 2048).",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-35",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit csinál a transport input ssh a vty vonalakon?",
+"o": [
+"Engedélyezi a telnetet is",
+"Csak SSH kapcsolatot enged",
+"Kikapcsolja a távoli elérést",
+"Titkosítja a konzolt"
+],
+"a": 1,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-36",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit eredményez a privilege level 15 a vty vonalon?",
+"o": [
+"Belépés után azonnal privilegizált mód",
+"15 perc után kilépteti a felhasználót",
+"Csak olvasási jogot ad belépéskor",
+"Letiltja az enable parancsot"
+],
+"a": 0,
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "gyios-37",
+"ch": "gyios",
+"t": "card",
+"q": "Cisco IOS szintek",
+"b": "User EXEC (Switch>) → enable → Privileged EXEC (Switch#) → configure terminal → Global config (Switch(config)#) → pl. interface/line → (config-if)/(config-line). Vissza: exit (egy szint), end (privilegizált).",
+"src": "gy3-cisco-basic-setup.html",
+"osi": 0
+},
+{
+"id": "gyios-38",
+"ch": "gyios",
+"t": "card",
+"q": "Cisco jelszó-alapséma",
+"b": "Konzol: line console 0, password, login. Enable: enable secret. Összes jelszó elrejtése: service password-encryption. Távoli: hostname, ip domain-name, username, crypto key generate rsa (≥768, inkább 2048), ip ssh version 2, line vty 0 15, transport input ssh, login (vonali jelszóval), access-class. Figyelmeztetés: banner motd.",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"osi": 7
+},
+{
+"id": "pt-01",
+"ch": "gyios",
+"t": "mc",
+"q": "Melyik porthoz csatlakozik működő eszköz?",
+"o": [
+"FastEthernet0/1",
+"FastEthernet1/1",
+"Vlan1",
+"Egyikhez sem"
+],
+"a": 0,
+"out": "Switch> sh ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nFastEthernet0/1        unassigned      YES manual up                    up\nFastEthernet1/1        unassigned      YES manual down                  down\nFastEthernet2/1        unassigned      YES manual down                  down\nVlan1                  unassigned      YES manual administratively down down",
+"e": "Status up / Protocol up.",
+"src": "gy3-cisco-basic-setup.html",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-02",
+"ch": "gyios",
+"t": "mc",
+"q": "Mit jelent a Vlan1 sorában az „administratively down”?",
+"o": [
+"Kézzel le van tiltva, no shutdown kell",
+"Nincs IP-címe, ezért nem indul",
+"Hibás a kábel vagy a csatlakozó",
+"Nincs bedugva kábel a portba"
+],
+"a": 0,
+"out": "Switch> sh ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nFastEthernet0/1        unassigned      YES manual up                    up\nFastEthernet1/1        unassigned      YES manual down                  down\nFastEthernet2/1        unassigned      YES manual down                  down\nVlan1                  unassigned      YES manual administratively down down",
+"src": "gy3-cisco-basic-setup.html",
+"e": "Kézzel le van tiltva (shutdown állapot); no shutdown kell.",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-30",
+"ch": "gyios",
+"t": "mc",
+"q": "Milyen biztonsági probléma látszik ebben a running-config részletben?",
+"o": [
+"Nincs hostname, ezért a távoli elérés lehetetlen",
+"Hiányzik a VLAN-beállítás, ezért a port nem működik",
+"Nincs probléma, ez egy biztonságos alapkonfiguráció",
+"A jelszavak olvashatók; enable secret és titkosítás kell"
+],
+"a": 3,
+"out": "no service password-encryption\nhostname Switch\nenable password enpass\n!\nline con 0\npassword conpass\nlogin",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "A jelszavak olvasható formában szerepelnek; enable secret és service password-encryption kellene.",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-31",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a konzol jelszava?",
+"o": [
+"Switch",
+"conpass",
+"login",
+"enpass"
+],
+"a": 1,
+"out": "no service password-encryption\nhostname Switch\nenable password enpass\n!\nline con 0\npassword conpass\nlogin",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-32",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a „password 7” jelentése?",
+"o": [
+"A 7-es konzolvonal jelszava, nem a 0-sé",
+"Erős hash, visszafejthetetlen formában tárolt jelszó",
+"Visszafejthető, gyengén titkosított jelszó",
+"Legalább 7 karakter hosszú jelszót jelent"
+],
+"a": 2,
+"out": "line con 0\npassword 7 0822434019181604\nlogin",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "service password-encryption által gyengén titkosított, visszafejthető jelszó.",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-33",
+"ch": "gyios",
+"t": "mc",
+"q": "Telnettel belépve ezt kapjuk. Mi az oka?",
+"o": [
+"A telnet tiltva van, csak SSH-val működne",
+"Az ACL nem engedi a privilegizált módot",
+"Nincs enable jelszó, távolról így nem léphetünk be",
+"Rossz jelszót adtunk meg a telnet belépésnél"
+],
+"a": 2,
+"out": "S1>ena\n% No password set.\nS1>",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "Nincs beállítva enable jelszó (enable secret), ezért távolról nem lehet privilegizált módba lépni.",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-34",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a hiba, és hogyan javítható?",
+"o": [
+"Hiányzik a hostname, ezért nem lehet kulcsot generálni",
+"A telnetet is be kell kapcsolni az SSH mellett",
+"Az ip domain-name hiányzik, ezért SSH 1.5 indult",
+"512 bites a kulcs, legalább 768 (inkább 2048) kell"
+],
+"a": 3,
+"out": "sw-1(config)# crypto key generate rsa\nHow many bits in the modulus [512]:\n% Generating 512 bit RSA keys, keys will be non-exportable...[OK]\nsw-1(config)# ip ssh version 2\nRSA key size needs to be at least 768 bits for ssh version 2\n%SSH-5-ENABLED: SSH 1.5 has been enabled",
+"src": "gy4-hozzaferesek-jelszavak.html",
+"e": "A kulcs 512 bites, SSH v2-höz legalább 768 (inkább 2048) bit kell: újra kell generálni nagyobb kulccsal.",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-35",
+"ch": "gyios",
+"t": "mc",
+"q": "Milyen sebességgel és duplex módban működik a port?",
+"o": [
+"10 Mb/s half-duplex",
+"1 Gb/s full-duplex",
+"100 Mb/s full-duplex",
+"Le van tiltva a port"
+],
+"a": 2,
+"out": "FastEthernet0/1 is up, line protocol is up (connected)\nHardware is Lance, address is 000b.beb4.47d9 (bia 000b.beb4.47d9)\nFull-duplex, 100Mb/s\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n     0 output errors, 0 collisions, 10 interface resets",
+"src": "gy3-cisco-basic-setup.html",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-36",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi a port MAC-címe?",
+"o": [
+"100Mb/s",
+"Lance",
+"FastEthernet0/1",
+"000b.beb4.47d9"
+],
+"a": 3,
+"out": "FastEthernet0/1 is up, line protocol is up (connected)\nHardware is Lance, address is 000b.beb4.47d9 (bia 000b.beb4.47d9)\nFull-duplex, 100Mb/s\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n     0 output errors, 0 collisions, 10 interface resets",
+"src": "gy3-cisco-basic-setup.html",
+"pt": true,
+"osi": 0
+},
+{
+"id": "pt-37",
+"ch": "gyios",
+"t": "mc",
+"q": "Mi lesz az eszköz következő újraindítása után?",
+"o": [
+"A konfigurációt TFTP-ről tölti be magától",
+"Nem indul el, mert hiányzik az IOS fájl",
+"Alapbeállításokkal indul, mert nincs startup-config",
+"A korábbi konfigurációval indul a flashből"
+],
+"a": 2,
+"out": "sw-1# dir nvram\nDirectory of nvram:/\nNo files in directory",
+"src": "gy3-cisco-basic-setup.html",
+"e": "Alapértelmezett beállításokkal indul, mert nincs startup-config.",
+"pt": true,
+"osi": 0
+},
+{
+"id": "gy5-01",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik parancs hoz létre egy 10-es VLAN-t PUBLIC névvel?",
+"o": [
+"vlan 10 → name PUBLIC",
+"switchport vlan 10 PUBLIC",
+"create vlan 10 PUBLIC",
+"interface vlan 10 → description PUBLIC"
+],
+"a": 0,
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-02",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik parancs rendel egy portot (access módban) a 20-as VLAN-hoz?",
+"o": [
+"switchport mode trunk",
+"switchport access vlan 20",
+"vlan 20 port",
+"access-group 20"
+],
+"a": 1,
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-03",
+"ch": "gy5",
+"t": "mc",
+"q": "Mire jó a no ip domain-lookup?",
+"o": [
+"Letiltja a telnetet és az SSH-t a vonalakon",
+"Törli az eszköz nevét és tartománynevét",
+"Kikapcsolja a DNS-keresést elgépelt parancsnál",
+"Kikapcsolja a DHCP-t az összes VLAN-ban"
+],
+"a": 2,
+"src": "gy5-vlans.html",
+"e": "Kikapcsolja a DNS-keresést, így egy elgépelt parancs nem okoz hosszú várakozást.",
+"osi": 2
+},
+{
+"id": "gy5-04",
+"ch": "gy5",
+"t": "tf",
+"q": "Alapesetben két különböző VLAN-ban lévő gép (ugyanazon a switchen) tud egymással kommunikálni.",
+"a": false,
+"e": "A VLAN-ok közötti forgalomhoz útválasztás kell.",
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-05",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik VLAN-ba tartozik alapból minden switchport?",
+"o": [
+"VLAN 0",
+"VLAN 1",
+"VLAN 1002",
+"VLAN 10"
+],
+"a": 1,
+"src": "gy5-vlans.html",
+"e": "VLAN 1 (default).",
+"osi": 2
+},
+{
+"id": "gy5-06",
+"ch": "gy5",
+"t": "mc",
+"q": "Mi a trunk port?",
+"o": [
+"Csak a VLAN 1 forgalmát viszi a switchek közt",
+"Több VLAN forgalmát viszi egy kapcsolaton",
+"Kikapcsolt port, amely nem visz forgalmat",
+"A konzolkábel csatlakozója a switchen"
+],
+"a": 1,
+"src": "gy5-vlans.html",
+"e": "Olyan port, amely több VLAN forgalmát viszi át egy összeköttetésen.",
+"osi": 2
+},
+{
+"id": "gy5-07",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik parancs kapcsol egy portot trunk módba?",
+"o": [
+"switchport access trunk",
+"switchport mode trunk",
+"trunk enable",
+"vlan trunk"
+],
+"a": 1,
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-08",
+"ch": "gy5",
+"t": "mc",
+"q": "Miért pazarló, ha két switch között minden VLAN-hoz külön kábelt húzunk?",
+"o": [
+"A switch ilyenkor hubként kezd működni",
+"Nem működik, a VLAN 1 forgalma elveszik",
+"Lassabb lesz, mert a VLAN-ok ütköznek",
+"Sok portot foglal, erre a trunk a megoldás"
+],
+"a": 3,
+"src": "gy5-vlans.html",
+"e": "Mert sok portot foglal; erre a trunk a megoldás.",
+"osi": 2
+},
+{
+"id": "gy5-09",
+"ch": "gy5",
+"t": "mc",
+"q": "Mi a javasolt teendő a nem használt switchportokkal?",
+"o": [
+"Letiltani (shutdown), vagy nem használt VLAN-ba tenni",
+"A VLAN 1-ben hagyni, így bárki csatlakozhat",
+"Semmit, a nem használt port amúgy sem veszélyes",
+"Trunk módba kapcsolni, hogy minden VLAN elérje"
+],
+"a": 0,
+"src": "gy5-vlans.html",
+"e": "Letiltani (shutdown), és/vagy egy nem használt VLAN-ba (pl. PARK) tenni.",
+"osi": 2
+},
+{
+"id": "gy5-10",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik paranccsal konfigurálható egyszerre több port?",
+"o": [
+"port group fa0/2-24",
+"interface range fa0/2 - 24",
+"interface fa0/2,fa0/24",
+"interface all ports"
+],
+"a": 1,
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-11",
+"ch": "gy5",
+"t": "mc",
+"q": "Hogyan törölhető a VLAN adatbázis a switch teljes alaphelyzetbe állításakor?",
+"o": [
+"delete flash:vlan.dat",
+"no vlan all",
+"erase startup-config elég",
+"reload"
+],
+"a": 0,
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "gy5-12",
+"ch": "gy5",
+"t": "card",
+"q": "VLAN alapok",
+"b": "VLAN: 2. rétegbeli logikai szeparáció egy switchen belül. Létrehozás: vlan N, name X. Access port: switchport access vlan N. Trunk: switchport mode trunk (több VLAN egy linken, switchek között). VLAN-ok közti forgalomhoz router kell. Adatok: flash:vlan.dat. Ellenőrzés: show vlan brief.",
+"src": "gy5-vlans.html",
+"osi": 2
+},
+{
+"id": "pt-13",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik VLAN-ban van az Fa0/5-re kötött gép?",
+"o": [
+"10 (PUBLIC)",
+"1 (default)",
+"Mindegyikben",
+"20 (OFFICES)"
+],
+"a": 3,
+"out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+"src": "gy5-vlans.html",
+"pt": true,
+"osi": 2
+},
+{
+"id": "pt-14",
+"ch": "gy5",
+"t": "mc",
+"q": "Az Fa0/1 és az Fa0/5 gépe azonos IP-hálózatban van. Pingelik-e egymást?",
+"o": [
+"Csak akkor, ha trunk portra kötjük",
+"Nem, mert különböző VLAN-ban vannak",
+"Csak az egyik irányba működik a ping",
+"Igen, mert azonos az IP-hálózatuk"
+],
+"a": 1,
+"out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+"src": "gy5-vlans.html",
+"e": "Nem, mert különböző VLAN-ban vannak, és nincs útválasztás köztük.",
+"pt": true,
+"osi": 2
+},
+{
+"id": "pt-15",
+"ch": "gy5",
+"t": "mc",
+"q": "Melyik VLAN-ban van az Fa0/3 port?",
+"o": [
+"Egyikben sem",
+"1 (default)",
+"20",
+"10"
+],
+"a": 1,
+"out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+"e": "Amit nem rendeltünk VLAN-hoz, az a default VLAN 1-ben marad.",
+"src": "gy5-vlans.html",
+"pt": true,
+"osi": 2
+},
+{
+"id": "pt-38",
+"ch": "gy5",
+"t": "mc",
+"q": "A 192.168.1.10 (VLAN 10) gép pingeli a 192.168.1.13-at, amely a másik switchen VLAN 20-ban van, trunk köti össze a switcheket. Miért sikertelen?",
+"o": [
+"A 192.168.1.10 gépen nincs átjáró beállítva",
+"Rossz a maszk, a két cím más hálózatban van",
+"Különböző VLAN-ban vannak",
+"Hibás a trunk, a két switch nem látja egymást"
+],
+"a": 2,
+"out": "C:\\>ping 192.168.1.13\nPinging 192.168.1.13 with 32 bytes of data:\nRequest timed out.\nRequest timed out.\nRequest timed out.\nRequest timed out.\nPing statistics for 192.168.1.13:\n    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),",
+"src": "gy5-vlans.html",
+"e": "A két gép különböző VLAN-ban van, a trunk csak az azonos VLAN-okat köti össze.",
+"pt": true,
+"osi": 2
+},
+{
+"id": "gy6-01",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi a feltétele, hogy egy PC elérje egy másik IP-hálózat gépét a routeren keresztül?",
+"o": [
+"Legyen beállítva az alapértelmezett átjáró",
+"Legyen mindkét gép ugyanabban a VLAN-ban",
+"Legyen beállítva DNS-szerver a PC-n",
+"Legyen statikus MAC-cím a PC-n"
+],
+"a": 0,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Be legyen állítva az alapértelmezett átjáró (a router adott hálózatbeli címe).",
+"osi": 3
+},
+{
+"id": "gy6-02",
+"ch": "gy6",
+"t": "mc",
+"q": "A routing táblában mit jelent a C betű?",
+"o": [
+"Cache: korábban megtanult útvonal",
+"Connected: közvetlenül csatlakozó hálózat",
+"Cisco: gyártói alapértelmezett útvonal",
+"Configured: kézzel megadott útvonal"
+],
+"a": 1,
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-03",
+"ch": "gy6",
+"t": "mc",
+"q": "A routing táblában mit jelent az L betű?",
+"o": [
+"Link: egy másik routerhez vezető link",
+"Lease: DHCP-ből kapott útvonal",
+"Loopback: a 127.0.0.1-es cím",
+"Local: a router saját címe (/32)"
+],
+"a": 3,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Local: a router saját interfészcíme /32-vel.",
+"osi": 3
+},
+{
+"id": "gy6-04",
+"ch": "gy6",
+"t": "mc",
+"q": "Mit jelent az S betű a routing táblában?",
+"o": [
+"Subnet: alhálózati útvonal",
+"Secure: titkosított útvonal",
+"Statikus, kézzel megadott útvonal",
+"Switch felé vezető útvonal"
+],
+"a": 2,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Statikus (kézzel megadott) útvonal.",
+"osi": 3
+},
+{
+"id": "gy6-05",
+"ch": "gy6",
+"t": "mc",
+"q": "Melyik a helyes statikus útvonal R1-en, ha a 192.168.200.0/24 hálózat a 10.0.0.2 című R2 mögött van?",
+"o": [
+"ip route 192.168.200.0 255.255.255.0 10.0.0.2",
+"ip route 10.0.0.2 255.255.255.0 192.168.200.0",
+"route add 192.168.200.0/24",
+"ip route 192.168.200.0 0.0.0.255 10.0.0.2"
+],
+"a": 0,
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-06",
+"ch": "gy6",
+"t": "tf",
+"q": "Ha R1-en beállítottuk a statikus útvonalat R2 hálózata felé, akkor R2-n már nem kell visszafelé útvonal.",
+"a": false,
+"e": "Mindkét routeren kell útvonal, különben a válasz nem jut vissza.",
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-07",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi az alapértelmezett útvonal (default route) formája?",
+"o": [
+"ip route 255.255.255.255 255.255.255.255 X",
+"ip route 0.0.0.0 0.0.0.0 X",
+"ip default 0/0",
+"ip route any X"
+],
+"a": 1,
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-08",
+"ch": "gy6",
+"t": "mc",
+"q": "Mikor használja a router az alapértelmezett útvonalat?",
+"o": [
+"Ha a cél ugyanabban a hálózatban van",
+"Csak az ICMP-csomagok továbbításakor",
+"Mindig, az összes bejegyzés előtt",
+"Ha egyik másik bejegyzés sem illeszkedik"
+],
+"a": 3,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Ha egyetlen más bejegyzés sem illeszkedik a célcímre.",
+"osi": 3
+},
+{
+"id": "gy6-09",
+"ch": "gy6",
+"t": "mc",
+"q": "Az ISP router belső címe 172.16.8.1, R1 g0/2 címe 172.16.8.2. Melyik parancs állítja be helyesen R1 alapértelmezett útvonalát az ISP felé?",
+"o": [
+"ip route 172.16.8.0 255.255.255.0 0.0.0.0",
+"ip route 0.0.0.0 0.0.0.0 172.16.8.2",
+"ip route 0.0.0.0 0.0.0.0 172.16.8.1",
+"ip route 0.0.0.0 255.255.255.255 172.16.8.1"
+],
+"a": 2,
+"e": "A next-hop a szomszéd (ISP) router címe, nem a saját interfészé; a default route maszkja 0.0.0.0.",
+"megj": "A jegyzet parancsában elírás van: 172.168.8.1.",
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-10",
+"ch": "gy6",
+"t": "mc",
+"q": "Miért nem válaszol az ISP router a belső gépek pingjére, amíg nincs rajta visszaútvonal?",
+"o": [
+"Az ISP router alapból tiltja az ICMP-t",
+"Nem ismeri a belső hálózatok felé vezető utat",
+"NAT nélkül a router nem válaszolhat",
+"A csomagok TTL-je lejár útközben"
+],
+"a": 1,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Mert nem tudja, merre vannak a 192.168.100.0/24 és 192.168.200.0/24 hálózatok, így a választ nem tudja visszaküldeni.",
+"osi": 3
+},
+{
+"id": "gy6-11",
+"ch": "gy6",
+"t": "mc",
+"q": "Mivel töröljük a 192.168.100.0/24 felé mutató statikus útvonalat?",
+"o": [
+"delete ip route 192.168.100.0",
+"no ip route 192.168.100.0 255.255.255.0",
+"erase route 192.168.100.0/24",
+"clear ip route 192.168.100.0"
+],
+"a": 1,
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-12",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi jelenti a statikus útvonal mellett a [1/0]-t?",
+"o": [
+"Slot / port a routeren",
+"Ugrásszám / TTL",
+"VLAN-szám / portszám",
+"Adminisztratív távolság / metrika"
+],
+"a": 3,
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "gy6-13",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi a dinamikus útválasztó protokollok előnye (pl. OSPF)?",
+"o": [
+"Automatikusan cserélnek útvonal-információt",
+"Titkosítják a routerek közötti forgalmat",
+"Nem kell IP-címet adni az interfészeknek",
+"Kiváltják a switchek VLAN-beállításait"
+],
+"a": 0,
+"src": "gy6-ip-utvalasztas.html",
+"e": "Automatikusan cserélnek információt a hálózati változásokról.",
+"osi": 3
+},
+{
+"id": "gy6-14",
+"ch": "gy6",
+"t": "card",
+"q": "Statikus útválasztás menete",
+"b": "1. Interfészek: ip address + no shutdown. 2. PC-ken default gateway. 3. Minden routeren ip route <távoli hálózat> <maszk> <next-hop> mindkét irányba, vagy ip route 0.0.0.0 0.0.0.0 <ISP> default. 4. Ellenőrzés: show ip route, ping.",
+"src": "gy6-ip-utvalasztas.html",
+"osi": 3
+},
+{
+"id": "pt-03",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi a 192.168.2.0/24 hálózat gépeinek helyes alapértelmezett átjárója?",
+"o": [
+"192.168.1.1",
+"Nem kell átjáró",
+"192.168.2.1",
+"192.168.2.254"
+],
+"a": 2,
+"out": "R1#show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up\nGigabitEthernet0/1     192.168.2.1     YES manual up                    up\nGigabitEthernet0/2     unassigned      YES NVRAM  administratively down down\nVlan1                  unassigned      YES NVRAM  administratively down down",
+"src": "gy6-ip-utvalasztas.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-04",
+"ch": "gy6",
+"t": "mc",
+"q": "Miért nem használható a GigabitEthernet0/2 jelenleg?",
+"o": [
+"Hibás a kábel, a link nem épül fel",
+"Egy másik routerhez van már bekötve",
+"Trunk módban van, ezért nem érhető el",
+"Nincs IP-címe, és kézzel le van tiltva"
+],
+"a": 3,
+"out": "R1#show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up\nGigabitEthernet0/1     192.168.2.1     YES manual up                    up\nGigabitEthernet0/2     unassigned      YES NVRAM  administratively down down\nVlan1                  unassigned      YES NVRAM  administratively down down",
+"src": "gy6-ip-utvalasztas.html",
+"e": "Nincs IP-címe és le van tiltva (administratively down).",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-05",
+"ch": "gy6",
+"t": "mc",
+"q": "Merre küldi R2 a 192.168.100.25 címre szóló csomagot?",
+"o": [
+"Eldobja",
+"GigabitEthernet0/0-n közvetlenül",
+"A 10.0.0.1 next-hop felé (statikus útvonal)",
+"Az alapértelmezett átjáróhoz"
+],
+"a": 2,
+"out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+"src": "gy6-ip-utvalasztas.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-06",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi történik egy 8.8.8.8-ra szóló csomaggal R2-n?",
+"o": [
+"A 10.0.0.1 felé küldi a statikus útvonalon",
+"Eldobja, mert nincs rá útvonal és default route",
+"Broadcastként minden interfészen kiküldi",
+"A 192.168.200.1 interfészen kiküldi"
+],
+"a": 1,
+"out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+"src": "gy6-ip-utvalasztas.html",
+"e": "Eldobja, mert nincs illeszkedő útvonal és nincs default route (Gateway of last resort is not set).",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-07",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi R2 saját címe a GigabitEthernet0/0 interfészen?",
+"o": [
+"192.168.200.0",
+"192.168.200.1",
+"10.0.0.2",
+"10.0.0.1"
+],
+"a": 1,
+"out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+"e": "Az L (Local) /32 bejegyzés a router saját címe.",
+"src": "gy6-ip-utvalasztas.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-08",
+"ch": "gy6",
+"t": "mc",
+"q": "Milyen paranccsal került be az S jelű sor?",
+"o": [
+"router ospf 1",
+"ip address 192.168.100.0 255.255.255.0",
+"ip route 0.0.0.0 0.0.0.0 10.0.0.1",
+"ip route 192.168.100.0 255.255.255.0 10.0.0.1"
+],
+"a": 3,
+"out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+"src": "gy6-ip-utvalasztas.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-09",
+"ch": "gy6",
+"t": "mc",
+"q": "A PC3 (192.168.100.11) pingje ezt adja. Mi a hiba oka?",
+"o": [
+"A célgép ki van kapcsolva vagy nincs bekötve",
+"A PC3-on nincs beállítva alapértelmezett átjáró",
+"Az átjáró nem ismer utat a 192.168.200.0/24 felé",
+"A PC3 kábele hibás, a link nem épül fel"
+],
+"a": 2,
+"out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nReply from 192.168.100.1: Destination host unreachable.\nReply from 192.168.100.1: Destination host unreachable.",
+"src": "gy6-ip-utvalasztas.html",
+"e": "A csomag eljut az átjáróig (192.168.100.1), de a router nem ismer útvonalat a 192.168.200.0/24 felé.",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-10",
+"ch": "gy6",
+"t": "mc",
+"q": "A célgép 128-as TTL-lel küldi a választ. Hány routeren haladt át a válasz?",
+"o": [
+"1",
+"0",
+"126",
+"2"
+],
+"a": 3,
+"out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nRequest timed out.\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126",
+"e": "128 − 126 = 2 router (R2 és R1).",
+"src": "gy6-ip-utvalasztas.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-11",
+"ch": "gy6",
+"t": "mc",
+"q": "Mi az oka az első „Request timed out” sornak?",
+"o": [
+"A célgép tűzfala eldobta az első csomagot",
+"Az ARP-feloldás idején elveszett az első csomag",
+"Hibás az útvonal, csak később javult meg",
+"Rossz a maszk, a gép újra kellett számolja"
+],
+"a": 1,
+"out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nRequest timed out.\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126",
+"src": "gy6-ip-utvalasztas.html",
+"e": "Az ARP-feloldás (kapcsolatfelépülés) ideje alatt az első csomag elveszett.",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-12",
+"ch": "gy6",
+"t": "mc",
+"q": "Mit jelent a „.!!!!” sor a router pingjében?",
+"o": [
+"A kapcsolat titkosított, a válaszok rejtettek",
+"Az első kérés időtúllépés, a többi négy sikeres",
+"Mind az öt kérés sikeres volt, gyors válasszal",
+"Négy kérés hibás volt, csak egy volt sikeres"
+],
+"a": 1,
+"out": "R2#ping 10.0.0.1\nType escape sequence to abort.\nSending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:\n.!!!!\nSuccess rate is 80 percent (4/5), round-trip min/avg/max = 0/0/0 ms",
+"src": "gy6-ip-utvalasztas.html",
+"e": "Az első kérés időtúllépés (.), a többi négy sikeres (!).",
+"pt": true,
+"osi": 3
+},
+{
+"id": "gy7-01",
+"ch": "gy7",
+"t": "card",
+"q": "Hálózati és broadcast cím számítása",
+"b": "Hálózati cím = IP ÉS maszk (bitenként). Broadcast = hálózati cím VAGY a maszk inverze (hosztbitek csupa 1). Használható: hálózat+1 … broadcast−1. Hosztok száma: 2^(32−prefix) − 2. Átjáró: jellemzően az első vagy utolsó használható cím.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-02",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 36.1.10.2/8 cím hálózati címe?",
+"o": [
+"36.0.0.0",
+"36.1.10.0",
+"36.1.0.0",
+"36.0.0.1"
+],
+"a": 0,
+"e": "Maszk: 255.0.0.0. Hálózat: 36.0.0.0, broadcast: 36.255.255.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-03",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 36.1.10.2/8 hálózat broadcast címe?",
+"o": [
+"37.255.255.255",
+"36.255.255.255",
+"36.127.255.255",
+"255.255.255.255"
+],
+"a": 1,
+"e": "Hálózat: 36.0.0.0, broadcast: 36.255.255.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-04",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 36.1.10.2/8 hálózatban?",
+"o": [
+"36.0.0.0 – 36.255.255.254",
+"36.0.0.1 – 36.255.255.254",
+"36.0.0.1 – 36.255.255.255",
+"36.0.0.0 – 36.255.255.255"
+],
+"a": 1,
+"e": "Hosztok száma: 2^24 − 2 = 16777214.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-05",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.100.65.142/25 cím hálózati címe?",
+"o": [
+"192.100.65.129",
+"192.100.0.0",
+"192.100.65.128",
+"192.100.65.0"
+],
+"a": 2,
+"e": "Maszk: 255.255.255.128. Hálózat: 192.100.65.128, broadcast: 192.100.65.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-06",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.100.65.142/25 hálózat broadcast címe?",
+"o": [
+"192.100.65.191",
+"192.100.65.255",
+"192.100.65.159",
+"192.100.127.255"
+],
+"a": 1,
+"e": "Hálózat: 192.100.65.128, broadcast: 192.100.65.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-07",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 192.100.65.142/25 hálózatban?",
+"o": [
+"192.100.65.129 – 192.100.65.255",
+"192.100.65.128 – 192.100.65.254",
+"192.100.65.129 – 192.100.65.254",
+"192.100.65.128 – 192.100.65.255"
+],
+"a": 2,
+"e": "Hosztok száma: 2^7 − 2 = 126.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-08",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 211.157.32.44/26 cím hálózati címe?",
+"o": [
+"211.157.32.0",
+"211.157.32.1",
+"211.157.32.32",
+"211.157.0.0"
+],
+"a": 0,
+"e": "Maszk: 255.255.255.192. Hálózat: 211.157.32.0, broadcast: 211.157.32.63.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-09",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 211.157.32.44/26 hálózat broadcast címe?",
+"o": [
+"211.157.32.63",
+"211.157.32.127",
+"211.157.63.255",
+"211.157.32.47"
+],
+"a": 0,
+"e": "Hálózat: 211.157.32.0, broadcast: 211.157.32.63.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-10",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 211.157.32.44/26 hálózatban?",
+"o": [
+"211.157.32.1 – 211.157.32.62",
+"211.157.32.0 – 211.157.32.62",
+"211.157.32.0 – 211.157.32.63",
+"211.157.32.1 – 211.157.32.63"
+],
+"a": 0,
+"e": "Hosztok száma: 2^6 − 2 = 62.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-11",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 208.31.180.89/30 cím hálózati címe?",
+"o": [
+"208.31.180.0",
+"208.31.180.88",
+"208.31.180.89",
+"208.31.0.0"
+],
+"a": 1,
+"e": "Maszk: 255.255.255.252. Hálózat: 208.31.180.88, broadcast: 208.31.180.91.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-12",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 208.31.180.89/30 hálózat broadcast címe?",
+"o": [
+"208.31.180.89",
+"208.31.180.95",
+"208.31.180.91",
+"208.31.183.255"
+],
+"a": 2,
+"e": "Hálózat: 208.31.180.88, broadcast: 208.31.180.91.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-13",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 208.31.180.89/30 hálózatban?",
+"o": [
+"208.31.180.89 – 208.31.180.91",
+"208.31.180.89 – 208.31.180.90",
+"208.31.180.88 – 208.31.180.90",
+"208.31.180.88 – 208.31.180.91"
+],
+"a": 1,
+"e": "Hosztok száma: 2^2 − 2 = 2.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-14",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.168.100.44/24 cím hálózati címe?",
+"o": [
+"192.168.100.0",
+"192.168.100.1",
+"192.168.0.0",
+"192.168.100.44"
+],
+"a": 0,
+"e": "Maszk: 255.255.255.0. Hálózat: 192.168.100.0, broadcast: 192.168.100.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-15",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.168.100.44/24 hálózat broadcast címe?",
+"o": [
+"192.168.255.255",
+"192.168.100.127",
+"192.168.100.255",
+"192.168.101.255"
+],
+"a": 2,
+"e": "Hálózat: 192.168.100.0, broadcast: 192.168.100.255.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-16",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 192.168.100.44/24 hálózatban?",
+"o": [
+"192.168.100.1 – 192.168.100.255",
+"192.168.100.0 – 192.168.100.254",
+"192.168.100.1 – 192.168.100.254",
+"192.168.100.0 – 192.168.100.255"
+],
+"a": 2,
+"e": "Hosztok száma: 2^8 − 2 = 254.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-17",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 10.1.6.44/25 cím hálózati címe?",
+"o": [
+"10.1.0.0",
+"10.1.6.0",
+"10.1.6.44",
+"10.1.6.1"
+],
+"a": 1,
+"e": "Maszk: 255.255.255.128. Hálózat: 10.1.6.0, broadcast: 10.1.6.127.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-18",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 10.1.6.44/25 hálózat broadcast címe?",
+"o": [
+"10.1.6.255",
+"10.1.6.63",
+"10.1.6.127",
+"10.1.127.255"
+],
+"a": 2,
+"e": "Hálózat: 10.1.6.0, broadcast: 10.1.6.127.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-19",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 10.1.6.44/25 hálózatban?",
+"o": [
+"10.1.6.1 – 10.1.6.126",
+"10.1.6.1 – 10.1.6.127",
+"10.1.6.0 – 10.1.6.127",
+"10.1.6.0 – 10.1.6.126"
+],
+"a": 0,
+"e": "Hosztok száma: 2^7 − 2 = 126.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-20",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 172.16.66.129/26 cím hálózati címe?",
+"o": [
+"172.16.66.129",
+"172.16.66.128",
+"172.16.0.0",
+"172.16.66.0"
+],
+"a": 1,
+"e": "Maszk: 255.255.255.192. Hálózat: 172.16.66.128, broadcast: 172.16.66.191.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-21",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 172.16.66.129/26 hálózat broadcast címe?",
+"o": [
+"172.16.127.255",
+"172.16.66.159",
+"172.16.66.191",
+"172.16.66.255"
+],
+"a": 2,
+"e": "Hálózat: 172.16.66.128, broadcast: 172.16.66.191.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-22",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 172.16.66.129/26 hálózatban?",
+"o": [
+"172.16.66.129 – 172.16.66.190",
+"172.16.66.129 – 172.16.66.191",
+"172.16.66.128 – 172.16.66.191",
+"172.16.66.128 – 172.16.66.190"
+],
+"a": 0,
+"e": "Hosztok száma: 2^6 − 2 = 62.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-23",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 193.225.32.164/28 cím hálózati címe?",
+"o": [
+"193.225.32.161",
+"193.225.0.0",
+"193.225.32.0",
+"193.225.32.160"
+],
+"a": 3,
+"e": "Maszk: 255.255.255.240. Hálózat: 193.225.32.160, broadcast: 193.225.32.175.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-24",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 193.225.32.164/28 hálózat broadcast címe?",
+"o": [
+"193.225.32.167",
+"193.225.47.255",
+"193.225.32.191",
+"193.225.32.175"
+],
+"a": 3,
+"e": "Hálózat: 193.225.32.160, broadcast: 193.225.32.175.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-25",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 193.225.32.164/28 hálózatban?",
+"o": [
+"193.225.32.161 – 193.225.32.175",
+"193.225.32.161 – 193.225.32.174",
+"193.225.32.160 – 193.225.32.174",
+"193.225.32.160 – 193.225.32.175"
+],
+"a": 1,
+"e": "Hosztok száma: 2^4 − 2 = 14.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-26",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.16.10.196/30 cím hálózati címe?",
+"o": [
+"192.16.10.0",
+"192.16.10.196",
+"192.16.10.192",
+"192.16.0.0"
+],
+"a": 1,
+"e": "Maszk: 255.255.255.252. Hálózat: 192.16.10.196, broadcast: 192.16.10.199.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-27",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a 192.16.10.196/30 hálózat broadcast címe?",
+"o": [
+"192.16.10.198",
+"192.16.10.197",
+"192.16.11.255",
+"192.16.10.199"
+],
+"a": 3,
+"e": "Hálózat: 192.16.10.196, broadcast: 192.16.10.199.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-28",
+"ch": "gy7",
+"t": "mc",
+"q": "Mi a használható hosztcímek tartománya a 192.16.10.196/30 hálózatban?",
+"o": [
+"192.16.10.197 – 192.16.10.199",
+"192.16.10.196 – 192.16.10.198",
+"192.16.10.196 – 192.16.10.199",
+"192.16.10.197 – 192.16.10.198"
+],
+"a": 3,
+"e": "Hosztok száma: 2^2 − 2 = 2.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-29",
+"ch": "gy7",
+"t": "mc",
+"q": "Ugyanabban a hálózatban van-e a 219.123.181.228/24 és a 219.123.181.192/24?",
+"o": [
+"Nem, mert a 228 nagyobb, mint a 192",
+"Nem, mert különbözik a broadcast címük",
+"Nem dönthető el a maszk ismerete nélkül",
+"Igen, mindkettő a 219.123.181.0 hálózatban van"
+],
+"a": 3,
+"src": "gy7-ip-gyakorlatok.html",
+"e": "Igen, mindkettő hálózati címe 219.123.181.0.",
+"osi": 3
+},
+{
+"id": "gy7-30",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány /25-es alhálózatra bontható egy /24-es hálózat?",
+"o": [
+"2",
+"4",
+"1",
+"128"
+],
+"a": 0,
+"e": "2^(25−24) = 2.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-31",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány /26-es alhálózatra bontható egy /24-es hálózat?",
+"o": [
+"2",
+"64",
+"4",
+"8"
+],
+"a": 2,
+"e": "2^(26−24) = 4.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-32",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány /28-es alhálózatra bontható egy /24-es hálózat?",
+"o": [
+"8",
+"18",
+"32",
+"16"
+],
+"a": 3,
+"e": "2^(28−24) = 16.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-33",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány /30-es alhálózatra bontható egy /24-es hálózat?",
+"o": [
+"64",
+"4",
+"32",
+"128"
+],
+"a": 0,
+"e": "2^(30−24) = 64.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-34",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /24-es hálózatban?",
+"o": [
+"254",
+"127",
+"256",
+"508"
+],
+"a": 0,
+"e": "2^8 − 2 = 254 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-35",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /25-es hálózatban?",
+"o": [
+"63",
+"252",
+"126",
+"128"
+],
+"a": 2,
+"e": "2^7 − 2 = 126 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-36",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /26-es hálózatban?",
+"o": [
+"124",
+"64",
+"31",
+"62"
+],
+"a": 3,
+"e": "2^6 − 2 = 62 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-37",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /27-es hálózatban?",
+"o": [
+"60",
+"30",
+"15",
+"32"
+],
+"a": 1,
+"e": "2^5 − 2 = 30 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-38",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /28-es hálózatban?",
+"o": [
+"16",
+"7",
+"28",
+"14"
+],
+"a": 3,
+"e": "2^4 − 2 = 14 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-39",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /29-es hálózatban?",
+"o": [
+"6",
+"3",
+"8",
+"12"
+],
+"a": 0,
+"e": "2^3 − 2 = 6 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-40",
+"ch": "gy7",
+"t": "mc",
+"q": "Hány használható hosztcím van egy /30-es hálózatban?",
+"o": [
+"1",
+"4",
+"3",
+"2"
+],
+"a": 3,
+"e": "2^2 − 2 = 2 (hálózati és broadcast cím levonva).",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-41",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik pontozott decimális maszk felel meg a /25 prefixnek?",
+"o": [
+"255.255.255.0",
+"255.255.255.128",
+"255.255.255.224",
+"255.255.255.192"
+],
+"a": 1,
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-42",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik pontozott decimális maszk felel meg a /26 prefixnek?",
+"o": [
+"255.255.255.224",
+"255.255.255.192",
+"255.255.255.128",
+"255.255.255.240"
+],
+"a": 1,
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-43",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik pontozott decimális maszk felel meg a /27 prefixnek?",
+"o": [
+"255.255.255.224",
+"255.255.255.240",
+"255.255.255.192",
+"255.255.255.248"
+],
+"a": 0,
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-44",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik pontozott decimális maszk felel meg a /28 prefixnek?",
+"o": [
+"255.255.255.252",
+"255.255.255.248",
+"255.255.255.240",
+"255.255.255.224"
+],
+"a": 2,
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-45",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik pontozott decimális maszk felel meg a /30 prefixnek?",
+"o": [
+"255.255.255.252",
+"255.255.255.254",
+"255.255.255.248",
+"255.255.255.255"
+],
+"a": 0,
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-46",
+"ch": "gy7",
+"t": "mc",
+"q": "Melyik osztályba tartozik a 36.1.10.2 cím (osztályos címzés szerint)?",
+"o": [
+"B",
+"A",
+"D",
+"C"
+],
+"a": 1,
+"e": "A: 1–127 (első bit 0), B: 128–191, C: 192–223.",
+"src": "gy7-ip-gyakorlatok.html",
+"osi": 3
+},
+{
+"id": "gy7-47",
+"ch": "gy7",
+"t": "mc",
+"q": "Mire használják jellemzően a /30-as hálózatokat?",
+"o": [
+"Nagy irodai LAN kialakítására",
+"Vendég WiFi-hálózatok számára",
+"Két router összekötésére",
+"Broadcast-tartományok növelésére"
+],
+"a": 2,
+"src": "gy7-ip-gyakorlatok.html",
+"e": "Két router összekötésére (2 használható cím).",
+"osi": 3
+},
+{
+"id": "gy9-01",
+"ch": "gy9",
+"t": "mc",
+"q": "Mit kell beállítani a Packet Tracer PC-s DHCP szerverén, hogy a beállítás érvényes legyen?",
+"o": [
+"Újra kell indítani a szerver PC-t a beállítás után",
+"Be kell kapcsolni a szolgáltatást, és Save-vel menteni",
+"Nem kell semmit, a beállítás azonnal érvényes",
+"Minden kliensen kézzel be kell írni a szerver címét"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"e": "A szolgáltatást be kell kapcsolni és a Save gombbal menteni.",
+"osi": 7
+},
+{
+"id": "gy9-02",
+"ch": "gy9",
+"t": "mc",
+"q": "Mit csinál az ipconfig /release?",
+"o": [
+"Törli a gép DNS-gyorsítótárát",
+"Új IP-címet kér a DHCP szervertől",
+"Visszaadja a kapott címet a szervernek",
+"Kiírja a gép MAC-címét és átjáróját"
+],
+"a": 2,
+"src": "gy9-dhcp.html",
+"e": "Visszaadja a címet a szervernek (0.0.0.0 lesz).",
+"osi": 7
+},
+{
+"id": "gy9-03",
+"ch": "gy9",
+"t": "mc",
+"q": "Mit csinál az ipconfig /renew?",
+"o": [
+"Visszaadja a kapott címet a szervernek",
+"Újra lekéri a hálózati paramétereket a DHCP szervertől",
+"Kikapcsolja a hálózati kártyát egy időre",
+"Megmutatja a gép routing tábláját"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-04",
+"ch": "gy9",
+"t": "mc",
+"q": "Mire való az ip dhcp excluded-address 192.168.100.1 192.168.100.10?",
+"o": [
+"Ezeket a címeket nem osztja ki a kliensnek",
+"Ezeket a gépeket kitiltja a hálózatból",
+"Ezek lesznek a kliensek DNS-szerverei",
+"Ezeket a címeket osztja ki elsőként"
+],
+"a": 0,
+"src": "gy9-dhcp.html",
+"e": "Ebből a tartományból nem oszt ki címet (router, szerverek fix címei).",
+"osi": 7
+},
+{
+"id": "gy9-05",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik parancs adja meg a DHCP poolban a kliensek alapértelmezett átjáróját?",
+"o": [
+"gateway-address",
+"ip gateway",
+"default-router",
+"default-gateway"
+],
+"a": 2,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-06",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik parancs adja meg a pool által kiosztott hálózatot?",
+"o": [
+"ip range 192.168.100.0/24",
+"network 192.168.100.0 255.255.255.0",
+"pool-network 192.168.100.0",
+"subnet 192.168.100.0"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-07",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik paranccsal kapcsoljuk be a DHCP szolgáltatást a routeren?",
+"o": [
+"no shutdown dhcp",
+"service dhcp",
+"ip dhcp enable",
+"dhcp start"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-08",
+"ch": "gy9",
+"t": "mc",
+"q": "Miért kell DHCP relay, ha a DHCP szerver másik hálózatban van?",
+"o": [
+"Mert a router nem továbbítja a broadcastot",
+"Mert egy hálózatban csak egy szerver lehet",
+"Mert a szerver nem válaszolhat más hálózatba",
+"Mert a DHCP-üzenetek titkosítva utaznak"
+],
+"a": 0,
+"src": "gy9-dhcp.html",
+"e": "Mert a kliens broadcast kérését a router nem továbbítja más hálózatba.",
+"osi": 7
+},
+{
+"id": "gy9-09",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik paranccsal állítjuk be a DHCP relayt?",
+"o": [
+"ip helper-address <szerver címe>",
+"ip dhcp relay <szerver címe>",
+"ip dhcp snooping trust",
+"ip forward-dhcp <szerver címe>"
+],
+"a": 0,
+"src": "gy9-dhcp.html",
+"e": "ip helper-address <DHCP szerver címe>.",
+"osi": 7
+},
+{
+"id": "gy9-10",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik interfészre kerül az ip helper-address?",
+"o": [
+"A router összes interfészére egyszerre",
+"A kliensek LAN-ja felé néző interfészre",
+"A konzol vonalra (line console 0)",
+"A DHCP szerver felé néző interfészre"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"e": "A kliensek (belső LAN) felé néző interfészre, ahová a broadcast kérés érkezik.",
+"osi": 7
+},
+{
+"id": "gy9-11",
+"ch": "gy9",
+"t": "mc",
+"q": "Hogyan továbbítja a relay router a kliens DHCP kérését?",
+"o": [
+"Unicastként a megadott DHCP szervernek",
+"Broadcastként a másik hálózatba",
+"Sehogy",
+"Multicastként"
+],
+"a": 0,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-12",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik paranccsal listázhatók a routeren a kiosztott DHCP címek?",
+"o": [
+"show dhcp leases",
+"show ip dhcp binding",
+"show ip dhcp pool",
+"show arp"
+],
+"a": 1,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-13",
+"ch": "gy9",
+"t": "tf",
+"q": "Packet Tracerben beállítható a DHCP bérleti idő (lease) a pool alatt.",
+"a": false,
+"e": "Valódi eszközön a lease paranccsal adható meg; a Packet Tracer nem támogatja.",
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-14",
+"ch": "gy9",
+"t": "mc",
+"q": "Egy kliens a 192.168.50.0/24 hálózatban 169.254.x.x címet kapott. Mi a legvalószínűbb ok?",
+"o": [
+"A DHCP pool elfogyott, vagy a szerver/hálózat hibás",
+"Minden rendben, ez a normál címtartomány",
+"A DNS-szerver címe hibásan van megadva",
+"Túl hosszú a beállított bérleti idő"
+],
+"a": 0,
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "gy9-15",
+"ch": "gy9",
+"t": "card",
+"q": "Router DHCP szerver konfiguráció",
+"b": "ip dhcp excluded-address <tól> <ig>\nip dhcp pool NÉV\n network <hálózat> <maszk>\n default-router <átjáró>\n dns-server <DNS>\n domain-name <név>\nservice dhcp\nMás hálózatban lévő kliensekhez a túloldali routeren: interface <LAN> → ip helper-address <DHCP szerver>.",
+"src": "gy9-dhcp.html",
+"osi": 7
+},
+{
+"id": "pt-16",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik MAC-című gép kapta a 192.168.200.12 címet?",
+"o": [
+"0030.F249.5346",
+"000C.CF40.3016",
+"0060.70BD.6739",
+"000C.CF30.5D56"
+],
+"a": 1,
+"out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+"src": "gy9-dhcp.html",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-17",
+"ch": "gy9",
+"t": "mc",
+"q": "R1 a 192.168.200.0/24 hálózatnak is oszt címet, pedig az R2 mögött van. Mi teszi ezt lehetővé?",
+"o": [
+"R2-n az ip helper-address (DHCP relay)",
+"VLAN trunk köti össze a két routert",
+"Statikus NAT van beállítva R2-n",
+"R1 broadcastot küld R2-n keresztül"
+],
+"a": 0,
+"out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+"src": "gy9-dhcp.html",
+"e": "R2 LAN interfészén ip helper-address 192.168.50.1 (DHCP relay).",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-18",
+"ch": "gy9",
+"t": "mc",
+"q": "Miért nem 192.168.100.1–10 közötti címeket kaptak a kliensek?",
+"o": [
+"Az ip dhcp excluded-address kizárta őket",
+"Ezek a hálózat broadcast címei",
+"A Packet Tracer nem tud ilyet kiosztani",
+"Véletlenszerűen választotta így a router"
+],
+"a": 0,
+"out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+"src": "gy9-dhcp.html",
+"e": "Az ip dhcp excluded-address 192.168.100.1 192.168.100.10 kizárta őket.",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-19",
+"ch": "gy9",
+"t": "mc",
+"q": "Miből látszik, hogy ez a kliens relay-en keresztül kapta a címét?",
+"o": [
+"Az átjáró .1-re végződik, ez jelzi",
+"A MAC-cím 000C-vel kezdődik, ez jelzi",
+"A DHCP szerver más hálózatban van, mint a kliens",
+"A DNS-utótag right.example.com, ez jelzi"
+],
+"a": 2,
+"out": "C:\\>ipconfig /all\nConnection-specific DNS Suffix..: right.example.com\nPhysical Address................: 000C.CF40.3016\nIPv4 Address....................: 192.168.200.12\nSubnet Mask.....................: 255.255.255.0\nDefault Gateway.................: 192.168.200.1\nDHCP Servers....................: 192.168.50.1\nDNS Servers.....................: 192.168.100.5",
+"src": "gy9-dhcp.html",
+"e": "A DHCP szerver (192.168.50.1) nem a kliens saját hálózatában van.",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-20",
+"ch": "gy9",
+"t": "mc",
+"q": "Melyik DHCP pool osztotta ki ezt a címet?",
+"o": [
+"LEFT",
+"RIGHT",
+"INTERNAL",
+"serverPool"
+],
+"a": 1,
+"out": "C:\\>ipconfig /all\nConnection-specific DNS Suffix..: right.example.com\nPhysical Address................: 000C.CF40.3016\nIPv4 Address....................: 192.168.200.12\nSubnet Mask.....................: 255.255.255.0\nDefault Gateway.................: 192.168.200.1\nDHCP Servers....................: 192.168.50.1\nDNS Servers.....................: 192.168.100.5",
+"e": "domain-name right.example.com, default-router 192.168.200.1 → RIGHT pool.",
+"src": "gy9-dhcp.html",
+"pt": true,
+"osi": 7
+},
+{
+"id": "pt-21",
+"ch": "gy9",
+"t": "mc",
+"q": "Mit árul el ez a kimenet?",
+"o": [
+"A gép statikus címet kapott a rendszergazdától",
+"A gép a routertől kapott címet DHCP-vel",
+"A DNS-szerver hibás, ezért nincs átjáró",
+"A DHCP címkérés sikertelen volt, a gép APIPA címet választott"
+],
+"a": 3,
+"out": "C:\\>ipconfig\nAutoconfiguration IPv4 Address..: 169.254.125.60\nSubnet Mask.....................: 255.255.0.0\nDefault Gateway.................: 0.0.0.0",
+"src": "e5-dhcp.html",
+"pt": true,
+"osi": 7
+},
+{
+"id": "gy10-01",
+"ch": "gy10",
+"t": "mc",
+"q": "Milyen frekvenciasávokat használnak a modern WiFi eszközök?",
+"o": [
+"900 MHz és 1,8 GHz",
+"2,4 GHz és 5 GHz",
+"60 GHz kizárólag",
+"13,56 MHz"
+],
+"a": 1,
+"src": "gy10-wifi.html",
+"osi": 1
+},
+{
+"id": "gy10-02",
+"ch": "gy10",
+"t": "mc",
+"q": "Mi az SSID?",
+"o": [
+"A WiFi-hálózat neve",
+"A titkosítás típusa",
+"Az AP MAC-címe",
+"A WiFi-hálózat jelszava"
+],
+"a": 0,
+"src": "gy10-wifi.html",
+"e": "A WiFi-hálózat azonosítója (neve). A vezeték nélküli hálózat azonosítója (neve).",
+"osi": 2
+},
+{
+"id": "gy10-03",
+"ch": "gy10",
+"t": "mc",
+"q": "Mire jó, ha egy AP több SSID-t szolgáltat?",
+"o": [
+"Így két frekvenciasávot használhat egyszerre",
+"Így nem kell jelszó egyik hálózathoz sem",
+"A belső hálózattól elválasztott vendéghálózat alakítható ki",
+"Így gyorsabb lesz minden kliens kapcsolata"
+],
+"a": 2,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-04",
+"ch": "gy10",
+"t": "mc",
+"q": "Melyik WiFi titkosítás elavult és nem biztonságos?",
+"o": [
+"WPA2",
+"AES",
+"WEP",
+"WPA3"
+],
+"a": 2,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-05",
+"ch": "gy10",
+"t": "mc",
+"q": "Melyik titkosítás az ajánlott a jegyzet szerint?",
+"o": [
+"TKIP",
+"WEP",
+"Nincs titkosítás",
+"AES"
+],
+"a": 3,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-06",
+"ch": "gy10",
+"t": "mc",
+"q": "Mit jelent a PSK a WPA2-PSK-ban?",
+"o": [
+"Private Server Key: szerverkulcs",
+"Pre-Shared Key: közös jelszó",
+"Public Secure Key: nyilvános kulcs",
+"Packet Security Kernel: modul"
+],
+"a": 1,
+"megj": "A jegyzetben tévesen „PerSonal Key” szerepel.",
+"src": "gy10-wifi.html",
+"e": "Pre-Shared Key: közösen használt (előre megosztott) jelszó.",
+"osi": 2
+},
+{
+"id": "gy10-07",
+"ch": "gy10",
+"t": "mc",
+"q": "Mi a közös jelszavas (PSK) WiFi fő problémája vállalati környezetben?",
+"o": [
+"A PSK-hálózatban nem lehet rejtett SSID-t beállítani",
+"A PSK csak WEP titkosítással használható, ezért elavult",
+"A közös jelszó miatt a WiFi csak 2,4 GHz-en képes működni",
+"Távozáskor mindenkinél jelszót kell cserélni, nincs egyéni azonosítás"
+],
+"a": 3,
+"src": "gy10-wifi.html",
+"e": "Egy munkatárs távozásakor a közös jelszót mindenkinél cserélni kellene, és a felhasználók nem azonosíthatók egyenként.",
+"osi": 2
+},
+{
+"id": "gy10-08",
+"ch": "gy10",
+"t": "mc",
+"q": "Mi a vállalati megoldás a WiFi felhasználók azonosítására?",
+"o": [
+"WEP titkosítás közös, havonta cserélt jelszóval",
+"MAC-szűrés az AP-n a céges eszközök címével",
+"Rejtett SSID, amelyet csak a dolgozók ismernek",
+"Külső AAA (RADIUS) szerver egyéni fiókokkal"
+],
+"a": 3,
+"src": "gy10-wifi.html",
+"e": "Külső AAA (RADIUS) szerver felhasználónévvel és jelszóval.",
+"osi": 2
+},
+{
+"id": "gy10-09",
+"ch": "gy10",
+"t": "mc",
+"q": "Mit jelent az AAA?",
+"o": [
+"Automatic Address Assignment",
+"Access, Audit, Alert",
+"Authentication, Authorization, Accounting",
+"Advanced AES Algorithm"
+],
+"a": 2,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-10",
+"ch": "gy10",
+"t": "mc",
+"q": "Mit kell megadni az AP-n (WRT300N), hogy a RADIUS szervert használja?",
+"o": [
+"A szerver IP-címét és a közös titkot (shared secret)",
+"A kliensek MAC-címét és felhasználónevét",
+"A DNS-szerver címét és a tartomány nevét",
+"Az SSID-t és a WPA2-PSK jelszót"
+],
+"a": 0,
+"src": "gy10-wifi.html",
+"e": "A szerver IP-címét és a közös kommunikációs jelszót (shared secret).",
+"osi": 2
+},
+{
+"id": "gy10-11",
+"ch": "gy10",
+"t": "mc",
+"q": "Melyik támadás használja ki a WPA2 ismert hibáját?",
+"o": [
+"KRACK",
+"Smurf",
+"DHCP starving",
+"ARP spoofing"
+],
+"a": 0,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-12",
+"ch": "gy10",
+"t": "mc",
+"q": "Miért kell vendéghálózatot kialakítani, ha idegenek is használják a WiFi-t?",
+"o": [
+"Hogy ne érjék el a belső fájl- és adatbázisszervereket",
+"Mert így gyorsabb a belső hálózat WiFi-je",
+"Hogy a vendégeknek ne kelljen jelszó",
+"Mert a törvény minden cégnek előírja"
+],
+"a": 0,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-13",
+"ch": "gy10",
+"t": "tf",
+"q": "A rejtett SSID-hez csak azok az eszközök tudnak csatlakozni, amelyek ismerik a nevét.",
+"a": true,
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy10-14",
+"ch": "gy10",
+"t": "mc",
+"q": "Packet Tracerben mi jelzi a sikeres vezeték nélküli kapcsolatot?",
+"o": [
+"Zöld háromszög az AP ikonján",
+"Villogó sárga kör a kábelen",
+"Szaggatott vonal az AP és kliens közt",
+"Piros X a laptop ikonján"
+],
+"a": 2,
+"src": "gy10-wifi.html",
+"e": "Szaggatott vonal az AP és a kliens között.",
+"osi": 2
+},
+{
+"id": "gy10-15",
+"ch": "gy10",
+"t": "mc",
+"q": "Miért kell rendszeresen frissíteni a vezeték nélküli eszközök firmware-ét?",
+"o": [
+"Hogy új SSID-t lehessen beállítani",
+"A hibák és sérülékenységek javítására",
+"Nem kell, a firmware nem változik",
+"Hogy gyorsabban töltsenek a kliensek"
+],
+"a": 1,
+"src": "gy10-wifi.html",
+"e": "A hibák és sérülékenységek javítására; elmulasztása hálózati problémákhoz és csalásokhoz vezethet.",
+"osi": 2
+},
+{
+"id": "gy10-16",
+"ch": "gy10",
+"t": "card",
+"q": "WiFi biztonság összefoglaló",
+"b": "Titkosítás: WEP elavult, TKIP nem ajánlott, AES ajánlott. Azonosítás: nyílt / WPA / WPA2(-PSK, közös jelszó) / vállalati: külső AAA-RADIUS szerver, egyéni felhasználónév-jelszó. Kockázatok: nyílt hálózat, vendégek a belső hálón, KRACK (WPA2), elavult firmware.",
+"src": "gy10-wifi.html",
+"osi": 2
+},
+{
+"id": "gy14-01",
+"ch": "gy14",
+"t": "mc",
+"q": "Mit vizsgál a Cisco normál (standard) ACL?",
+"o": [
+"Csak a forráscímet",
+"Forrás- és célcímet, portot",
+"Csak a portot",
+"Csak a célcímet"
+],
+"a": 0,
+"e": "Ezért a standard ACL-t a célhoz közel szokás elhelyezni. A kiterjesztett ACL forrás- és célcímet, protokollt és portot is vizsgál.",
+"megj": "A jegyzetben tévesen az áll, hogy a normál lista a célhálózatot nézi.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-02",
+"ch": "gy14",
+"t": "mc",
+"q": "Milyen sorszámtartományba esnek a számozott normál (standard) IP ACL-ek?",
+"o": [
+"0–99",
+"1–99",
+"100–199",
+"1–1000"
+],
+"a": 1,
+"e": "Kiterjesztett: 100–199 (és bővített tartományok).",
+"megj": "A jegyzetben tévesen 0–99 szerepel.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-03",
+"ch": "gy14",
+"t": "mc",
+"q": "Milyen sorszámtartományba esnek a számozott kiterjesztett ACL-ek?",
+"o": [
+"1–99",
+"100–199",
+"200–299",
+"0–99"
+],
+"a": 1,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-04",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi az ACL alkalmazásának két lépése?",
+"o": [
+"Létrehozás, majd interfészhez rendelés iránnyal",
+"Létrehozás, majd az eszköz újraindítása",
+"Mentés az NVRAM-ba, majd a lista törlése",
+"Az interfész leállítása, majd a lista írása"
+],
+"a": 0,
+"src": "gy14-firewall.html",
+"e": "Létrehozás, majd hozzárendelés egy interfészhez irány (in/out) megadásával.",
+"osi": 3
+},
+{
+"id": "gy14-05",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi a 255.255.255.0 maszk wildcard (inverz) maszkja?",
+"o": [
+"255.255.255.0",
+"0.0.0.255",
+"0.255.255.255",
+"255.0.0.0"
+],
+"a": 1,
+"e": "255.255.255.255 − maszk.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-06",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi a 255.255.255.192 (/26) maszk wildcard maszkja?",
+"o": [
+"0.0.0.64",
+"0.0.0.127",
+"0.0.0.63",
+"0.0.0.192"
+],
+"a": 2,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-07",
+"ch": "gy14",
+"t": "mc",
+"q": "Melyik wildcard maszk jelöl egyetlen hosztot?",
+"o": [
+"255.255.255.255",
+"0.0.0.0",
+"0.0.0.1",
+"0.0.0.255"
+],
+"a": 1,
+"e": "Rövid alakja a host kulcsszó.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-08",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi a jelentése az any kulcsszónak ACL-ben?",
+"o": [
+"Egyetlen host (wildcard 0.0.0.0)",
+"Bármely cím (0.0.0.0 255.255.255.255)",
+"Csak a privát címtartományok",
+"Csak a helyi hálózat címei"
+],
+"a": 1,
+"src": "gy14-firewall.html",
+"e": "0.0.0.0 255.255.255.255, azaz bármely cím.",
+"osi": 3
+},
+{
+"id": "gy14-09",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi történik azzal a csomaggal, amelyre az ACL egyik szabálya sem illeszkedik?",
+"o": [
+"Eldobják (implicit deny)",
+"Visszaküldik a feladónak",
+"Naplózzák és átengedik",
+"Átengedik, naplózás nélkül"
+],
+"a": 0,
+"src": "gy14-firewall.html",
+"e": "Eldobják (implicit deny a lista végén).",
+"osi": 3
+},
+{
+"id": "gy14-10",
+"ch": "gy14",
+"t": "mc",
+"q": "Hogyan értékeli ki a router az ACL szabályait?",
+"o": [
+"Az utolsó illeszkedő dönt",
+"A legspecifikusabb szabály dönt mindig, sorrendtől függetlenül",
+"Sorrendben, az első illeszkedő szabály dönt",
+"Véletlen sorrendben"
+],
+"a": 2,
+"e": "Ezért a specifikusabb (host) szabályokat a tágabb hálózati szabályok elé kell írni.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-11",
+"ch": "gy14",
+"t": "mc",
+"q": "Melyik paranccsal rendeljük a 10-es ACL-t a g0/0/1 interfész kimenő forgalmához?",
+"o": [
+"access-list 10 interface g0/0/1",
+"ip access-group 10 out",
+"access-class 10 out",
+"ip acl 10 out"
+],
+"a": 1,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-12",
+"ch": "gy14",
+"t": "mc",
+"q": "Melyik paranccsal rendeljük az ACL-t a vty (telnet/SSH) vonalakhoz?",
+"o": [
+"ip ssh acl",
+"access-class ... in",
+"ip access-group",
+"transport input"
+],
+"a": 1,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-13",
+"ch": "gy14",
+"t": "mc",
+"q": "Hová célszerű elhelyezni a kiterjesztett ACL-t?",
+"o": [
+"Mindig a konzol vonalra",
+"A hálózat közepén lévő routerre",
+"A forráshoz minél közelebb",
+"A célhoz minél közelebb"
+],
+"a": 2,
+"e": "A forráshoz minél közelebb, hogy a nem kívánt forgalom korán eldobódjon. A standard ACL-t (mert csak forráscímet néz) a célhoz közel szokás tenni.",
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-14",
+"ch": "gy14",
+"t": "mc",
+"q": "Melyik kiterjesztett szabály engedi a 192.168.10.0/24 hálózatnak a 192.168.200.0/24 felé a HTTP-t?",
+"o": [
+"permit tcp 192.168.10.0 0.0.0.255 192.168.200.0 0.0.0.255 eq 80",
+"permit udp 192.168.10.0 0.0.0.255 192.168.200.0 0.0.0.255 eq 80",
+"permit ip 192.168.10.0 255.255.255.0 any eq 80",
+"permit tcp any any eq 443"
+],
+"a": 0,
+"src": "gy14-firewall.html",
+"osi": 4
+},
+{
+"id": "gy14-15",
+"ch": "gy14",
+"t": "mc",
+"q": "Mit jelent az eq www a kiterjesztett ACL-ben?",
+"o": [
+"Bármely port",
+"A 8080-as port",
+"A 80-as port",
+"A 443-as port"
+],
+"a": 2,
+"src": "gy14-firewall.html",
+"osi": 4
+},
+{
+"id": "gy14-16",
+"ch": "gy14",
+"t": "mc",
+"q": "Melyik parancs listázza az ACL-eket a találati számlálókkal (megjegyzések nélkül)?",
+"o": [
+"show access-lists",
+"show acl remarks",
+"show run | section remark",
+"show ip interface brief"
+],
+"a": 0,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-17",
+"ch": "gy14",
+"t": "mc",
+"q": "Hogyan törölhető egy nevesített/standard listából egyetlen szabály?",
+"o": [
+"delete 10 a globális konfigurációs módban",
+"clear access-list counters 10 parancsszal",
+"ip access-list standard 10, majd no <sorszám>",
+"no access-list 10, majd újra be kell írni"
+],
+"a": 2,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-18",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi a teendő, ha bejövő és kimenő forgalomra is szűrni kell egy interfészen?",
+"o": [
+"Nem lehetséges, csak az egyik irány szűrhető",
+"Két külön interfész kell a két irányhoz",
+"Egy lista elég, az mindkét irányra érvényes",
+"Külön listát kell készíteni és hozzárendelni a két irányhoz"
+],
+"a": 3,
+"src": "gy14-firewall.html",
+"osi": 3
+},
+{
+"id": "gy14-19",
+"ch": "gy14",
+"t": "card",
+"q": "ACL összefoglaló",
+"b": "Standard (1–99 / nevesített standard): forráscím. Extended (100–199 / nevesített extended): protokoll, forrás, cél, port. Wildcard = 255.255.255.255 − maszk; host = 0.0.0.0, any = mind. Első illeszkedés dönt, a végén implicit deny any. Interfészre: ip access-group X in|out. VTY-ra: access-class X in. Extended a forráshoz, standard a célhoz közel.",
+"src": "gy14-firewall.html",
+"osi": 4
+},
+{
+"id": "pt-27",
+"ch": "gy14",
+"t": "mc",
+"q": "Mi történik egy olyan csomaggal, amelyre csak a 20-as sor illeszkedik?",
+"o": [
+"Eldobják",
+"Naplózzák",
+"Átengedik",
+"Visszaküldik"
+],
+"a": 0,
+"out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+"src": "gy14-firewall.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-28",
+"ch": "gy14",
+"t": "mc",
+"q": "Hogyan törölhető csak a 20-as sor?",
+"o": [
+"clear access-list counters 10",
+"no access-list 10",
+"ip access-list standard 10, majd no 20",
+"delete 20"
+],
+"a": 2,
+"out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+"src": "gy14-firewall.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-29",
+"ch": "gy14",
+"t": "mc",
+"q": "A 20-as sor elhagyása megváltoztatná-e a lista működését?",
+"o": [
+"Igen, mindent tiltana utána",
+"Nem, a lista végén implicit deny any van",
+"Csak kimenő irányban változna",
+"Igen, mindent átengedne utána"
+],
+"a": 1,
+"out": "R1#show access-lists\nStandard IP access list 10\n    10 permit host 192.168.200.5\n    20 deny any",
+"src": "gy14-firewall.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "gy15-01",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik paranccsal jelöljük meg a belső (privát) hálózat felé néző interfészt NAT-hoz?",
+"o": [
+"ip nat source",
+"ip nat outside",
+"ip nat inside",
+"nat enable"
+],
+"a": 2,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-02",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik paranccsal jelöljük meg a külső (publikus) interfészt NAT-hoz?",
+"o": [
+"ip nat public",
+"ip nat outside",
+"ip nat inside",
+"ip nat global"
+],
+"a": 1,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-03",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik parancs állít be statikus 1:1 NAT-ot a 192.168.1.11 → 193.225.32.11 fordításhoz?",
+"o": [
+"ip nat inside source static 192.168.1.11 193.225.32.11",
+"ip nat outside source static 193.225.32.11 192.168.1.11",
+"ip nat pool 192.168.1.11 193.225.32.11",
+"ip nat static 193.225.32.11"
+],
+"a": 0,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-04",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik konfiguráció valósít meg PAT-ot a 192.168.1.0/24 hálózatra a g0/1 interfész címével?",
+"o": [
+"ip nat inside source static 192.168.1.0 interface g0/1 overload",
+"access-list 1 permit 192.168.1.0 0.0.0.255 + ip nat outside source list 1 g0/1",
+"access-list 1 permit 192.168.1.0 0.0.0.255 + ip nat inside source list 1 interface g0/1 overload",
+"ip nat pool PAT 192.168.1.0 192.168.1.255 netmask 255.255.255.0 overload"
+],
+"a": 2,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-05",
+"ch": "gy15",
+"t": "mc",
+"q": "Mi teszi a NAT-ot PAT-tá a Cisco parancsban?",
+"o": [
+"Az overload kulcsszó",
+"A list kulcsszó",
+"Az inside kulcsszó",
+"A static kulcsszó"
+],
+"a": 0,
+"src": "gy15-nat.html",
+"e": "overload kulcsszó.",
+"osi": 3
+},
+{
+"id": "gy15-06",
+"ch": "gy15",
+"t": "mc",
+"q": "Mire való a PAT konfigurációban az access-list 1 permit 192.168.1.0 0.0.0.255?",
+"o": [
+"A DHCP pool címtartományát adja meg",
+"Kijelöli a fordítandó belső forráscímeket",
+"Tűzfalszabály a külső interfész felé",
+"Tiltja a belső hálózat internetelérését"
+],
+"a": 1,
+"src": "gy15-nat.html",
+"e": "Kijelöli, mely belső forráscímeket kell fordítani.",
+"osi": 3
+},
+{
+"id": "gy15-07",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik paranccsal ellenőrizhetők az aktív címfordítások?",
+"o": [
+"show ip interface brief",
+"show nat table",
+"show ip route",
+"show ip nat translations"
+],
+"a": 3,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-08",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik parancs naplózza valós időben a NAT műveleteket?",
+"o": [
+"debug ip nat",
+"logging nat",
+"trace nat",
+"show ip nat log"
+],
+"a": 0,
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "gy15-09",
+"ch": "gy15",
+"t": "mc",
+"q": "Mikor használunk jellemzően statikus NAT-ot?",
+"o": [
+"Ha sok kliens osztozik egy publikus címen",
+"Ha belső szervert kívülről fix címen kell elérni",
+"Ha egyáltalán nincs publikus címünk",
+"Ha a WiFi-klienseket kell elválasztani"
+],
+"a": 1,
+"src": "gy15-nat.html",
+"e": "Ha egy belső szervert kívülről is el kell érni fix publikus címen.",
+"osi": 3
+},
+{
+"id": "gy15-10",
+"ch": "gy15",
+"t": "card",
+"q": "Statikus NAT vs. PAT (Cisco)",
+"b": "Mindkettő: interfészeken ip nat inside / ip nat outside. Statikus: ip nat inside source static <belső> <külső> (1:1, belső címenként egy publikus). PAT: access-list N permit <belső háló> <wildcard> + ip nat inside source list N interface <külső if> overload (N:1, portokkal). Ellenőrzés: show ip nat translations, debug ip nat.",
+"src": "gy15-nat.html",
+"osi": 3
+},
+{
+"id": "pt-22",
+"ch": "gy15",
+"t": "mc",
+"q": "Milyen NAT típus látszik a „---” sorban?",
+"o": [
+"Nincs NAT",
+"Statikus 1:1 NAT",
+"PAT (overload)",
+"Dinamikus pool"
+],
+"a": 1,
+"out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.11:1   192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nicmp 193.225.32.11:2   192.168.1.11:2     193.225.32.10:2    193.225.32.10:2\n---  193.225.32.11     192.168.1.11       ---                ---",
+"src": "gy15-nat.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-23",
+"ch": "gy15",
+"t": "mc",
+"q": "Mi a belső kliens publikus (Inside global) címe?",
+"o": [
+"192.168.1.11",
+"193.225.32.11",
+"193.225.32.10",
+"193.225.32.1"
+],
+"a": 1,
+"out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.11:1   192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nicmp 193.225.32.11:2   192.168.1.11:2     193.225.32.10:2    193.225.32.10:2\n---  193.225.32.11     192.168.1.11       ---                ---",
+"src": "gy15-nat.html",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-24",
+"ch": "gy15",
+"t": "mc",
+"q": "Milyen NAT típus látszik itt?",
+"o": [
+"Dinamikus NAT-pool, több publikus címből választva",
+"PAT: minden kapcsolat a router külső címét használja",
+"Nincs fordítás, a belső címek kijutnak az internetre",
+"Statikus NAT: minden belső géphez külön cím tartozik"
+],
+"a": 1,
+"out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+"src": "gy15-nat.html",
+"e": "PAT (overload): minden kapcsolat a router külső címét (193.225.32.1) használja.",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-25",
+"ch": "gy15",
+"t": "mc",
+"q": "Mit jelez az udp …:53 sor?",
+"o": [
+"Pinget (ICMP)",
+"DNS-lekérdezést",
+"HTTP-forgalmat",
+"DHCP-kérést"
+],
+"a": 1,
+"out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+"src": "gy15-nat.html",
+"e": "DNS-lekérdezést (a www.company.com név feloldása).",
+"pt": true,
+"osi": 3
+},
+{
+"id": "pt-26",
+"ch": "gy15",
+"t": "mc",
+"q": "Melyik szolgáltatást érte el a kliens a tcp sor szerint?",
+"o": [
+"SMTP",
+"HTTP",
+"SSH",
+"FTP"
+],
+"a": 1,
+"out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+"src": "gy15-nat.html",
+"e": "Web (HTTP). Web (HTTP, 80-as port).",
+"pt": true,
+"osi": 3
+}
+]
+}

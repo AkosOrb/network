@@ -1,0 +1,358 @@
+{
+ "ch": "e8",
+ "cim": "7–8. Tűzfalak, NAT/PAT (elmélet)",
+ "kerdesek": [
+  {
+   "id": "e8-01",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Miért alkalmas az átjáró (router) tűzfal szerepre?",
+   "o": [
+    "Mert neki van a legnagyobb memóriája a hálózatban",
+    "Mert minden kimenő és bejövő csomag rajta megy át",
+    "Mert ő végzi a névfeloldást minden belső gépnek",
+    "Mert ő osztja ki a belső gépek IP-címeit"
+   ],
+   "a": 1,
+   "src": "e7-firewalls.html",
+   "e": "Mert a belső hálózat és az Internet közötti minden csomag áthalad rajta."
+  },
+  {
+   "id": "e8-02",
+   "ch": "e8",
+   "t": "card",
+   "q": "Tűzfal",
+   "b": "Az átjárón futó szoftver, amely minden áthaladó csomagot megvizsgál, és dönt róla, hogy áthaladhat-e. (A 7. fejezet többi része a jegyzetben még vázlat: port filter, alkalmazás tűzfal, proxy, DMZ, port forward.)",
+   "src": "e7-firewalls.html"
+  },
+  {
+   "id": "e8-03",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Hány elvi IPv4 cím létezik?",
+   "o": [
+    "Kb. 400 millió",
+    "2³² ≈ 4,29 milliárd",
+    "2⁶⁴",
+    "256 × 4 = 1024"
+   ],
+   "a": 1,
+   "e": "32 bites cím → 2³² = 4 294 967 296.",
+   "megj": "A jegyzetben tévesen „valamivel több, mint 41 milliárd” szerepel.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-04",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik a 10-es privát tartomány?",
+   "o": [
+    "10.0.0.0/12",
+    "10.0.0.0/16",
+    "10.0.0.0/8",
+    "10.0.0.0/24"
+   ],
+   "a": 2,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-05",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik a privát B tartomány az RFC 1918 szerint?",
+   "o": [
+    "172.16.0.0/16",
+    "172.16.0.0/12",
+    "172.0.0.0/8",
+    "172.31.0.0/16"
+   ],
+   "a": 1,
+   "e": "172.16.0.0–172.31.255.255.",
+   "megj": "A jegyzetben tévesen 172.16.0.0/16 szerepel.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-06",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Hány C osztályú hálózatot foglal magában a 192.168.0.0/16 tartomány?",
+   "o": [
+    "128",
+    "256",
+    "16",
+    "65536"
+   ],
+   "a": 1,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-07",
+   "ch": "e8",
+   "t": "tf",
+   "q": "Az internetes útválasztók nem továbbítják a privát címekre szóló forgalmat.",
+   "a": true,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-08",
+   "ch": "e8",
+   "t": "tf",
+   "q": "Ha két különböző cég belső hálózata ugyanazt a privát tartományt használja, az ütközést okoz az interneten.",
+   "a": false,
+   "e": "A privát címek nem kerülnek ki az internetre, ezért nem ütköznek.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-09",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Mire való a 127.0.0.0/8 tartomány?",
+   "o": [
+    "A privát B osztályú tartomány",
+    "Loopback: a gép saját magát címzi",
+    "Multicast csoportok címtartománya",
+    "Ad-hoc (APIPA) címek tartománya"
+   ],
+   "a": 1,
+   "megj": "A jegyzet a privát tartományok közé sorolja.",
+   "src": "e8-nat.html",
+   "e": "Loopback: az eszköz saját magát címzi meg. A loopback nem RFC 1918 privát tartomány, hanem külön, foglalt tartomány."
+  },
+  {
+   "id": "e8-10",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik eszköz végzi a címfordítást?",
+   "o": [
+    "Router",
+    "DNS-szerver",
+    "Access point",
+    "Switch"
+   ],
+   "a": 0,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-11",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Hol használható jól a „klasszikus” (több publikus címes) NAT a jegyzet szerint?",
+   "o": [
+    "Sehol, mára teljesen elavult",
+    "Nagyvállalati hálózatokban",
+    "Csak szervereknél, kívülről",
+    "Otthoni SOHO routereken"
+   ],
+   "a": 1,
+   "e": "A PAT a kisebb (SOHO) hálózatokban terjedt el.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-12",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Mi a NAT tábla négy oszlopa?",
+   "o": [
+    "MAC-cím, IP-cím, VLAN, port, bérleti idő",
+    "Belső helyi, belső globális, külső helyi, külső globális cím",
+    "Forrás IP, cél IP, forrás port, cél port, protokoll",
+    "Hálózat, maszk, átjáró, metrika, interfész"
+   ],
+   "a": 1,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-13",
+   "ch": "e8",
+   "t": "mc",
+   "q": "NAT esetén a 192.168.1.11:40001 → 142.251.208.142:80 csomagot a router kiküldi. Mit cserél ki benne?",
+   "o": [
+    "A célcímet a router belső címére",
+    "A célportot egy szabad véletlen portra",
+    "A forráscímet egy szabad publikus címre",
+    "A forrás MAC-címet a router címére"
+   ],
+   "a": 2,
+   "src": "e8-nat.html",
+   "e": "A forrás IP-t egy szabad publikus címre (pl. 193.225.32.2)."
+  },
+  {
+   "id": "e8-14",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Mi a belső globális cím a NAT táblában?",
+   "o": [
+    "A külső szerver valódi publikus címe",
+    "A belső gép eredeti, privát címe",
+    "A router belső interfészének címe",
+    "A belső géphez rendelt publikus cím"
+   ],
+   "a": 3,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-15",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Visszaérkező válasznál mi alapján írja vissza a router a cél IP-t a belső címre?",
+   "o": [
+    "NAT tábla bejegyzése",
+    "A DNS gyorsítótár",
+    "A routing tábla",
+    "Az ARP tábla"
+   ],
+   "a": 0,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-16",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Miben különbözik a PAT a NAT-tól?",
+   "o": [
+    "A PAT egy publikus címet használ, a portok különböztetik meg",
+    "A PAT a célcímet cseréli, a NAT a forráscímet, ez a különbség",
+    "A PAT több publikus címet használ, a MAC-címek döntenek",
+    "A PAT csak UDP-forgalmat fordít, a TCP-t érintetlenül hagyja"
+   ],
+   "a": 0,
+   "src": "e8-nat.html",
+   "e": "A PAT egyetlen publikus címet használ, a kapcsolatokat portszámok alapján különbözteti meg."
+  },
+  {
+   "id": "e8-17",
+   "ch": "e8",
+   "t": "mc",
+   "q": "PAT esetén mit tesz a router, ha a belső gép forrásportja (40001) már foglalt a PAT táblában?",
+   "o": [
+    "Eldobja a csomagot, és ICMP hibát küld vissza",
+    "Szabad portot keres (pl. 62126), és azt használja",
+    "Új publikus címet kér az internetszolgáltatótól",
+    "Megvárja, amíg a 40001-es port felszabadul"
+   ],
+   "a": 1,
+   "src": "e8-nat.html",
+   "e": "Szabad portot keres (pl. 62126), és azt használja forrásportként."
+  },
+  {
+   "id": "e8-18",
+   "ch": "e8",
+   "t": "mc",
+   "q": "PAT esetén mi lesz a kimenő csomag forráscíme?",
+   "o": [
+    "A router külső (publikus) címe",
+    "0.0.0.0",
+    "A szerver címe",
+    "A belső gép privát címe"
+   ],
+   "a": 0,
+   "megj": "A jegyzet PAT példájának 3. lépésében tévesen 193.225.32.2 szerepel célcímként.",
+   "src": "e8-nat.html",
+   "e": "A válaszcsomag célcíme is a router külső címe (193.225.32.1), célportja a PAT-port."
+  },
+  {
+   "id": "e8-19",
+   "ch": "e8",
+   "t": "tf",
+   "q": "A NAT részleges védelmet nyújt, mert kívülről kezdeményezett új kapcsolatnak nincs NAT bejegyzése, így a router eldobja.",
+   "a": true,
+   "e": "A jegyzet szerint ez önmagában nem elegendő védelem.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-20",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik a NAT előnye?",
+   "o": [
+    "Takarékoskodik a publikus címekkel",
+    "Gyorsítja az IPSec-et",
+    "Csökkenti a router terhelését",
+    "Megkönnyíti a nyomon követést"
+   ],
+   "a": 0,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-21",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik protokoll/szolgáltatás működik rosszul NAT mögött a jegyzet szerint?",
+   "o": [
+    "DNS (a nevek nem oldhatók fel)",
+    "ARP (a MAC-címek nem láthatók)",
+    "DHCP (nem kap címet a kliens)",
+    "IPSec (nem végpontok között ér véget)"
+   ],
+   "a": 3,
+   "src": "e8-nat.html",
+   "e": "IPSec (nem végponttól végpontig tart a kapcsolat)."
+  },
+  {
+   "id": "e8-22",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Melyik alkalmazás nem működik, ha a kliens és a szerver is NAT mögött van (jegyzet példája)?",
+   "o": [
+    "Passzív módú FTP",
+    "HTTPS böngészés",
+    "Ping",
+    "DNS-lekérdezés"
+   ],
+   "a": 0,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-23",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Miért nehezíti a NAT az incidenskezelést?",
+   "o": [
+    "Titkosítja a router naplóit",
+    "Elrejti a kérő belső gép kilétét",
+    "Törli a kliensek MAC-címét",
+    "Kikapcsolja az ICMP-üzeneteket"
+   ],
+   "a": 1,
+   "src": "e8-nat.html",
+   "e": "Elrejti a szolgáltatást kérő belső gép kilétét."
+  },
+  {
+   "id": "e8-24",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Miért érdemes új hálózat tervezésekor kerülni a 192.168.0.0/24 és 192.168.1.0/24 tartományokat?",
+   "o": [
+    "Mert ezek publikus címek, az interneten ütköznének",
+    "Mert a Cisco routerek nem támogatják ezeket",
+    "A SOHO routerek ezeket használják, VPN-nél ütközés lesz",
+    "Mert túl kicsik, csak 126 gép fér el bennük"
+   ],
+   "a": 2,
+   "e": "Mert a SOHO routerek alapértelmezettként ezeket használják, és home office VPN-nél ütközés lesz. A jegyzet pl. 192.168.22.0/24 használatát javasolja.",
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-25",
+   "ch": "e8",
+   "t": "mc",
+   "q": "Hogyan nevezik más gyártók (pl. Mikrotik) a belső hálózatból kifelé irányuló NAT-ot?",
+   "o": [
+    "dstnat",
+    "srcnat",
+    "masq-in",
+    "PAT-out"
+   ],
+   "a": 1,
+   "src": "e8-nat.html"
+  },
+  {
+   "id": "e8-26",
+   "ch": "e8",
+   "t": "card",
+   "q": "NAT vs. PAT",
+   "b": "NAT: a router egy publikus címtartományból kölcsönöz címet a belső gépnek (belső helyi ↔ belső globális). PAT: egyetlen publikus cím (a router külső címe), a kapcsolatokat a portszámok különböztetik meg; SOHO routereken ez a jellemző.",
+   "src": "e8-nat.html"
+  }
+ ]
+}

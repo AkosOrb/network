@@ -1,0 +1,366 @@
+{
+ "ch": "gy6",
+ "cim": "Gy7. IP útválasztás",
+ "kerdesek": [
+  {
+   "id": "gy6-01",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi a feltétele, hogy egy PC elérje egy másik IP-hálózat gépét a routeren keresztül?",
+   "o": [
+    "Legyen beállítva az alapértelmezett átjáró",
+    "Legyen mindkét gép ugyanabban a VLAN-ban",
+    "Legyen beállítva DNS-szerver a PC-n",
+    "Legyen statikus MAC-cím a PC-n"
+   ],
+   "a": 0,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Be legyen állítva az alapértelmezett átjáró (a router adott hálózatbeli címe)."
+  },
+  {
+   "id": "gy6-02",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "A routing táblában mit jelent a C betű?",
+   "o": [
+    "Cache: korábban megtanult útvonal",
+    "Connected: közvetlenül csatlakozó hálózat",
+    "Cisco: gyártói alapértelmezett útvonal",
+    "Configured: kézzel megadott útvonal"
+   ],
+   "a": 1,
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-03",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "A routing táblában mit jelent az L betű?",
+   "o": [
+    "Link: egy másik routerhez vezető link",
+    "Lease: DHCP-ből kapott útvonal",
+    "Loopback: a 127.0.0.1-es cím",
+    "Local: a router saját címe (/32)"
+   ],
+   "a": 3,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Local: a router saját interfészcíme /32-vel."
+  },
+  {
+   "id": "gy6-04",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mit jelent az S betű a routing táblában?",
+   "o": [
+    "Subnet: alhálózati útvonal",
+    "Secure: titkosított útvonal",
+    "Statikus, kézzel megadott útvonal",
+    "Switch felé vezető útvonal"
+   ],
+   "a": 2,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Statikus (kézzel megadott) útvonal."
+  },
+  {
+   "id": "gy6-05",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Melyik a helyes statikus útvonal R1-en, ha a 192.168.200.0/24 hálózat a 10.0.0.2 című R2 mögött van?",
+   "o": [
+    "ip route 192.168.200.0 255.255.255.0 10.0.0.2",
+    "ip route 10.0.0.2 255.255.255.0 192.168.200.0",
+    "route add 192.168.200.0/24",
+    "ip route 192.168.200.0 0.0.0.255 10.0.0.2"
+   ],
+   "a": 0,
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-06",
+   "ch": "gy6",
+   "t": "tf",
+   "q": "Ha R1-en beállítottuk a statikus útvonalat R2 hálózata felé, akkor R2-n már nem kell visszafelé útvonal.",
+   "a": false,
+   "e": "Mindkét routeren kell útvonal, különben a válasz nem jut vissza.",
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-07",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi az alapértelmezett útvonal (default route) formája?",
+   "o": [
+    "ip route 255.255.255.255 255.255.255.255 X",
+    "ip route 0.0.0.0 0.0.0.0 X",
+    "ip default 0/0",
+    "ip route any X"
+   ],
+   "a": 1,
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-08",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mikor használja a router az alapértelmezett útvonalat?",
+   "o": [
+    "Ha a cél ugyanabban a hálózatban van",
+    "Csak az ICMP-csomagok továbbításakor",
+    "Mindig, az összes bejegyzés előtt",
+    "Ha egyik másik bejegyzés sem illeszkedik"
+   ],
+   "a": 3,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Ha egyetlen más bejegyzés sem illeszkedik a célcímre."
+  },
+  {
+   "id": "gy6-09",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Az ISP router belső címe 172.16.8.1, R1 g0/2 címe 172.16.8.2. Melyik parancs állítja be helyesen R1 alapértelmezett útvonalát az ISP felé?",
+   "o": [
+    "ip route 172.16.8.0 255.255.255.0 0.0.0.0",
+    "ip route 0.0.0.0 0.0.0.0 172.16.8.2",
+    "ip route 0.0.0.0 0.0.0.0 172.16.8.1",
+    "ip route 0.0.0.0 255.255.255.255 172.16.8.1"
+   ],
+   "a": 2,
+   "e": "A next-hop a szomszéd (ISP) router címe, nem a saját interfészé; a default route maszkja 0.0.0.0.",
+   "megj": "A jegyzet parancsában elírás van: 172.168.8.1.",
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-10",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Miért nem válaszol az ISP router a belső gépek pingjére, amíg nincs rajta visszaútvonal?",
+   "o": [
+    "Az ISP router alapból tiltja az ICMP-t",
+    "Nem ismeri a belső hálózatok felé vezető utat",
+    "NAT nélkül a router nem válaszolhat",
+    "A csomagok TTL-je lejár útközben"
+   ],
+   "a": 1,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Mert nem tudja, merre vannak a 192.168.100.0/24 és 192.168.200.0/24 hálózatok, így a választ nem tudja visszaküldeni."
+  },
+  {
+   "id": "gy6-11",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mivel töröljük a 192.168.100.0/24 felé mutató statikus útvonalat?",
+   "o": [
+    "delete ip route 192.168.100.0",
+    "no ip route 192.168.100.0 255.255.255.0",
+    "erase route 192.168.100.0/24",
+    "clear ip route 192.168.100.0"
+   ],
+   "a": 1,
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-12",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi jelenti a statikus útvonal mellett a [1/0]-t?",
+   "o": [
+    "Slot / port a routeren",
+    "Ugrásszám / TTL",
+    "VLAN-szám / portszám",
+    "Adminisztratív távolság / metrika"
+   ],
+   "a": 3,
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "gy6-13",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi a dinamikus útválasztó protokollok előnye (pl. OSPF)?",
+   "o": [
+    "Automatikusan cserélnek útvonal-információt",
+    "Titkosítják a routerek közötti forgalmat",
+    "Nem kell IP-címet adni az interfészeknek",
+    "Kiváltják a switchek VLAN-beállításait"
+   ],
+   "a": 0,
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Automatikusan cserélnek információt a hálózati változásokról."
+  },
+  {
+   "id": "gy6-14",
+   "ch": "gy6",
+   "t": "card",
+   "q": "Statikus útválasztás menete",
+   "b": "1. Interfészek: ip address + no shutdown. 2. PC-ken default gateway. 3. Minden routeren ip route <távoli hálózat> <maszk> <next-hop> mindkét irányba, vagy ip route 0.0.0.0 0.0.0.0 <ISP> default. 4. Ellenőrzés: show ip route, ping.",
+   "src": "gy6-ip-utvalasztas.html"
+  },
+  {
+   "id": "pt-03",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi a 192.168.2.0/24 hálózat gépeinek helyes alapértelmezett átjárója?",
+   "o": [
+    "192.168.1.1",
+    "Nem kell átjáró",
+    "192.168.2.1",
+    "192.168.2.254"
+   ],
+   "a": 2,
+   "out": "R1#show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up\nGigabitEthernet0/1     192.168.2.1     YES manual up                    up\nGigabitEthernet0/2     unassigned      YES NVRAM  administratively down down\nVlan1                  unassigned      YES NVRAM  administratively down down",
+   "src": "gy6-ip-utvalasztas.html",
+   "pt": true
+  },
+  {
+   "id": "pt-04",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Miért nem használható a GigabitEthernet0/2 jelenleg?",
+   "o": [
+    "Hibás a kábel, a link nem épül fel",
+    "Egy másik routerhez van már bekötve",
+    "Trunk módban van, ezért nem érhető el",
+    "Nincs IP-címe, és kézzel le van tiltva"
+   ],
+   "a": 3,
+   "out": "R1#show ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet0/0     192.168.1.1     YES manual up                    up\nGigabitEthernet0/1     192.168.2.1     YES manual up                    up\nGigabitEthernet0/2     unassigned      YES NVRAM  administratively down down\nVlan1                  unassigned      YES NVRAM  administratively down down",
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Nincs IP-címe és le van tiltva (administratively down).",
+   "pt": true
+  },
+  {
+   "id": "pt-05",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Merre küldi R2 a 192.168.100.25 címre szóló csomagot?",
+   "o": [
+    "Eldobja",
+    "GigabitEthernet0/0-n közvetlenül",
+    "A 10.0.0.1 next-hop felé (statikus útvonal)",
+    "Az alapértelmezett átjáróhoz"
+   ],
+   "a": 2,
+   "out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+   "src": "gy6-ip-utvalasztas.html",
+   "pt": true
+  },
+  {
+   "id": "pt-06",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi történik egy 8.8.8.8-ra szóló csomaggal R2-n?",
+   "o": [
+    "A 10.0.0.1 felé küldi a statikus útvonalon",
+    "Eldobja, mert nincs rá útvonal és default route",
+    "Broadcastként minden interfészen kiküldi",
+    "A 192.168.200.1 interfészen kiküldi"
+   ],
+   "a": 1,
+   "out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Eldobja, mert nincs illeszkedő útvonal és nincs default route (Gateway of last resort is not set).",
+   "pt": true
+  },
+  {
+   "id": "pt-07",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi R2 saját címe a GigabitEthernet0/0 interfészen?",
+   "o": [
+    "192.168.200.0",
+    "192.168.200.1",
+    "10.0.0.2",
+    "10.0.0.1"
+   ],
+   "a": 1,
+   "out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+   "e": "Az L (Local) /32 bejegyzés a router saját címe.",
+   "src": "gy6-ip-utvalasztas.html",
+   "pt": true
+  },
+  {
+   "id": "pt-08",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Milyen paranccsal került be az S jelű sor?",
+   "o": [
+    "router ospf 1",
+    "ip address 192.168.100.0 255.255.255.0",
+    "ip route 0.0.0.0 0.0.0.0 10.0.0.1",
+    "ip route 192.168.100.0 255.255.255.0 10.0.0.1"
+   ],
+   "a": 3,
+   "out": "R2#show ip route\nGateway of last resort is not set\n    10.0.0.0/8 is variably subnetted, 2 subnets, 2 masks\nC       10.0.0.0/24 is directly connected, GigabitEthernet0/1\nL       10.0.0.2/32 is directly connected, GigabitEthernet0/1\nS    192.168.100.0/24 [1/0] via 10.0.0.1\n    192.168.200.0/24 is variably subnetted, 2 subnets, 2 masks\nC       192.168.200.0/24 is directly connected, GigabitEthernet0/0\nL       192.168.200.1/32 is directly connected, GigabitEthernet0/0",
+   "src": "gy6-ip-utvalasztas.html",
+   "pt": true
+  },
+  {
+   "id": "pt-09",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "A PC3 (192.168.100.11) pingje ezt adja. Mi a hiba oka?",
+   "o": [
+    "A célgép ki van kapcsolva vagy nincs bekötve",
+    "A PC3-on nincs beállítva alapértelmezett átjáró",
+    "Az átjáró nem ismer utat a 192.168.200.0/24 felé",
+    "A PC3 kábele hibás, a link nem épül fel"
+   ],
+   "a": 2,
+   "out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nReply from 192.168.100.1: Destination host unreachable.\nReply from 192.168.100.1: Destination host unreachable.",
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "A csomag eljut az átjáróig (192.168.100.1), de a router nem ismer útvonalat a 192.168.200.0/24 felé.",
+   "pt": true
+  },
+  {
+   "id": "pt-10",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "A célgép 128-as TTL-lel küldi a választ. Hány routeren haladt át a válasz?",
+   "o": [
+    "1",
+    "0",
+    "126",
+    "2"
+   ],
+   "a": 3,
+   "out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nRequest timed out.\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126",
+   "e": "128 − 126 = 2 router (R2 és R1).",
+   "src": "gy6-ip-utvalasztas.html",
+   "pt": true
+  },
+  {
+   "id": "pt-11",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mi az oka az első „Request timed out” sornak?",
+   "o": [
+    "A célgép tűzfala eldobta az első csomagot",
+    "Az ARP-feloldás idején elveszett az első csomag",
+    "Hibás az útvonal, csak később javult meg",
+    "Rossz a maszk, a gép újra kellett számolja"
+   ],
+   "a": 1,
+   "out": "C:\\>ping 192.168.200.12\nPinging 192.168.200.12 with 32 bytes of data:\nRequest timed out.\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126\nReply from 192.168.200.12: bytes=32 time<1ms TTL=126",
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Az ARP-feloldás (kapcsolatfelépülés) ideje alatt az első csomag elveszett.",
+   "pt": true
+  },
+  {
+   "id": "pt-12",
+   "ch": "gy6",
+   "t": "mc",
+   "q": "Mit jelent a „.!!!!” sor a router pingjében?",
+   "o": [
+    "A kapcsolat titkosított, a válaszok rejtettek",
+    "Az első kérés időtúllépés, a többi négy sikeres",
+    "Mind az öt kérés sikeres volt, gyors válasszal",
+    "Négy kérés hibás volt, csak egy volt sikeres"
+   ],
+   "a": 1,
+   "out": "R2#ping 10.0.0.1\nType escape sequence to abort.\nSending 5, 100-byte ICMP Echos to 10.0.0.1, timeout is 2 seconds:\n.!!!!\nSuccess rate is 80 percent (4/5), round-trip min/avg/max = 0/0/0 ms",
+   "src": "gy6-ip-utvalasztas.html",
+   "e": "Az első kérés időtúllépés (.), a többi négy sikeres (!).",
+   "pt": true
+  }
+ ]
+}

@@ -1,0 +1,226 @@
+{
+ "ch": "gy15",
+ "cim": "Gy16. NAT a gyakorlatban",
+ "kerdesek": [
+  {
+   "id": "gy15-01",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik paranccsal jelöljük meg a belső (privát) hálózat felé néző interfészt NAT-hoz?",
+   "o": [
+    "ip nat source",
+    "ip nat outside",
+    "ip nat inside",
+    "nat enable"
+   ],
+   "a": 2,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-02",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik paranccsal jelöljük meg a külső (publikus) interfészt NAT-hoz?",
+   "o": [
+    "ip nat public",
+    "ip nat outside",
+    "ip nat inside",
+    "ip nat global"
+   ],
+   "a": 1,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-03",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik parancs állít be statikus 1:1 NAT-ot a 192.168.1.11 → 193.225.32.11 fordításhoz?",
+   "o": [
+    "ip nat inside source static 192.168.1.11 193.225.32.11",
+    "ip nat outside source static 193.225.32.11 192.168.1.11",
+    "ip nat pool 192.168.1.11 193.225.32.11",
+    "ip nat static 193.225.32.11"
+   ],
+   "a": 0,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-04",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik konfiguráció valósít meg PAT-ot a 192.168.1.0/24 hálózatra a g0/1 interfész címével?",
+   "o": [
+    "ip nat inside source static 192.168.1.0 interface g0/1 overload",
+    "access-list 1 permit 192.168.1.0 0.0.0.255 + ip nat outside source list 1 g0/1",
+    "access-list 1 permit 192.168.1.0 0.0.0.255 + ip nat inside source list 1 interface g0/1 overload",
+    "ip nat pool PAT 192.168.1.0 192.168.1.255 netmask 255.255.255.0 overload"
+   ],
+   "a": 2,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-05",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Mi teszi a NAT-ot PAT-tá a Cisco parancsban?",
+   "o": [
+    "Az overload kulcsszó",
+    "A list kulcsszó",
+    "Az inside kulcsszó",
+    "A static kulcsszó"
+   ],
+   "a": 0,
+   "src": "gy15-nat.html",
+   "e": "overload kulcsszó."
+  },
+  {
+   "id": "gy15-06",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Mire való a PAT konfigurációban az access-list 1 permit 192.168.1.0 0.0.0.255?",
+   "o": [
+    "A DHCP pool címtartományát adja meg",
+    "Kijelöli a fordítandó belső forráscímeket",
+    "Tűzfalszabály a külső interfész felé",
+    "Tiltja a belső hálózat internetelérését"
+   ],
+   "a": 1,
+   "src": "gy15-nat.html",
+   "e": "Kijelöli, mely belső forráscímeket kell fordítani."
+  },
+  {
+   "id": "gy15-07",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik paranccsal ellenőrizhetők az aktív címfordítások?",
+   "o": [
+    "show ip interface brief",
+    "show nat table",
+    "show ip route",
+    "show ip nat translations"
+   ],
+   "a": 3,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-08",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik parancs naplózza valós időben a NAT műveleteket?",
+   "o": [
+    "debug ip nat",
+    "logging nat",
+    "trace nat",
+    "show ip nat log"
+   ],
+   "a": 0,
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "gy15-09",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Mikor használunk jellemzően statikus NAT-ot?",
+   "o": [
+    "Ha sok kliens osztozik egy publikus címen",
+    "Ha belső szervert kívülről fix címen kell elérni",
+    "Ha egyáltalán nincs publikus címünk",
+    "Ha a WiFi-klienseket kell elválasztani"
+   ],
+   "a": 1,
+   "src": "gy15-nat.html",
+   "e": "Ha egy belső szervert kívülről is el kell érni fix publikus címen."
+  },
+  {
+   "id": "gy15-10",
+   "ch": "gy15",
+   "t": "card",
+   "q": "Statikus NAT vs. PAT (Cisco)",
+   "b": "Mindkettő: interfészeken ip nat inside / ip nat outside. Statikus: ip nat inside source static <belső> <külső> (1:1, belső címenként egy publikus). PAT: access-list N permit <belső háló> <wildcard> + ip nat inside source list N interface <külső if> overload (N:1, portokkal). Ellenőrzés: show ip nat translations, debug ip nat.",
+   "src": "gy15-nat.html"
+  },
+  {
+   "id": "pt-22",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Milyen NAT típus látszik a „---” sorban?",
+   "o": [
+    "Nincs NAT",
+    "Statikus 1:1 NAT",
+    "PAT (overload)",
+    "Dinamikus pool"
+   ],
+   "a": 1,
+   "out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.11:1   192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nicmp 193.225.32.11:2   192.168.1.11:2     193.225.32.10:2    193.225.32.10:2\n---  193.225.32.11     192.168.1.11       ---                ---",
+   "src": "gy15-nat.html",
+   "pt": true
+  },
+  {
+   "id": "pt-23",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Mi a belső kliens publikus (Inside global) címe?",
+   "o": [
+    "192.168.1.11",
+    "193.225.32.11",
+    "193.225.32.10",
+    "193.225.32.1"
+   ],
+   "a": 1,
+   "out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.11:1   192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nicmp 193.225.32.11:2   192.168.1.11:2     193.225.32.10:2    193.225.32.10:2\n---  193.225.32.11     192.168.1.11       ---                ---",
+   "src": "gy15-nat.html",
+   "pt": true
+  },
+  {
+   "id": "pt-24",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Milyen NAT típus látszik itt?",
+   "o": [
+    "Dinamikus NAT-pool, több publikus címből választva",
+    "PAT: minden kapcsolat a router külső címét használja",
+    "Nincs fordítás, a belső címek kijutnak az internetre",
+    "Statikus NAT: minden belső géphez külön cím tartozik"
+   ],
+   "a": 1,
+   "out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+   "src": "gy15-nat.html",
+   "e": "PAT (overload): minden kapcsolat a router külső címét (193.225.32.1) használja.",
+   "pt": true
+  },
+  {
+   "id": "pt-25",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Mit jelez az udp …:53 sor?",
+   "o": [
+    "Pinget (ICMP)",
+    "DNS-lekérdezést",
+    "HTTP-forgalmat",
+    "DHCP-kérést"
+   ],
+   "a": 1,
+   "out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+   "src": "gy15-nat.html",
+   "e": "DNS-lekérdezést (a www.company.com név feloldása).",
+   "pt": true
+  },
+  {
+   "id": "pt-26",
+   "ch": "gy15",
+   "t": "mc",
+   "q": "Melyik szolgáltatást érte el a kliens a tcp sor szerint?",
+   "o": [
+    "SMTP",
+    "HTTP",
+    "SSH",
+    "FTP"
+   ],
+   "a": 1,
+   "out": "R1# sh ip nat translations\nPro  Inside global     Inside local       Outside local      Outside global\nicmp 193.225.32.1:1    192.168.1.11:1     193.225.32.10:1    193.225.32.10:1\nudp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:53   193.225.32.10:53\ntcp  193.225.32.1:1025 192.168.1.11:1025  193.225.32.10:80   193.225.32.10:80",
+   "src": "gy15-nat.html",
+   "e": "Web (HTTP). Web (HTTP, 80-as port).",
+   "pt": true
+  }
+ ]
+}

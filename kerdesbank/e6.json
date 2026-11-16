@@ -1,0 +1,393 @@
+{
+ "ch": "e6",
+ "cim": "6. Szállítási réteg",
+ "kerdesek": [
+  {
+   "id": "e6-01",
+   "ch": "e6",
+   "t": "tf",
+   "q": "Az IP protokoll önmagában garantálja, hogy a csomagok megérkeznek és eredeti sorrendben érkeznek.",
+   "a": false,
+   "e": "Az épség és sorrend ellenőrzése a végpontokon, a szállítási rétegben történik, így a routerek tehermentesülnek.",
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-02",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Hol történik a csomagok épségének és sorrendjének ellenőrzése?",
+   "o": [
+    "Minden routeren, a hálózati rétegben",
+    "A DNS-szerveren, a névfeloldás során",
+    "A végpontokon, a szállítási rétegben",
+    "A switcheken, az adatkapcsolati rétegben"
+   ],
+   "a": 2,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "A végfelhasználói gépeken (szállítási réteg)."
+  },
+  {
+   "id": "e6-03",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Miért érkezhetnek a csomagok más sorrendben, mint ahogy elküldték őket?",
+   "o": [
+    "Mert a switch véletlenszerűen továbbít",
+    "Mert a csomagok útvonala változhat",
+    "Mert a TTL routerenként eggyel csökken",
+    "Mert a TCP szándékosan összekeveri őket"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "Mert az útvonaluk változhat (redundáns útvonalak, terheléselosztás)."
+  },
+  {
+   "id": "e6-04",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik alkalmazásnál fontosabb a gyorsaság, mint a hibamentes átvitel?",
+   "o": [
+    "Dokumentum letöltése",
+    "E-mail küldése",
+    "Fájl feltöltése tárhelyre",
+    "IP-telefónia, videokonferencia"
+   ],
+   "a": 3,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-05",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik az összeköttetés alapú (megbízható) szállítási protokoll?",
+   "o": [
+    "UDP",
+    "TCP",
+    "ICMP",
+    "ARP"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-06",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi jellemzi az összeköttetés nélküli átvitelt?",
+   "o": [
+    "Minden csomag titkosítva és sorszámozva utazik",
+    "Nincs kapcsolatfelépítés, a csomagok kézbesítése nem garantált",
+    "Kapcsolatfelépítéssel indul, minden csomagot nyugtáz",
+    "Csak helyi hálózaton belül használható, routeren nem"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-07",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi a Protocol mező értéke az IP fejlécben TCP esetén?",
+   "o": [
+    "1",
+    "6",
+    "17",
+    "80"
+   ],
+   "a": 1,
+   "e": "UDP: 17, (ICMP: 1).",
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-08",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi a Protocol mező értéke az IP fejlécben UDP esetén?",
+   "o": [
+    "6",
+    "53",
+    "1",
+    "17"
+   ],
+   "a": 3,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-09",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mit tesz a TCP vevő, ha egy csomag ellenőrző összege eltér?",
+   "o": [
+    "Eldobja és nem csinál semmit",
+    "Újraküldést kér",
+    "Átadja az alkalmazásnak",
+    "Bontja a kapcsolatot"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-10",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mit tesz az UDP vevő, ha az ellenőrző összeg nem egyezik?",
+   "o": [
+    "Eldobja a csomagot, újraküldést nem kér",
+    "Átadja az alkalmazásnak hibajelzéssel",
+    "Újraküldést kér a feladótól",
+    "Kijavítja a hibás biteket"
+   ],
+   "a": 0,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-11",
+   "ch": "e6",
+   "t": "tf",
+   "q": "Az UDP sorszámozza a csomagokat és pótolja az elveszetteket.",
+   "a": false,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-12",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mikor tekinti a TCP elveszettnek a csomagot?",
+   "o": [
+    "Ha a TTL értéke nullára csökken",
+    "Ha nagyobb, mint 1500 bájt",
+    "Soha, minden csomag megérkezik",
+    "Ha egy megadott időn belül nem érkezik meg"
+   ],
+   "a": 3,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-13",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Hogyan fordulhat elő TCP-nél duplikáció?",
+   "o": [
+    "A UDP és a TCP csomagok összekeverednek a vevőnél",
+    "A késő csomag újraküldése után az eredeti is megérkezik",
+    "A switch a broadcast miatt minden csomagot megkettőz",
+    "A router minden TCP-csomagot kétszer küld el biztonságból"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "Egy nagyon késő csomagot a feladó újraküld, majd az eredeti is megérkezik."
+  },
+  {
+   "id": "e6-14",
+   "ch": "e6",
+   "t": "card",
+   "q": "TCP lépései (jegyzet szerint)",
+   "b": "1. Darabolás + ellenőrző összeg. 2. TCP csomag sorszámmal és összeggel. 3. Becsomagolás IP-be (Protocol=6). 4. Vevő sorba rendez, ellenőriz; sérült/elveszett csomagnál újraküldést kér. 5. Ha minden megvan, átadja az alkalmazásnak.",
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-15",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik OSI réteghez tartozik az ICMP?",
+   "o": [
+    "Szállítási (4.)",
+    "Hálózati (3.)",
+    "Adatkapcsolati (2.)",
+    "Alkalmazási (7.)"
+   ],
+   "a": 1,
+   "e": "Az ICMP az IP-hez kapcsolódó vezérlőprotokoll.",
+   "megj": "A jegyzet az ICMP-t a szállítási réteg fejezetében tárgyalja; valójában a hálózati réteg része.",
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-16",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi az ICMP elsődleges célja?",
+   "o": [
+    "IP-címek kiosztása a klienseknek",
+    "Nagy fájlok gyors átvitele",
+    "Titkosított kapcsolat kiépítése",
+    "Hibák jelzése és diagnosztika"
+   ],
+   "a": 3,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "Hálózati események, hibák jelzése és diagnosztika."
+  },
+  {
+   "id": "e6-17",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Milyen ICMP üzenetet küld a ping, és mi a válasz?",
+   "o": [
+    "Time Exceeded → Echo",
+    "SYN → ACK",
+    "Echo Request → Echo Reply",
+    "DISCOVER → OFFER"
+   ],
+   "a": 2,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-18",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Hogyan deríti fel a traceroute (tracert) az útvonal routereit?",
+   "o": [
+    "A TTL-t 1-től növeli, a routerek ICMP hibával válaszolnak",
+    "Lekérdezi minden router routing tábláját SNMP-vel",
+    "ARP-kérésekkel keresi meg a routerek MAC-címét",
+    "DNS-lekérdezésekkel deríti ki a routerek nevét"
+   ],
+   "a": 0,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "A TTL-t 1-től növelve küldi a csomagokat; minden router, ahol a TTL 0-ra csökken, ICMP hibaüzenetet küld vissza."
+  },
+  {
+   "id": "e6-19",
+   "ch": "e6",
+   "t": "tf",
+   "q": "Az ICMP üzenetek kézbesítése és sértetlensége garantált.",
+   "a": false,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-20",
+   "ch": "e6",
+   "t": "mc",
+   "q": "A tracert egy egyetemi webszerver felé a belső hálózat előtt 'Destination net unreachable' üzenettel megáll. Mi a legvalószínűbb ok a jegyzet példája szerint?",
+   "o": [
+    "Az intézmény letiltja az ICMP válaszokat",
+    "A DNS-szerver nem válaszol",
+    "A tracert csak 4 lépést mér",
+    "A célszerver ki van kapcsolva"
+   ],
+   "a": 0,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-21",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mekkora a TCP/UDP port mező, és milyen értékeket vehet fel?",
+   "o": [
+    "1 bájt, 0–255",
+    "2 bájt, 0–65535",
+    "4 bájt, 0–4 294 967 295",
+    "2 bájt, 1–1024"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-22",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mire szolgál a portszám?",
+   "o": [
+    "Hogy a router melyik interfészén menjen ki a csomag",
+    "Hogy a gépen belül melyik alkalmazás kapja a csomagot",
+    "Hogy a switch melyik VLAN-ba sorolja a keretet",
+    "Hogy melyik gép kapja a csomagot a helyi hálózaton"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html",
+   "e": "Arra, hogy a szállítási réteg a gépen belül a megfelelő alkalmazásnak adja át a csomagot."
+  },
+  {
+   "id": "e6-23",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi lesz a válaszcsomag célportja?",
+   "o": [
+    "Mindig 80",
+    "A kérés forrásportja",
+    "A kérés célportja",
+    "Véletlenszerű"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-24",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik port tartozik a titkosított webszerverhez (HTTPS)?",
+   "o": [
+    "25",
+    "993",
+    "443",
+    "80"
+   ],
+   "a": 2,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-25",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik port tartozik az SMTP-hez a jegyzet táblázata szerint?",
+   "o": [
+    "143",
+    "110",
+    "443",
+    "25"
+   ],
+   "a": 3,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-26",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Melyik port az IMAP titkosított változata (IMAPS)?",
+   "o": [
+    "143",
+    "993",
+    "995",
+    "465"
+   ],
+   "a": 1,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-27",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Mi az alapértelmezett célportja a böngészőből induló titkosítatlan kérésnek?",
+   "o": [
+    "80",
+    "443",
+    "8080",
+    "21"
+   ],
+   "a": 0,
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-28",
+   "ch": "e6",
+   "t": "mc",
+   "q": "Hol található Unix/macOS rendszeren a szolgáltatásnevek és portszámok listája?",
+   "o": [
+    "/var/log/ports",
+    "/etc/resolv.conf",
+    "/etc/services",
+    "/etc/hosts"
+   ],
+   "a": 2,
+   "e": "Windowson: \\Windows\\system32\\Drivers\\etc\\services.",
+   "src": "e6-szallitasi-reteg.html"
+  },
+  {
+   "id": "e6-29",
+   "ch": "e6",
+   "t": "card",
+   "q": "Szállítási réteg feladatai",
+   "b": "Az adatfolyam egységeinek sorszámozása, a sérülések ellenőrzése és a csomag eljuttatása a gépen belül a megfelelő alkalmazáshoz (portszám alapján).",
+   "src": "e6-szallitasi-reteg.html"
+  }
+ ]
+}

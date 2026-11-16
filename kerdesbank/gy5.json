@@ -1,0 +1,235 @@
+{
+ "ch": "gy5",
+ "cim": "Gy6. VLAN-ok",
+ "kerdesek": [
+  {
+   "id": "gy5-01",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik parancs hoz létre egy 10-es VLAN-t PUBLIC névvel?",
+   "o": [
+    "vlan 10 → name PUBLIC",
+    "switchport vlan 10 PUBLIC",
+    "create vlan 10 PUBLIC",
+    "interface vlan 10 → description PUBLIC"
+   ],
+   "a": 0,
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-02",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik parancs rendel egy portot (access módban) a 20-as VLAN-hoz?",
+   "o": [
+    "switchport mode trunk",
+    "switchport access vlan 20",
+    "vlan 20 port",
+    "access-group 20"
+   ],
+   "a": 1,
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-03",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Mire jó a no ip domain-lookup?",
+   "o": [
+    "Letiltja a telnetet és az SSH-t a vonalakon",
+    "Törli az eszköz nevét és tartománynevét",
+    "Kikapcsolja a DNS-keresést elgépelt parancsnál",
+    "Kikapcsolja a DHCP-t az összes VLAN-ban"
+   ],
+   "a": 2,
+   "src": "gy5-vlans.html",
+   "e": "Kikapcsolja a DNS-keresést, így egy elgépelt parancs nem okoz hosszú várakozást."
+  },
+  {
+   "id": "gy5-04",
+   "ch": "gy5",
+   "t": "tf",
+   "q": "Alapesetben két különböző VLAN-ban lévő gép (ugyanazon a switchen) tud egymással kommunikálni.",
+   "a": false,
+   "e": "A VLAN-ok közötti forgalomhoz útválasztás kell.",
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-05",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik VLAN-ba tartozik alapból minden switchport?",
+   "o": [
+    "VLAN 0",
+    "VLAN 1",
+    "VLAN 1002",
+    "VLAN 10"
+   ],
+   "a": 1,
+   "src": "gy5-vlans.html",
+   "e": "VLAN 1 (default)."
+  },
+  {
+   "id": "gy5-06",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Mi a trunk port?",
+   "o": [
+    "Csak a VLAN 1 forgalmát viszi a switchek közt",
+    "Több VLAN forgalmát viszi egy kapcsolaton",
+    "Kikapcsolt port, amely nem visz forgalmat",
+    "A konzolkábel csatlakozója a switchen"
+   ],
+   "a": 1,
+   "src": "gy5-vlans.html",
+   "e": "Olyan port, amely több VLAN forgalmát viszi át egy összeköttetésen."
+  },
+  {
+   "id": "gy5-07",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik parancs kapcsol egy portot trunk módba?",
+   "o": [
+    "switchport access trunk",
+    "switchport mode trunk",
+    "trunk enable",
+    "vlan trunk"
+   ],
+   "a": 1,
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-08",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Miért pazarló, ha két switch között minden VLAN-hoz külön kábelt húzunk?",
+   "o": [
+    "A switch ilyenkor hubként kezd működni",
+    "Nem működik, a VLAN 1 forgalma elveszik",
+    "Lassabb lesz, mert a VLAN-ok ütköznek",
+    "Sok portot foglal, erre a trunk a megoldás"
+   ],
+   "a": 3,
+   "src": "gy5-vlans.html",
+   "e": "Mert sok portot foglal; erre a trunk a megoldás."
+  },
+  {
+   "id": "gy5-09",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Mi a javasolt teendő a nem használt switchportokkal?",
+   "o": [
+    "Letiltani (shutdown), vagy nem használt VLAN-ba tenni",
+    "A VLAN 1-ben hagyni, így bárki csatlakozhat",
+    "Semmit, a nem használt port amúgy sem veszélyes",
+    "Trunk módba kapcsolni, hogy minden VLAN elérje"
+   ],
+   "a": 0,
+   "src": "gy5-vlans.html",
+   "e": "Letiltani (shutdown), és/vagy egy nem használt VLAN-ba (pl. PARK) tenni."
+  },
+  {
+   "id": "gy5-10",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik paranccsal konfigurálható egyszerre több port?",
+   "o": [
+    "port group fa0/2-24",
+    "interface range fa0/2 - 24",
+    "interface fa0/2,fa0/24",
+    "interface all ports"
+   ],
+   "a": 1,
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-11",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Hogyan törölhető a VLAN adatbázis a switch teljes alaphelyzetbe állításakor?",
+   "o": [
+    "delete flash:vlan.dat",
+    "no vlan all",
+    "erase startup-config elég",
+    "reload"
+   ],
+   "a": 0,
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "gy5-12",
+   "ch": "gy5",
+   "t": "card",
+   "q": "VLAN alapok",
+   "b": "VLAN: 2. rétegbeli logikai szeparáció egy switchen belül. Létrehozás: vlan N, name X. Access port: switchport access vlan N. Trunk: switchport mode trunk (több VLAN egy linken, switchek között). VLAN-ok közti forgalomhoz router kell. Adatok: flash:vlan.dat. Ellenőrzés: show vlan brief.",
+   "src": "gy5-vlans.html"
+  },
+  {
+   "id": "pt-13",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik VLAN-ban van az Fa0/5-re kötött gép?",
+   "o": [
+    "10 (PUBLIC)",
+    "1 (default)",
+    "Mindegyikben",
+    "20 (OFFICES)"
+   ],
+   "a": 3,
+   "out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+   "src": "gy5-vlans.html",
+   "pt": true
+  },
+  {
+   "id": "pt-14",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Az Fa0/1 és az Fa0/5 gépe azonos IP-hálózatban van. Pingelik-e egymást?",
+   "o": [
+    "Csak akkor, ha trunk portra kötjük",
+    "Nem, mert különböző VLAN-ban vannak",
+    "Csak az egyik irányba működik a ping",
+    "Igen, mert azonos az IP-hálózatuk"
+   ],
+   "a": 1,
+   "out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+   "src": "gy5-vlans.html",
+   "e": "Nem, mert különböző VLAN-ban vannak, és nincs útválasztás köztük.",
+   "pt": true
+  },
+  {
+   "id": "pt-15",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "Melyik VLAN-ban van az Fa0/3 port?",
+   "o": [
+    "Egyikben sem",
+    "1 (default)",
+    "20",
+    "10"
+   ],
+   "a": 1,
+   "out": "Switch#sh vlan brief\nVLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------------------\n1    default                          active    Fa0/3, Fa0/4, Fa0/6, Fa0/7\n                                                Fa0/8, ... Fa0/24, Gig0/1, Gig0/2\n10   PUBLIC                           active    Fa0/1, Fa0/2\n20   OFFICES                          active    Fa0/5",
+   "e": "Amit nem rendeltünk VLAN-hoz, az a default VLAN 1-ben marad.",
+   "src": "gy5-vlans.html",
+   "pt": true
+  },
+  {
+   "id": "pt-38",
+   "ch": "gy5",
+   "t": "mc",
+   "q": "A 192.168.1.10 (VLAN 10) gép pingeli a 192.168.1.13-at, amely a másik switchen VLAN 20-ban van, trunk köti össze a switcheket. Miért sikertelen?",
+   "o": [
+    "A 192.168.1.10 gépen nincs átjáró beállítva",
+    "Rossz a maszk, a két cím más hálózatban van",
+    "Különböző VLAN-ban vannak",
+    "Hibás a trunk, a két switch nem látja egymást"
+   ],
+   "a": 2,
+   "out": "C:\\>ping 192.168.1.13\nPinging 192.168.1.13 with 32 bytes of data:\nRequest timed out.\nRequest timed out.\nRequest timed out.\nRequest timed out.\nPing statistics for 192.168.1.13:\n    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),",
+   "src": "gy5-vlans.html",
+   "e": "A két gép különböző VLAN-ban van, a trunk csak az azonos VLAN-okat köti össze.",
+   "pt": true
+  }
+ ]
+}

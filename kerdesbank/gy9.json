@@ -1,0 +1,311 @@
+{
+ "ch": "gy9",
+ "cim": "Gy10. DHCP a gyakorlatban",
+ "kerdesek": [
+  {
+   "id": "gy9-01",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Mit kell beállítani a Packet Tracer PC-s DHCP szerverén, hogy a beállítás érvényes legyen?",
+   "o": [
+    "Újra kell indítani a szerver PC-t a beállítás után",
+    "Be kell kapcsolni a szolgáltatást, és Save-vel menteni",
+    "Nem kell semmit, a beállítás azonnal érvényes",
+    "Minden kliensen kézzel be kell írni a szerver címét"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html",
+   "e": "A szolgáltatást be kell kapcsolni és a Save gombbal menteni."
+  },
+  {
+   "id": "gy9-02",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Mit csinál az ipconfig /release?",
+   "o": [
+    "Törli a gép DNS-gyorsítótárát",
+    "Új IP-címet kér a DHCP szervertől",
+    "Visszaadja a kapott címet a szervernek",
+    "Kiírja a gép MAC-címét és átjáróját"
+   ],
+   "a": 2,
+   "src": "gy9-dhcp.html",
+   "e": "Visszaadja a címet a szervernek (0.0.0.0 lesz)."
+  },
+  {
+   "id": "gy9-03",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Mit csinál az ipconfig /renew?",
+   "o": [
+    "Visszaadja a kapott címet a szervernek",
+    "Újra lekéri a hálózati paramétereket a DHCP szervertől",
+    "Kikapcsolja a hálózati kártyát egy időre",
+    "Megmutatja a gép routing tábláját"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-04",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Mire való az ip dhcp excluded-address 192.168.100.1 192.168.100.10?",
+   "o": [
+    "Ezeket a címeket nem osztja ki a kliensnek",
+    "Ezeket a gépeket kitiltja a hálózatból",
+    "Ezek lesznek a kliensek DNS-szerverei",
+    "Ezeket a címeket osztja ki elsőként"
+   ],
+   "a": 0,
+   "src": "gy9-dhcp.html",
+   "e": "Ebből a tartományból nem oszt ki címet (router, szerverek fix címei)."
+  },
+  {
+   "id": "gy9-05",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik parancs adja meg a DHCP poolban a kliensek alapértelmezett átjáróját?",
+   "o": [
+    "gateway-address",
+    "ip gateway",
+    "default-router",
+    "default-gateway"
+   ],
+   "a": 2,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-06",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik parancs adja meg a pool által kiosztott hálózatot?",
+   "o": [
+    "ip range 192.168.100.0/24",
+    "network 192.168.100.0 255.255.255.0",
+    "pool-network 192.168.100.0",
+    "subnet 192.168.100.0"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-07",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik paranccsal kapcsoljuk be a DHCP szolgáltatást a routeren?",
+   "o": [
+    "no shutdown dhcp",
+    "service dhcp",
+    "ip dhcp enable",
+    "dhcp start"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-08",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Miért kell DHCP relay, ha a DHCP szerver másik hálózatban van?",
+   "o": [
+    "Mert a router nem továbbítja a broadcastot",
+    "Mert egy hálózatban csak egy szerver lehet",
+    "Mert a szerver nem válaszolhat más hálózatba",
+    "Mert a DHCP-üzenetek titkosítva utaznak"
+   ],
+   "a": 0,
+   "src": "gy9-dhcp.html",
+   "e": "Mert a kliens broadcast kérését a router nem továbbítja más hálózatba."
+  },
+  {
+   "id": "gy9-09",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik paranccsal állítjuk be a DHCP relayt?",
+   "o": [
+    "ip helper-address <szerver címe>",
+    "ip dhcp relay <szerver címe>",
+    "ip dhcp snooping trust",
+    "ip forward-dhcp <szerver címe>"
+   ],
+   "a": 0,
+   "src": "gy9-dhcp.html",
+   "e": "ip helper-address <DHCP szerver címe>."
+  },
+  {
+   "id": "gy9-10",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik interfészre kerül az ip helper-address?",
+   "o": [
+    "A router összes interfészére egyszerre",
+    "A kliensek LAN-ja felé néző interfészre",
+    "A konzol vonalra (line console 0)",
+    "A DHCP szerver felé néző interfészre"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html",
+   "e": "A kliensek (belső LAN) felé néző interfészre, ahová a broadcast kérés érkezik."
+  },
+  {
+   "id": "gy9-11",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Hogyan továbbítja a relay router a kliens DHCP kérését?",
+   "o": [
+    "Unicastként a megadott DHCP szervernek",
+    "Broadcastként a másik hálózatba",
+    "Sehogy",
+    "Multicastként"
+   ],
+   "a": 0,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-12",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik paranccsal listázhatók a routeren a kiosztott DHCP címek?",
+   "o": [
+    "show dhcp leases",
+    "show ip dhcp binding",
+    "show ip dhcp pool",
+    "show arp"
+   ],
+   "a": 1,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-13",
+   "ch": "gy9",
+   "t": "tf",
+   "q": "Packet Tracerben beállítható a DHCP bérleti idő (lease) a pool alatt.",
+   "a": false,
+   "e": "Valódi eszközön a lease paranccsal adható meg; a Packet Tracer nem támogatja.",
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-14",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Egy kliens a 192.168.50.0/24 hálózatban 169.254.x.x címet kapott. Mi a legvalószínűbb ok?",
+   "o": [
+    "A DHCP pool elfogyott, vagy a szerver/hálózat hibás",
+    "Minden rendben, ez a normál címtartomány",
+    "A DNS-szerver címe hibásan van megadva",
+    "Túl hosszú a beállított bérleti idő"
+   ],
+   "a": 0,
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "gy9-15",
+   "ch": "gy9",
+   "t": "card",
+   "q": "Router DHCP szerver konfiguráció",
+   "b": "ip dhcp excluded-address <tól> <ig>\nip dhcp pool NÉV\n network <hálózat> <maszk>\n default-router <átjáró>\n dns-server <DNS>\n domain-name <név>\nservice dhcp\nMás hálózatban lévő kliensekhez a túloldali routeren: interface <LAN> → ip helper-address <DHCP szerver>.",
+   "src": "gy9-dhcp.html"
+  },
+  {
+   "id": "pt-16",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik MAC-című gép kapta a 192.168.200.12 címet?",
+   "o": [
+    "0030.F249.5346",
+    "000C.CF40.3016",
+    "0060.70BD.6739",
+    "000C.CF30.5D56"
+   ],
+   "a": 1,
+   "out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+   "src": "gy9-dhcp.html",
+   "pt": true
+  },
+  {
+   "id": "pt-17",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "R1 a 192.168.200.0/24 hálózatnak is oszt címet, pedig az R2 mögött van. Mi teszi ezt lehetővé?",
+   "o": [
+    "R2-n az ip helper-address (DHCP relay)",
+    "VLAN trunk köti össze a két routert",
+    "Statikus NAT van beállítva R2-n",
+    "R1 broadcastot küld R2-n keresztül"
+   ],
+   "a": 0,
+   "out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+   "src": "gy9-dhcp.html",
+   "e": "R2 LAN interfészén ip helper-address 192.168.50.1 (DHCP relay).",
+   "pt": true
+  },
+  {
+   "id": "pt-18",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Miért nem 192.168.100.1–10 közötti címeket kaptak a kliensek?",
+   "o": [
+    "Az ip dhcp excluded-address kizárta őket",
+    "Ezek a hálózat broadcast címei",
+    "A Packet Tracer nem tud ilyet kiosztani",
+    "Véletlenszerűen választotta így a router"
+   ],
+   "a": 0,
+   "out": "R1#sh ip dhcp binding\nIP address       Client-ID/              Lease expiration        Type\n                 Hardware address\n192.168.100.11   0030.F249.5346           --                     Automatic\n192.168.100.12   0060.70BD.6739           --                     Automatic\n192.168.200.11   000C.CF30.5D56           --                     Automatic\n192.168.200.12   000C.CF40.3016           --                     Automatic",
+   "src": "gy9-dhcp.html",
+   "e": "Az ip dhcp excluded-address 192.168.100.1 192.168.100.10 kizárta őket.",
+   "pt": true
+  },
+  {
+   "id": "pt-19",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Miből látszik, hogy ez a kliens relay-en keresztül kapta a címét?",
+   "o": [
+    "Az átjáró .1-re végződik, ez jelzi",
+    "A MAC-cím 000C-vel kezdődik, ez jelzi",
+    "A DHCP szerver más hálózatban van, mint a kliens",
+    "A DNS-utótag right.example.com, ez jelzi"
+   ],
+   "a": 2,
+   "out": "C:\\>ipconfig /all\nConnection-specific DNS Suffix..: right.example.com\nPhysical Address................: 000C.CF40.3016\nIPv4 Address....................: 192.168.200.12\nSubnet Mask.....................: 255.255.255.0\nDefault Gateway.................: 192.168.200.1\nDHCP Servers....................: 192.168.50.1\nDNS Servers.....................: 192.168.100.5",
+   "src": "gy9-dhcp.html",
+   "e": "A DHCP szerver (192.168.50.1) nem a kliens saját hálózatában van.",
+   "pt": true
+  },
+  {
+   "id": "pt-20",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Melyik DHCP pool osztotta ki ezt a címet?",
+   "o": [
+    "LEFT",
+    "RIGHT",
+    "INTERNAL",
+    "serverPool"
+   ],
+   "a": 1,
+   "out": "C:\\>ipconfig /all\nConnection-specific DNS Suffix..: right.example.com\nPhysical Address................: 000C.CF40.3016\nIPv4 Address....................: 192.168.200.12\nSubnet Mask.....................: 255.255.255.0\nDefault Gateway.................: 192.168.200.1\nDHCP Servers....................: 192.168.50.1\nDNS Servers.....................: 192.168.100.5",
+   "e": "domain-name right.example.com, default-router 192.168.200.1 → RIGHT pool.",
+   "src": "gy9-dhcp.html",
+   "pt": true
+  },
+  {
+   "id": "pt-21",
+   "ch": "gy9",
+   "t": "mc",
+   "q": "Mit árul el ez a kimenet?",
+   "o": [
+    "A gép statikus címet kapott a rendszergazdától",
+    "A gép a routertől kapott címet DHCP-vel",
+    "A DNS-szerver hibás, ezért nincs átjáró",
+    "A DHCP címkérés sikertelen volt, a gép APIPA címet választott"
+   ],
+   "a": 3,
+   "out": "C:\\>ipconfig\nAutoconfiguration IPv4 Address..: 169.254.125.60\nSubnet Mask.....................: 255.255.0.0\nDefault Gateway.................: 0.0.0.0",
+   "src": "e5-dhcp.html",
+   "pt": true
+  }
+ ]
+}

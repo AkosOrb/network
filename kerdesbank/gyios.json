@@ -1,0 +1,703 @@
+{
+ "ch": "gyios",
+ "cim": "Gy2–5. Cisco IOS alapok, jogosultságok, jelszavak",
+ "kerdesek": [
+  {
+   "id": "gyios-01",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hogyan végezzük egy új hálózati eszköz kezdeti beállítását, amelyhez nem köthető monitor és billentyűzet?",
+   "o": [
+    "Telnettel a gyári alapértelmezett jelszóval",
+    "A konzol porton, konzolkábellel és terminálprogrammal",
+    "SSH-val a switch első Ethernet-portján át",
+    "Webes felületen a gyári alapértelmezett IP-címen"
+   ],
+   "a": 1,
+   "src": "gy1-cisco-startup.html",
+   "e": "A konzol porton, konzolkábellel és terminálemulátorral (pl. PuTTY)."
+  },
+  {
+   "id": "gyios-02",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a szokásos soros konzolkapcsolat sebessége Cisco eszközön?",
+   "o": [
+    "115200 bit/s",
+    "56 000 bit/s",
+    "1 Gbit/s",
+    "9600 bit/s"
+   ],
+   "a": 3,
+   "e": "8 adatbit, nincs paritás, 1 stop bit, nincs flow control.",
+   "src": "gy1-cisco-startup.html"
+  },
+  {
+   "id": "gyios-03",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a Cisco operációs rendszerének neve?",
+   "o": [
+    "JunOS",
+    "CatOS",
+    "RouterOS",
+    "IOS"
+   ],
+   "a": 3,
+   "src": "gy1-cisco-startup.html",
+   "e": "IOS (Internetwork Operating System)."
+  },
+  {
+   "id": "gyios-04",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hová töltődik be bekapcsoláskor az IOS?",
+   "o": [
+    "TFTP szerverre",
+    "ROM-ba",
+    "RAM-ba",
+    "NVRAM-ba"
+   ],
+   "a": 2,
+   "src": "gy1-cisco-startup.html"
+  },
+  {
+   "id": "gyios-05",
+   "ch": "gyios",
+   "t": "tf",
+   "q": "A konzol jelszó megfelelő eljárással törölhető, ezért a hálózati eszközöket zárt helyen (rack szekrényben) kell tartani.",
+   "a": true,
+   "src": "gy1-cisco-startup.html"
+  },
+  {
+   "id": "gyios-06",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a DD-WRT és az OpenWrt?",
+   "o": [
+    "A Packet Tracer bővítményei Cisco eszközökhöz",
+    "Cisco IOS változatok otthoni felhasználásra",
+    "Terminálemulátorok a konzolos csatlakozáshoz",
+    "Otthoni routerekre telepíthető alternatív rendszerek"
+   ],
+   "a": 3,
+   "src": "gy1-cisco-startup.html",
+   "e": "Otthoni routerekre telepíthető alternatív operációs rendszerek."
+  },
+  {
+   "id": "gyios-07",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mire alkalmas a Packet Tracer a jegyzet szerint?",
+   "o": [
+    "Valódi eszközök távoli konfigurálására élesben",
+    "Tanulásra, előzetes tesztelésre, eszközválasztásra",
+    "Hálózati forgalom lehallgatására és elemzésére",
+    "Csak a Cisco vizsgák hivatalos lebonyolítására"
+   ],
+   "a": 1,
+   "src": "gy2-packet-tracer.html",
+   "e": "Tanulásra, konfigurációk előzetes tesztelésére, eszközválasztásra és költségbecslésre."
+  },
+  {
+   "id": "gyios-08",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik a Packet Tracer két futási módja?",
+   "o": [
+    "Realtime és Simulation",
+    "Online és Offline",
+    "Logical és Physical",
+    "Debug és Release"
+   ],
+   "a": 0,
+   "e": "A Logical/Physical a nézet, nem a futási mód.",
+   "src": "gy2-packet-tracer.html"
+  },
+  {
+   "id": "gyios-09",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Milyen prompt jelzi a user (felhasználói) módot?",
+   "o": [
+    "Switch(config)#",
+    "Switch>",
+    "switch:",
+    "Switch#"
+   ],
+   "a": 1,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-10",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik paranccsal lépünk privilegizált módba?",
+   "o": [
+    "configure terminal",
+    "login",
+    "privilege",
+    "enable"
+   ],
+   "a": 3,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-11",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik paranccsal lépünk globális konfigurációs módba?",
+   "o": [
+    "enable secret",
+    "setup mode",
+    "configure terminal",
+    "login local"
+   ],
+   "a": 2,
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "configure terminal (conf t)."
+  },
+  {
+   "id": "gyios-12",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a különbség az exit és az end parancs között?",
+   "o": [
+    "Nincs különbség, mindkettő a user módba lép vissza",
+    "end egy szintet lép vissza, exit kijelentkezik az eszközről",
+    "exit menti a konfigurációt, end menti és újraindít",
+    "exit egy szintet lép vissza, end a privilegizált módba visz"
+   ],
+   "a": 3,
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "exit egy szinttel lép vissza, end kilép minden konfigurációs módból a privilegizált módba."
+  },
+  {
+   "id": "gyios-13",
+   "ch": "gyios",
+   "t": "tf",
+   "q": "User módban kiadható a reload parancs.",
+   "a": false,
+   "e": "A reload csak privilegizált módban működik.",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-14",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit csinál a show ip interface brief?",
+   "o": [
+    "Röviden listázza az interfészeket és állapotukat",
+    "Megmutatja a teljes futó konfigurációt",
+    "Kiírja a routing tábla összes bejegyzését",
+    "Törli az interfészek IP-címét és újraindít"
+   ],
+   "a": 0,
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "Röviden listázza az interfészeket: név, IP-cím, állapot, protokoll."
+  },
+  {
+   "id": "gyios-15",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Moduláris eszközön mit jelent a FastEthernet3/1 jelölés?",
+   "o": [
+    "3. port, 1. slot",
+    "3. slot, 1. port",
+    "3 Mbit/s, 1 port",
+    "VLAN 3, port 1"
+   ],
+   "a": 1,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-16",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit csinál a no shutdown parancs interfész módban?",
+   "o": [
+    "Újraindítja az eszközt",
+    "Kikapcsolja az interfészt",
+    "Törli az IP-címet",
+    "Bekapcsolja az interfészt"
+   ],
+   "a": 3,
+   "e": "Az IOS-ban a no előtag a parancs hatását ellentétesére fordítja.",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-17",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik interfészen kap IP-címet egy 2960-as switch a menedzsmenthez?",
+   "o": [
+    "FastEthernet0/1",
+    "Vlan1 (SVI)",
+    "Console 0",
+    "GigabitEthernet0/1"
+   ],
+   "a": 1,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-18",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hol tárolódik a running-config?",
+   "o": [
+    "TFTP",
+    "Flash",
+    "RAM",
+    "NVRAM"
+   ],
+   "a": 2,
+   "e": "Kikapcsoláskor elvész.",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-19",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hol tárolódik a startup-config?",
+   "o": [
+    "CPU cache",
+    "RAM",
+    "ROM",
+    "NVRAM"
+   ],
+   "a": 3,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-20",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik paranccsal mentjük a futó konfigurációt, hogy újraindítás után is megmaradjon?",
+   "o": [
+    "copy startup-config running-config",
+    "copy running-config startup-config",
+    "save config",
+    "write erase"
+   ],
+   "a": 1,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-21",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit csinál az erase startup-config?",
+   "o": [
+    "Törli a mentett konfigurációt az NVRAM-ból",
+    "Törli az IOS operációs rendszer fájlját",
+    "Törli a VLAN-adatbázist (vlan.dat) is",
+    "Azonnal törli a futó konfigurációt a RAM-ból"
+   ],
+   "a": 0,
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "Törli a mentett konfigurációt; a következő induláskor az eszköz alapbeállításokkal indul."
+  },
+  {
+   "id": "gyios-22",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hol tárolja a switch a VLAN-adatokat?",
+   "o": [
+    "running-config",
+    "NVRAM config.text",
+    "startup-config",
+    "vlan.dat a flash-ben"
+   ],
+   "a": 3,
+   "e": "Ezért teljes alaphelyzetbe állításnál a delete flash:vlan.dat is kell.",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-23",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik szűrő mutatja csak azokat a sorokat, amelyekben a minta szerepel (mint a grep)?",
+   "o": [
+    "| begin",
+    "| include",
+    "| exclude",
+    "| section"
+   ],
+   "a": 1,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-24",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Switchen hogyan indítható jelszó-helyreállítás, ha van Mode gomb?",
+   "o": [
+    "Mode gombot nyomva bekapcsol, majd config.text átnevezése",
+    "A reload paranccsal, majd az enable jelszó törlésével",
+    "Az erase startup-config paranccsal user módból",
+    "Ctrl-Break a boot alatt, majd confreg 0x2142 megadása"
+   ],
+   "a": 0,
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "A Mode gombot nyomva tartva kapcsoljuk be; utána flash_init, a config.text átnevezése, boot."
+  },
+  {
+   "id": "gyios-25",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik konfigurációs regiszter érték hagyja figyelmen kívül a startup-configot (jelszó-helyreállításhoz) routeren?",
+   "o": [
+    "0x2102",
+    "0xFFFF",
+    "0x2142",
+    "0x0000"
+   ],
+   "a": 2,
+   "e": "A normál működéshez 0x2102-t kell visszaállítani.",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-26",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Hogyan lép a router ROM monitor (rommon) módba?",
+   "o": [
+    "A boot alatt Ctrl-Break nyomogatásával",
+    "A Mode gomb nyomva tartásával",
+    "Az enable paranccsal user módból",
+    "A rommon paranccsal konfig módban"
+   ],
+   "a": 0,
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-27",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik parancssor állít be konzol jelszót?",
+   "o": [
+    "line vty 0 15 → password X",
+    "line console 0 → password X → login",
+    "enable secret X",
+    "username X"
+   ],
+   "a": 1,
+   "e": "A login nélkül a jelszót nem kéri.",
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-28",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mire való a banner motd?",
+   "o": [
+    "Az eszköz nevének beállítására a promptban",
+    "A jelszavak titkosítására a konfigurációban",
+    "A belépések naplózására egy külső szerveren",
+    "Figyelmeztető üzenet belépéskor (jogi okból)"
+   ],
+   "a": 3,
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "Figyelmeztető üzenet megjelenítésére belépéskor (jogi szempontból fontos)."
+  },
+  {
+   "id": "gyios-29",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a különbség az enable password és az enable secret között?",
+   "o": [
+    "A secret csak SSH-hoz kell, telnethez nem",
+    "Nincs különbség, a kettő ugyanazt jelenti",
+    "A password erősebb, mert hosszabb jelszót enged",
+    "A secret hash-elve tárolódik, és elsőbbséget élvez"
+   ],
+   "a": 3,
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "Az enable secret hash-elve tárolódik, a show running-config nem mutatja olvashatóan; ha mindkettő be van állítva, a secret érvényes."
+  },
+  {
+   "id": "gyios-30",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit csinál a service password-encryption?",
+   "o": [
+    "Minden jelszót erős, visszafejthetetlen hash-sel tárol",
+    "Csak az enable jelszót titkosítja, a többit nem",
+    "Bekapcsolja az SSH-t, és letiltja a telnetet",
+    "Minden jelszót gyenge, visszafejthető (type 7) formára alakít"
+   ],
+   "a": 3,
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "A konfigurációban lévő összes jelszót gyenge, visszafejthető (type 7) titkosítással elrejti."
+  },
+  {
+   "id": "gyios-31",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Miért nem ajánlott a telnet?",
+   "o": [
+    "Csak IPv6-hálózaton érhető el",
+    "Cisco eszközökön egyáltalán nem működik",
+    "Nem titkosít, lehallgatással a jelszó megszerezhető",
+    "Lassú, sok hálózati forgalmat generál"
+   ],
+   "a": 2,
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-32",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik paranccsal korlátozzuk a vty vonalakat egy hozzáférési listára?",
+   "o": [
+    "access-class X in",
+    "ip access-group X in",
+    "privilege level X",
+    "transport input X"
+   ],
+   "a": 0,
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-33",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik NEM szükséges az SSH beállításához Cisco eszközön?",
+   "o": [
+    "crypto key generate rsa",
+    "ip dhcp pool",
+    "username",
+    "ip domain-name"
+   ],
+   "a": 1,
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-34",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mekkora RSA kulcs kell legalább az SSH v2-höz a Cisco üzenet szerint?",
+   "o": [
+    "512 bit",
+    "4096 bit",
+    "768 bit",
+    "360 bit"
+   ],
+   "a": 2,
+   "e": "A gyakorlatban 2048 bit ajánlott.",
+   "megj": "A jegyzet példája 512 bites kulcsot generál; ez SSH v2-höz kevés, helyesen legalább 768, a gyakorlatban 2048 bit (crypto key generate rsa modulus 2048).",
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-35",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit csinál a transport input ssh a vty vonalakon?",
+   "o": [
+    "Engedélyezi a telnetet is",
+    "Csak SSH kapcsolatot enged",
+    "Kikapcsolja a távoli elérést",
+    "Titkosítja a konzolt"
+   ],
+   "a": 1,
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-36",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit eredményez a privilege level 15 a vty vonalon?",
+   "o": [
+    "Belépés után azonnal privilegizált mód",
+    "15 perc után kilépteti a felhasználót",
+    "Csak olvasási jogot ad belépéskor",
+    "Letiltja az enable parancsot"
+   ],
+   "a": 0,
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "gyios-37",
+   "ch": "gyios",
+   "t": "card",
+   "q": "Cisco IOS szintek",
+   "b": "User EXEC (Switch>) → enable → Privileged EXEC (Switch#) → configure terminal → Global config (Switch(config)#) → pl. interface/line → (config-if)/(config-line). Vissza: exit (egy szint), end (privilegizált).",
+   "src": "gy3-cisco-basic-setup.html"
+  },
+  {
+   "id": "gyios-38",
+   "ch": "gyios",
+   "t": "card",
+   "q": "Cisco jelszó-alapséma",
+   "b": "Konzol: line console 0, password, login. Enable: enable secret. Összes jelszó elrejtése: service password-encryption. Távoli: hostname, ip domain-name, username, crypto key generate rsa (≥768, inkább 2048), ip ssh version 2, line vty 0 15, transport input ssh, login (vonali jelszóval), access-class. Figyelmeztetés: banner motd.",
+   "src": "gy4-hozzaferesek-jelszavak.html"
+  },
+  {
+   "id": "pt-01",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Melyik porthoz csatlakozik működő eszköz?",
+   "o": [
+    "FastEthernet0/1",
+    "FastEthernet1/1",
+    "Vlan1",
+    "Egyikhez sem"
+   ],
+   "a": 0,
+   "out": "Switch> sh ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nFastEthernet0/1        unassigned      YES manual up                    up\nFastEthernet1/1        unassigned      YES manual down                  down\nFastEthernet2/1        unassigned      YES manual down                  down\nVlan1                  unassigned      YES manual administratively down down",
+   "e": "Status up / Protocol up.",
+   "src": "gy3-cisco-basic-setup.html",
+   "pt": true
+  },
+  {
+   "id": "pt-02",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mit jelent a Vlan1 sorában az „administratively down”?",
+   "o": [
+    "Kézzel le van tiltva, no shutdown kell",
+    "Nincs IP-címe, ezért nem indul",
+    "Hibás a kábel vagy a csatlakozó",
+    "Nincs bedugva kábel a portba"
+   ],
+   "a": 0,
+   "out": "Switch> sh ip interface brief\nInterface              IP-Address      OK? Method Status                Protocol\nFastEthernet0/1        unassigned      YES manual up                    up\nFastEthernet1/1        unassigned      YES manual down                  down\nFastEthernet2/1        unassigned      YES manual down                  down\nVlan1                  unassigned      YES manual administratively down down",
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "Kézzel le van tiltva (shutdown állapot); no shutdown kell.",
+   "pt": true
+  },
+  {
+   "id": "pt-30",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Milyen biztonsági probléma látszik ebben a running-config részletben?",
+   "o": [
+    "Nincs hostname, ezért a távoli elérés lehetetlen",
+    "Hiányzik a VLAN-beállítás, ezért a port nem működik",
+    "Nincs probléma, ez egy biztonságos alapkonfiguráció",
+    "A jelszavak olvashatók; enable secret és titkosítás kell"
+   ],
+   "a": 3,
+   "out": "no service password-encryption\nhostname Switch\nenable password enpass\n!\nline con 0\npassword conpass\nlogin",
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "A jelszavak olvasható formában szerepelnek; enable secret és service password-encryption kellene.",
+   "pt": true
+  },
+  {
+   "id": "pt-31",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a konzol jelszava?",
+   "o": [
+    "Switch",
+    "conpass",
+    "login",
+    "enpass"
+   ],
+   "a": 1,
+   "out": "no service password-encryption\nhostname Switch\nenable password enpass\n!\nline con 0\npassword conpass\nlogin",
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "pt": true
+  },
+  {
+   "id": "pt-32",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a „password 7” jelentése?",
+   "o": [
+    "A 7-es konzolvonal jelszava, nem a 0-sé",
+    "Erős hash, visszafejthetetlen formában tárolt jelszó",
+    "Visszafejthető, gyengén titkosított jelszó",
+    "Legalább 7 karakter hosszú jelszót jelent"
+   ],
+   "a": 2,
+   "out": "line con 0\npassword 7 0822434019181604\nlogin",
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "service password-encryption által gyengén titkosított, visszafejthető jelszó.",
+   "pt": true
+  },
+  {
+   "id": "pt-33",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Telnettel belépve ezt kapjuk. Mi az oka?",
+   "o": [
+    "A telnet tiltva van, csak SSH-val működne",
+    "Az ACL nem engedi a privilegizált módot",
+    "Nincs enable jelszó, távolról így nem léphetünk be",
+    "Rossz jelszót adtunk meg a telnet belépésnél"
+   ],
+   "a": 2,
+   "out": "S1>ena\n% No password set.\nS1>",
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "Nincs beállítva enable jelszó (enable secret), ezért távolról nem lehet privilegizált módba lépni.",
+   "pt": true
+  },
+  {
+   "id": "pt-34",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a hiba, és hogyan javítható?",
+   "o": [
+    "Hiányzik a hostname, ezért nem lehet kulcsot generálni",
+    "A telnetet is be kell kapcsolni az SSH mellett",
+    "Az ip domain-name hiányzik, ezért SSH 1.5 indult",
+    "512 bites a kulcs, legalább 768 (inkább 2048) kell"
+   ],
+   "a": 3,
+   "out": "sw-1(config)# crypto key generate rsa\nHow many bits in the modulus [512]:\n% Generating 512 bit RSA keys, keys will be non-exportable...[OK]\nsw-1(config)# ip ssh version 2\nRSA key size needs to be at least 768 bits for ssh version 2\n%SSH-5-ENABLED: SSH 1.5 has been enabled",
+   "src": "gy4-hozzaferesek-jelszavak.html",
+   "e": "A kulcs 512 bites, SSH v2-höz legalább 768 (inkább 2048) bit kell: újra kell generálni nagyobb kulccsal.",
+   "pt": true
+  },
+  {
+   "id": "pt-35",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Milyen sebességgel és duplex módban működik a port?",
+   "o": [
+    "10 Mb/s half-duplex",
+    "1 Gb/s full-duplex",
+    "100 Mb/s full-duplex",
+    "Le van tiltva a port"
+   ],
+   "a": 2,
+   "out": "FastEthernet0/1 is up, line protocol is up (connected)\nHardware is Lance, address is 000b.beb4.47d9 (bia 000b.beb4.47d9)\nFull-duplex, 100Mb/s\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n     0 output errors, 0 collisions, 10 interface resets",
+   "src": "gy3-cisco-basic-setup.html",
+   "pt": true
+  },
+  {
+   "id": "pt-36",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi a port MAC-címe?",
+   "o": [
+    "100Mb/s",
+    "Lance",
+    "FastEthernet0/1",
+    "000b.beb4.47d9"
+   ],
+   "a": 3,
+   "out": "FastEthernet0/1 is up, line protocol is up (connected)\nHardware is Lance, address is 000b.beb4.47d9 (bia 000b.beb4.47d9)\nFull-duplex, 100Mb/s\n     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort\n     0 output errors, 0 collisions, 10 interface resets",
+   "src": "gy3-cisco-basic-setup.html",
+   "pt": true
+  },
+  {
+   "id": "pt-37",
+   "ch": "gyios",
+   "t": "mc",
+   "q": "Mi lesz az eszköz következő újraindítása után?",
+   "o": [
+    "A konfigurációt TFTP-ről tölti be magától",
+    "Nem indul el, mert hiányzik az IOS fájl",
+    "Alapbeállításokkal indul, mert nincs startup-config",
+    "A korábbi konfigurációval indul a flashből"
+   ],
+   "a": 2,
+   "out": "sw-1# dir nvram\nDirectory of nvram:/\nNo files in directory",
+   "src": "gy3-cisco-basic-setup.html",
+   "e": "Alapértelmezett beállításokkal indul, mert nincs startup-config.",
+   "pt": true
+  }
+ ]
+}

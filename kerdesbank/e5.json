@@ -1,0 +1,446 @@
+{
+ "ch": "e5",
+ "cim": "5. DHCP",
+ "kerdesek": [
+  {
+   "id": "e5-01",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mi a DHCP címkérés négy lépésének helyes sorrendje?",
+   "o": [
+    "DISCOVER, OFFER, REQUEST, ACK",
+    "REQUEST, OFFER, DISCOVER, ACK",
+    "OFFER, DISCOVER, ACK, REQUEST",
+    "DISCOVER, REQUEST, OFFER, ACK"
+   ],
+   "a": 0,
+   "e": "Szokásos memória: DORA (Discover, Offer, Request, Ack).",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-02",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Milyen forrás- és cél IP címmel megy ki a DHCPDISCOVER?",
+   "o": [
+    "0.0.0.0 → 255.255.255.255",
+    "169.254.0.1 → 192.168.1.1",
+    "127.0.0.1 → 0.0.0.0",
+    "A gép IP-je → DHCP szerver IP-je"
+   ],
+   "a": 0,
+   "e": "A kliensnek még nincs címe, ezért 2. és 3. rétegbeli broadcastot használ.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-03",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mit tartalmaz legalább egy DHCPOFFER?",
+   "o": [
+    "Csak DNS-szervert",
+    "IP címet és netmaszkot",
+    "MAC címet",
+    "Csak alapértelmezett átjárót"
+   ],
+   "a": 1,
+   "e": "Opcionálisan átjáró, DNS, kapcsolatspecifikus utótag, időszerver is lehet benne.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-04",
+   "ch": "e5",
+   "t": "tf",
+   "q": "A DHCPDISCOVER-re a hálózat minden DHCP-szolgáltatást futtató eszköze válaszol.",
+   "a": true,
+   "e": "Ezért kaphat a kliens több ajánlatot is, és ezért kell a REQUEST-ben megjelölnie, melyiket fogadta el.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-05",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Miért broadcast üzenet a DHCPREQUEST is?",
+   "o": [
+    "Mert a kliens még nem ismeri a szerver MAC-címét sem",
+    "Mert a router csak broadcast DHCP-üzenetet továbbít",
+    "Mert így a kliens gyorsabban kap választ a szervertől",
+    "Hogy a többi szerver is lássa: nem az ő ajánlatát fogadták el"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html",
+   "e": "Hogy a többi szerver is értesüljön: az ő ajánlatukat nem fogadták el, így azok a címek visszaszabadulnak."
+  },
+  {
+   "id": "e5-06",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mire használja a kliens az ARP-ot a DHCPACK után?",
+   "o": [
+    "Megújítja vele a bérleti időt a lejárat előtt",
+    "Kideríti, melyik routeren át éri el a szervert",
+    "Megkeresi a DNS-szerver MAC-címét a hálózaton",
+    "Megnézi, nem használja-e más a kapott címet"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html",
+   "e": "Annak ellenőrzésére, hogy a kapott cím nem tartozik-e már másik géphez."
+  },
+  {
+   "id": "e5-07",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik NEM tartozik a DHCP-vel jellemzően kiosztott paraméterek közé?",
+   "o": [
+    "IP-cím és netmaszk",
+    "Alapértelmezett átjáró",
+    "DNS-szerver",
+    "A kliens MAC-címe"
+   ],
+   "a": 3,
+   "e": "A MAC-cím a hálózati kártya hardveres azonosítója, a kliens küldi, nem kapja.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-08",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik eszközökre ajánlott a jegyzet szerint FIX (statikus) IP-cím az operációs rendszerben megadva?",
+   "o": [
+    "Vendég okostelefonokra",
+    "Szerverekre",
+    "Minden eszközre",
+    "Munkaállomásokra"
+   ],
+   "a": 1,
+   "e": "A szerverek címe ritkán változik, cseréjük tervezett szolgáltatáskieséssel jár.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-09",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Miért praktikus a nyomtatók, AP-k, IP-kamerák címét is a DHCP szerveren (MAC–IP összerendeléssel) kezelni?",
+   "o": [
+    "Így nincs szükség alapértelmezett átjáróra rajtuk",
+    "Így a beállítás központilag, a DHCP szerveren módosítható",
+    "Így ezek az eszközök titkosítva kommunikálhatnak",
+    "Így az eszközök gyorsabban kapcsolódnak a WiFi-hez"
+   ],
+   "a": 1,
+   "src": "e5-dhcp.html",
+   "e": "Mert így a beállításuk a DHCP szerveren módosítható, nem kell az (akár álmennyezetben lévő) eszközhöz menni."
+  },
+  {
+   "id": "e5-10",
+   "ch": "e5",
+   "t": "card",
+   "q": "Statikus DHCP cím",
+   "b": "A DHCP szerveren egy adott MAC-címhez mindig ugyanaz az IP-cím rendelődik (pl. 28:F0:76:1F:ED:72 → 192.168.10.20). A Packet Tracer ezt nem támogatja, valódi routerek (pl. Mikrotik) igen.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-11",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mi a bérleti idő (lease) létezésének fő oka?",
+   "o": [
+    "Mobil eszközök jelzés nélkül távozhatnak",
+    "A routernek tudnia kell, mikor kapcsolja ki a portot",
+    "Így a DNS-szerver gyorsítótára mindig friss marad",
+    "A címek rendszeres cseréje növeli a hálózat biztonságát"
+   ],
+   "a": 0,
+   "src": "e5-dhcp.html",
+   "e": "A mobil eszközök jelzés nélkül elhagyhatják a hálózatot, a címüket idővel vissza kell kapni."
+  },
+  {
+   "id": "e5-12",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Hol jellemző a jegyzet szerint akár egyórás bérleti idő?",
+   "o": [
+    "Sehol, a minimum egy nap",
+    "Otthoni SOHO routereken",
+    "Forgalmas helyeken (étterem, reptér)",
+    "Szervertermekben, fix címekkel"
+   ],
+   "a": 2,
+   "e": "Forgalmas helyeken, pl. étteremben, repülőtéren. SOHO routeren akár egy hét, gyakori az egy nap.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-13",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik Windows parancs mutatja meg a DHCP szerver címét és a bérlet kezdetét is?",
+   "o": [
+    "netstat -r",
+    "arp -a",
+    "ipconfig",
+    "ipconfig /all"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-14",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Linuxon melyik parancs adja vissza (engedi el) a DHCP-vel kapott címet?",
+   "o": [
+    "ip address list",
+    "dhclient -r",
+    "dhclient",
+    "dhclient -v"
+   ],
+   "a": 1,
+   "e": "dhclient paraméter nélkül: lekérés/megújítás; -v: a folyamat követése.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-15",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Milyen tartományból választ címet a kliens, ha nem kap választ a DHCPDISCOVER-re?",
+   "o": [
+    "10.0.0.0/8",
+    "192.168.0.0/16",
+    "127.0.0.0/8",
+    "169.254.0.0/16"
+   ],
+   "a": 3,
+   "e": "Ad-hoc hálózat / APIPA.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-16",
+   "ch": "e5",
+   "t": "tf",
+   "q": "Ha egy gép 169.254.x.x címet kapott, az azt jelzi, hogy a DHCP címigénylés sikertelen volt.",
+   "a": true,
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-17",
+   "ch": "e5",
+   "t": "tf",
+   "q": "Az APIPA címet használó gépek egyáltalán nem tudnak kommunikálni egymással.",
+   "a": false,
+   "e": "Az azonos módon címet választó gépek egymással kommunikálni tudnak, ezért is fontos ez információbiztonsági szempontból.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-18",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Hogyan biztosítja az APIPA, hogy a választott cím ne ütközzön?",
+   "o": [
+    "Sehogy, az ütközést a felhasználó oldja meg",
+    "A DHCP szervertől kér megerősítést a címre",
+    "ARP-kéréssel ellenőrzi, foglalt-e; ha igen, újat választ",
+    "A saját MAC-címéből számolja ki a címet"
+   ],
+   "a": 2,
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-19",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mit jelent az APIPA rövidítés?",
+   "o": [
+    "Automatic Private IP Addressing",
+    "Advanced Public IP Allocation",
+    "Automatic Protocol for IP Assignment",
+    "Address Pool IP Agent"
+   ],
+   "a": 0,
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-20",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik a DHCP hátránya a jegyzet szerint forenzikai szempontból?",
+   "o": [
+    "A naplók titkosítva vannak, nem olvashatók",
+    "Nem lehet benne MAC-címet rögzíteni",
+    "Minden kliens ugyanazt a címet kapja",
+    "A naplókat általában nem őrzik meg sokáig"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html",
+   "e": "A címkiosztási naplókat általában nem tárolják sokáig, így évekkel később nehéz azonosítani egy incidens forrását."
+  },
+  {
+   "id": "e5-21",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mi a DHCP starving (kiéheztetés) támadás célja?",
+   "o": [
+    "A DHCP szerver átjáró-beállításának lecserélése",
+    "A kliensek MAC-címének ellopása és felhasználása",
+    "A bérleti idő végtelenre állítása minden kliensnél",
+    "A címtartomány kimerítése, így új kliens nem kap címet"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html",
+   "e": "A DHCP szerver címtartományának kimerítése, hogy új kliensek ne kapjanak címet."
+  },
+  {
+   "id": "e5-22",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Hogyan valósítja meg a támadó a DHCP kiéheztetést?",
+   "o": [
+    "Hamis ARP-válaszokkal elhiteti, hogy a címek foglaltak",
+    "Sok hamis MAC-címmel DISCOVER-t küld",
+    "Egyetlen MAC-címmel nagyon lassan kér újra és újra címet",
+    "Kikapcsolja a DHCP szerver portját a switchen távolról"
+   ],
+   "a": 1,
+   "src": "e5-dhcp.html",
+   "e": "Sok hamis MAC-címmel DHCPDISCOVER kéréseket küld, a válaszokat figyelmen kívül hagyja."
+  },
+  {
+   "id": "e5-23",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik NEM DHCP kiéheztető eszköz a jegyzet felsorolásában?",
+   "o": [
+    "DHCPig",
+    "Yersinia",
+    "Wireshark",
+    "Gobbler"
+   ],
+   "a": 2,
+   "e": "A felsorolás: Yersinia, Hyenae, Dhcpstarv, Gobbler, DHCPig. A Wireshark forgalomelemző.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-24",
+   "ch": "e5",
+   "t": "tf",
+   "q": "A kiéheztető támadás leállítása után a lefoglalt bérletek azonnal felszabadulnak.",
+   "a": false,
+   "e": "A bérletek csak lejáratukkor szabadulnak fel; egynapos vagy egyhetes bérletnél a hatás sokáig tart.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-25",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik Cisco parancs korlátozza a DHCP kérések számát időegységenként?",
+   "o": [
+    "ip dhcp pool LIMIT",
+    "ip dhcp snooping limit rate 10",
+    "switchport port-security",
+    "ip dhcp snooping trust"
+   ],
+   "a": 1,
+   "src": "e5-dhcp.html",
+   "e": "ip dhcp snooping limit rate [sebesség]."
+  },
+  {
+   "id": "e5-26",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik védekezés hatékony a DHCP kiéheztetés ellen (a CAM-támadásnál is ismert)?",
+   "o": [
+    "Nagyobb címtartomány",
+    "Portonkénti MAC-cím korlát",
+    "Hosszabb bérleti idő",
+    "DNS titkosítás"
+   ],
+   "a": 1,
+   "e": "Emellett: statikus beállítás, MAC–IP összerendelés a dinamikus kiosztás tiltásával, rate limit.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-27",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mi a csaló (rogue) DHCP szerver fő célja?",
+   "o": [
+    "MITM: a kliensek átjáróját vagy DNS-ét a támadóra állítja",
+    "A címtartomány bővítése új, nagyobb hálózati maszkkal",
+    "A bérletek naplózása a hatóságok kérésére, titokban",
+    "A hálózat gyorsítása egy második, erősebb szerverrel"
+   ],
+   "a": 0,
+   "src": "e5-dhcp.html",
+   "e": "Közbeékelődéses (MITM) támadás: a kliensek átjáróját vagy DNS-szerverét a támadó gépére állítja."
+  },
+  {
+   "id": "e5-28",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Mire jó a támadónak, ha a csaló DHCP-vel a kliensek DNS-szerverét módosítja?",
+   "o": [
+    "Elrejti a saját MAC-címét a switch elől",
+    "Titkosítja a kliensek teljes forgalmát",
+    "Gyorsabb lesz a kliensek névfeloldása",
+    "Csaló oldalra irányíthatja a klienseket"
+   ],
+   "a": 3,
+   "src": "e5-dhcp.html",
+   "e": "A klienseket egy adott weboldal helyett csaló oldalra irányíthatja."
+  },
+  {
+   "id": "e5-29",
+   "ch": "e5",
+   "t": "tf",
+   "q": "A csaló DHCP szerveres támadás gyakran a legitim DHCP szerver kiéheztetésével kezdődik.",
+   "a": true,
+   "e": "Így az eredeti szerver nem tud válaszolni, csak a támadóé.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-30",
+   "ch": "e5",
+   "t": "mc",
+   "q": "DHCP snooping esetén mit engednek át a nem megbízható (untrusted) portok?",
+   "o": [
+    "Csak a DHCPOFFER és a DHCPACK üzeneteket",
+    "Semmilyen DHCP-üzenetet, kérést sem",
+    "Csak a kliensek kéréseit, szerverválaszt nem",
+    "Mindent, csak naplózzák a DHCP-forgalmat"
+   ],
+   "a": 2,
+   "src": "e5-dhcp.html",
+   "e": "Csak a DHCP kéréseket; a DHCPOFFER és DHCPACK üzeneteket blokkolják."
+  },
+  {
+   "id": "e5-31",
+   "ch": "e5",
+   "t": "mc",
+   "q": "Melyik paranccsal jelöljük meg a legitim DHCP szerver felé néző portot snooping esetén?",
+   "o": [
+    "ip dhcp snooping trust",
+    "ip dhcp excluded-address",
+    "ip dhcp snooping",
+    "service dhcp"
+   ],
+   "a": 0,
+   "e": "Előtte globálisan: ip dhcp snooping.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-32",
+   "ch": "e5",
+   "t": "card",
+   "q": "DHCP snooping",
+   "b": "Cisco switch funkció: meghatározza a legitim DHCP szervereket. Untrusted portokon csak kliens kérés mehet át (OFFER/ACK tiltva), a trusted porton (ip dhcp snooping trust) jöhet a szerver válasza. Védelem csaló DHCP szerver ellen.",
+   "src": "e5-dhcp.html"
+  },
+  {
+   "id": "e5-33",
+   "ch": "e5",
+   "t": "card",
+   "q": "DHCP folyamat (DORA)",
+   "b": "1. DISCOVER (broadcast, 0.0.0.0 → 255.255.255.255), 2. OFFER (szerverenként ajánlat: IP + maszk, opcionálisan átjáró, DNS), 3. REQUEST (broadcast: melyik ajánlatot fogadja el), 4. ACK (nyugta; a kliens ARP-pal ellenőrzi a címet).",
+   "src": "e5-dhcp.html"
+  }
+ ]
+}
